@@ -205,13 +205,13 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
         <div className="p-4 sm:p-5 space-y-4">
           
           {/* Slider 1: Rainfall */}
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
                 <CloudRain className="w-3.5 h-3.5 text-brand-cyan" />
                 Precipitation / Rainfall Rate:
               </span>
-              <span className="text-brand-cyan font-bold">{rainfall} mm/hr</span>
+              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-cyan/30">{rainfall} mm/hr</span>
             </div>
             <input
               type="range"
@@ -220,18 +220,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={2}
               value={rainfall}
               onChange={(e) => setRainfall(Number(e.target.value))}
-              className="w-full"
+              className="w-full cursor-pointer accent-brand-cyan"
             />
           </div>
 
           {/* Slider 2: Pit Water Depth */}
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
                 <Gauge className="w-3.5 h-3.5 text-brand-teal" />
                 Pit Sump Water Depth:
               </span>
-              <span className="text-brand-cyan font-bold">{pitWater.toFixed(1)} meters</span>
+              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-teal/30">{pitWater.toFixed(1)} m</span>
             </div>
             <input
               type="range"
@@ -240,18 +240,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={0.1}
               value={pitWater}
               onChange={(e) => setPitWater(Number(e.target.value))}
-              className="w-full"
+              className="w-full cursor-pointer accent-brand-cyan"
             />
           </div>
 
           {/* Slider 3: Blasting Delay */}
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-brand-gold" />
                 Blasting Safety / Misfire Delay:
               </span>
-              <span className="text-brand-gold font-bold">{blastDelay.toFixed(1)} hrs</span>
+              <span className="text-brand-gold font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-gold/30">{blastDelay.toFixed(1)} hrs</span>
             </div>
             <input
               type="range"
@@ -260,19 +260,19 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={0.2}
               value={blastDelay}
               onChange={(e) => setBlastDelay(Number(e.target.value))}
-              className="w-full"
+              className="w-full cursor-pointer accent-brand-gold"
             />
           </div>
 
           {/* Slider 4: Blasting Fragmentation P80 */}
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
                 <Flame className="w-3.5 h-3.5 text-brand-sand" />
                 Blasting Fragmentation (P80 Particle Size):
               </span>
-              <span className={fragmentation > 30 ? 'text-brand-gold font-bold' : 'text-brand-cyan font-bold'}>
-                {fragmentation} cm {fragmentation > 30 ? '(Crusher Choke Risk)' : ''}
+              <span className={`font-bold bg-surface-card px-2 py-0.5 rounded border ${fragmentation > 30 ? 'text-brand-gold border-brand-gold/40' : 'text-brand-cyan border-brand-cyan/40'}`}>
+                {fragmentation} cm {fragmentation > 30 ? '(Crusher Choke)' : ''}
               </span>
             </div>
             <input
@@ -282,18 +282,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={1}
               value={fragmentation}
               onChange={(e) => setFragmentation(Number(e.target.value))}
-              className="w-full"
+              className="w-full cursor-pointer accent-brand-sand"
             />
           </div>
 
           {/* Slider 5: Fleet Availability */}
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
                 <Truck className="w-3.5 h-3.5 text-brand-cyan" />
                 Active Fleet Availability:
               </span>
-              <span className="text-brand-cyan font-bold">{fleetAvail}%</span>
+              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-cyan/30">{fleetAvail}%</span>
             </div>
             <input
               type="range"
@@ -302,18 +302,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={2}
               value={fleetAvail}
               onChange={(e) => setFleetAvail(Number(e.target.value))}
-              className="w-full"
+              className="w-full cursor-pointer accent-brand-cyan"
             />
           </div>
 
           {/* Slider 6: Haul Cycle Time */}
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-brand-teal" />
                 Average Haul Cycle Duration:
               </span>
-              <span className="text-brand-cyan font-bold">{haulCycle} mins</span>
+              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-teal/30">{haulCycle} mins</span>
             </div>
             <input
               type="range"
@@ -322,9 +322,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={1}
               value={haulCycle}
               onChange={(e) => setHaulCycle(Number(e.target.value))}
-              className="w-full"
+              className="w-full cursor-pointer accent-brand-teal"
             />
           </div>
+
 
           {/* Toggle: Machine Failure */}
           <div className="pt-3 border-t border-border-subtle flex items-center justify-between">
