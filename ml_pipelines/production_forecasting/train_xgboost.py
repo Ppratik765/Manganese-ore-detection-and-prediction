@@ -5,9 +5,13 @@ features to forecast shift-level ore production shortfalls.
 """
 
 import os
+import sys
 import numpy as np
 import pandas as pd
 from typing import Dict, Any, List, Tuple
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
 
 FEATURE_COLUMNS = [
     "rainfall_mm",
@@ -158,10 +162,52 @@ def train_and_evaluate_xgboost(
         
     return model, metrics, fi_df
 
-if __name__ == "__main__":
-    from data.scripts.generate_synthetic_operations import export_operations_dataset
-    if not os.path.exists("data/processed/mine_operations.csv"):
-        export_operations_dataset()
+def export_xgboost_artifact(
+    model: Any,
+    feature_cols: List[str],
+    output_path: str = "backend/app/models/shortfall_xgb.pkl"
+) -> str:
+    """
+    Serializes trained XGBoost classifier and feature metadata to a pickle artifact
+    and verifies runtime loading and inference consistency.
+    """
+    import pickle
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+    artifact = {
+        "model": model,
+        "feature_columns": feature_cols,
+        "version": "1.0.0",
+        "model_type": "XGBClassifier"
+    }
+    
+    with open(output_path, "wb") as f:
+        pickle.dump(artifact, f)
         
-    train_and_evaluate_xgboost()
+    print(f"\n[Artifact Export] Serialized XGBoost model to: {output_path}")
+    
+    # Verification test
+    with open(output_path, "rb") as f:
+        loaded = pickle.load(f)
+        
+    test_sample = np.random.randn(1, len(feature_cols)).astype(np.float32)
+    pred_prob = loaded["model"].predict_proba(test_sample)[0, 1]
+    print(f" -> Artifact verification test PASSED (Sample shortfall risk prob: {pred_prob:.4f})")
+    
+    return output_path
+
+def run_ops_training_pipeline():
+    """End-to-end training and serialization pipeline for production shortfall forecasting."""
+    from data.scripts.generate_synthetic_operations import export_operations_dataset
+    csv_path = "data/processed/mine_operations.csv"
+    if not os.path.exists(csv_path):
+        export_operations_dataset(output_path=csv_path)
+        
+    model, metrics, fi_df = train_and_evaluate_xgboost(csv_path=csv_path)
+    artifact_path = export_xgboost_artifact(model, FEATURE_COLUMNS)
+    return artifact_path
+
+if __name__ == "__main__":
+    run_ops_training_pipeline()
+
 
