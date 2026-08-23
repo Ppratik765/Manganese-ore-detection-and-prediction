@@ -178,10 +178,10 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
                 <button
                   onClick={() => handleDispatch(action.id)}
                   disabled={isDispatched}
-                  className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold flex items-center gap-1.5 transition-all shadow-md ${
+                  className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-md ${
                     isDispatched
                       ? 'bg-canvas-dark text-brand-cyan border border-brand-cyan/60 cursor-default'
-                      : 'bg-gradient-to-r from-brand-teal to-brand-cyan hover:brightness-110 text-canvas-dark font-bold active:scale-95'
+                      : 'bg-gradient-to-r from-brand-teal via-brand-cyan to-brand-sand text-canvas-dark hover:brightness-110 hover:shadow-lg hover:shadow-brand-cyan/25 active:scale-95'
                   }`}
                 >
                   {isDispatched ? (
@@ -196,6 +196,7 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
                     </>
                   )}
                 </button>
+
               </div>
             </div>
           );
