@@ -203,20 +203,132 @@ def compute_spectral_indices(bands: Dict[str, np.ndarray], eps: float = 1e-6) ->
         "Iron_Oxide_Index": np.clip(iron_oxide_index, 0.0, 10.0).astype(np.float32),
     }
 
+def extract_10channel_tensor(bands: Dict[str, np.ndarray], indices: Dict[str, np.ndarray]) -> np.ndarray:
+    """
+    Stacks raw Sentinel-2 bands and diagnostic exploration indices into a standardized 10-channel tensor:
+    [0]: B04 (Red)
+    [1]: B03 (Green)
+    [2]: B02 (Blue)
+    [3]: B08 (Near-IR)
+    [4]: B11 (SWIR-1)
+    [5]: B12 (SWIR-2)
+    [6]: NDVI
+    [7]: Clay / Alteration Index
+    [8]: Ferrous Minerals Index
+    [9]: Iron Oxide Index
+    Shape: (10, H, W)
+    """
+    stacked = np.stack([
+        bands["B04"],
+        bands["B03"],
+        bands["B02"],
+        bands["B08"],
+        bands["B11"],
+        bands["B12"],
+        indices["NDVI"],
+        indices["Clay_Index"],
+        indices["Ferrous_Index"],
+        indices["Iron_Oxide_Index"],
+    ], axis=0).astype(np.float32)
+    return stacked
+
+def generate_ground_truth_mask(
+    bands: Dict[str, np.ndarray],
+    indices: Dict[str, np.ndarray],
+    sector_id: str
+) -> np.ndarray:
+    """
+    Synthesizes binary ground truth segmentation mask for high-grade Manganese reserve anomaly:
+    Criteria: Strong Ferrous/Clay alteration + Iron oxide cap + Low NDVI (bare rock exposure) + SWIR absorption.
+    Shape: (1, H, W)
+    """
+    ferrous = indices["Ferrous_Index"]
+    iron = indices["Iron_Oxide_Index"]
+    clay = indices["Clay_Index"]
+    ndvi = indices["NDVI"]
+    b12 = bands["B12"]
+    
+    # Anomaly indicator
+    score = (0.35 * (ferrous / (ferrous.max() + 1e-6)) +
+             0.30 * (iron / (iron.max() + 1e-6)) +
+             0.25 * (clay / (clay.max() + 1e-6)) -
+             0.30 * (ndvi - ndvi.min()) / (ndvi.max() - ndvi.min() + 1e-6))
+    
+    threshold = np.percentile(score, 78)
+    mask = (score >= threshold).astype(np.float32)
+    
+    # Morphological cleaning / smoothing
+    from scipy.ndimage import gaussian_filter
+    smoothed = gaussian_filter(mask, sigma=1.2)
+    binary_mask = (smoothed >= 0.45).astype(np.float32)
+    return np.expand_dims(binary_mask, axis=0)
+
+def tile_and_save_dataset(
+    output_dir: str = "data/processed/spectral_patches",
+    patches_per_sector: int = 12,
+    patch_size: int = 256
+) -> str:
+    """
+    Extracts and tiles multispectral tensors across all 5 registered mining sectors.
+    Saves compressed .npz tiles and outputs a manifest JSON.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    manifest = []
+    
+    for sector_id, sector_info in MINING_SECTORS.items():
+        for i in range(patches_per_sector):
+            seed = 100 * (i + 1) + len(sector_id)
+            bands = synthesize_multispectral_bands(sector_id, height=patch_size, width=patch_size, seed=seed)
+            indices = compute_spectral_indices(bands)
+            tensor = extract_10channel_tensor(bands, indices)
+            mask = generate_ground_truth_mask(bands, indices, sector_id)
+            
+            # Grade distribution estimation for reserve
+            ore_pixels = mask.sum()
+            total_pixels = patch_size * patch_size
+            reserve_area_ratio = float(ore_pixels / total_pixels)
+            estimated_grade = float(np.clip(sector_info["avg_grade_pct"] + np.random.normal(0, 1.5), 28.0, 52.0))
+            
+            filename = f"patch_{sector_id}_{i:03d}.npz"
+            filepath = os.path.join(output_dir, filename)
+            
+            np.savez_compressed(
+                filepath,
+                tensor=tensor,
+                mask=mask,
+                sector=sector_id,
+                grade=estimated_grade,
+                bbox=sector_info["bbox"],
+                area_ratio=reserve_area_ratio
+            )
+            
+            manifest.append({
+                "filename": filename,
+                "filepath": filepath.replace("\\", "/"),
+                "sector": sector_id,
+                "state": sector_info["state"],
+                "formation": sector_info["geological_formation"],
+                "grade_pct": estimated_grade,
+                "ore_pixel_ratio": reserve_area_ratio,
+                "tensor_shape": list(tensor.shape),
+                "mask_shape": list(mask.shape)
+            })
+            
+    manifest_path = os.path.join(output_dir, "manifest.json")
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, indent=2)
+        
+    print(f"[Success] Generated {len(manifest)} multispectral 10-channel tiles across 5 sectors in '{output_dir}'.")
+    return manifest_path
+
 if __name__ == "__main__":
     print("Registered Manganese Mining Sectors:")
     for sid, info in MINING_SECTORS.items():
         print(f" - [{sid.upper()}] {info['name']} | BBox: {info['bbox']}")
     
-    print("\nTesting STAC harvester query...")
-    bbox = get_sector_bbox("balaghat")
-    stac_items = search_planetary_computer_stac(bbox)
-    print(f"STAC search returned {len(stac_items)} catalog items.")
-    
-    synth_bands = synthesize_multispectral_bands("balaghat")
-    indices = compute_spectral_indices(synth_bands)
-    print(f"Computed indices: {list(indices.keys())}")
-    for k, v in indices.items():
-        print(f"  {k}: min={v.min():.4f}, mean={v.mean():.4f}, max={v.max():.4f}")
+    print("\nGenerating multispectral patch dataset across 5 sectors...")
+    manifest_file = tile_and_save_dataset()
+    print(f"Manifest written to: {manifest_file}")
+
 
 
