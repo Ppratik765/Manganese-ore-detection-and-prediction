@@ -106,6 +106,112 @@ class CombinedReserveLoss(nn.Module):
         metrics["total_loss"] = float(total_loss.item())
         return total_loss, metrics
 
+# ==============================================================================
+# DATASET & GEOSPATIAL AUGMENTATION LOADER
+# ==============================================================================
+
+class ManganeseSpectralDataset(Dataset):
+    """
+    PyTorch Dataset for 10-Channel Sentinel-2 multispectral tensors and binary reserve masks.
+    Supports random geometric augmentations (flips, 90-deg rotations) and channel-wise normalization.
+    """
+    def __init__(
+        self,
+        manifest_entries: List[Dict[str, Any]],
+        channel_means: Optional[List[float]] = None,
+        channel_stds: Optional[List[float]] = None,
+        is_train: bool = True
+    ):
+        self.entries = manifest_entries
+        self.is_train = is_train
+        
+        # Default normalization statistics (if not supplied)
+        self.channel_means = np.array(channel_means if channel_means else [
+            0.18, 0.14, 0.08, 0.38, 0.28, 0.20, 0.45, 1.25, 0.65, 1.40
+        ], dtype=np.float32).reshape(-1, 1, 1)
+        
+        self.channel_stds = np.array(channel_stds if channel_stds else [
+            0.06, 0.05, 0.03, 0.12, 0.08, 0.06, 0.20, 0.40, 0.25, 0.45
+        ], dtype=np.float32).reshape(-1, 1, 1)
+
+    def __len__(self) -> int:
+        return len(self.entries)
+
+    def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
+        entry = self.entries[idx]
+        data = np.load(entry["filepath"])
+        
+        tensor = data["tensor"].astype(np.float32) # (10, H, W)
+        mask = data["mask"].astype(np.float32)     # (1, H, W)
+        grade = np.array([float(data["grade"])], dtype=np.float32) # (1,)
+        
+        # Data Augmentations (Training only)
+        if self.is_train:
+            # 1. Random Horizontal Flip
+            if np.random.rand() > 0.5:
+                tensor = np.flip(tensor, axis=2).copy()
+                mask = np.flip(mask, axis=2).copy()
+            # 2. Random Vertical Flip
+            if np.random.rand() > 0.5:
+                tensor = np.flip(tensor, axis=1).copy()
+                mask = np.flip(mask, axis=1).copy()
+            # 3. Random 90-degree Rotation
+            k = np.random.randint(0, 4)
+            if k > 0:
+                tensor = np.rot90(tensor, k=k, axes=(1, 2)).copy()
+                mask = np.rot90(mask, k=k, axes=(1, 2)).copy()
+            # 4. Subtle Gaussian channel jitter on raw optical bands (0-5)
+            if np.random.rand() > 0.5:
+                noise = np.random.normal(0.0, 0.015, size=(6, tensor.shape[1], tensor.shape[2])).astype(np.float32)
+                tensor[:6] = np.clip(tensor[:6] + noise, 0.0, 1.0)
+                
+        # Normalization
+        norm_tensor = (tensor - self.channel_means) / (self.channel_stds + 1e-6)
+        
+        return {
+            "tensor": torch.from_numpy(norm_tensor),
+            "mask": torch.from_numpy(mask),
+            "grade": torch.from_numpy(grade),
+            "sector": entry["sector"],
+            "filename": entry["filename"]
+        }
+
+def create_data_loaders(
+    manifest_path: str = "data/processed/spectral_patches/manifest.json",
+    split_path: str = "data/processed/dataset_split.json",
+    batch_size: int = 4,
+    num_workers: int = 0
+) -> Tuple[DataLoader, DataLoader, Dict[str, Any]]:
+    """
+    Instantiates PyTorch DataLoaders for Training and Validation subsets.
+    """
+    if not os.path.exists(manifest_path):
+        raise FileNotFoundError(f"Manifest not found: {manifest_path}. Please run data pipeline first.")
+    if not os.path.exists(split_path):
+        raise FileNotFoundError(f"Split metadata not found: {split_path}. Please run data pipeline first.")
+        
+    with open(manifest_path, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+    with open(split_path, "r", encoding="utf-8") as f:
+        split_meta = json.load(f)
+        
+    train_files = set(split_meta["train_files"])
+    val_files = set(split_meta["val_files"])
+    
+    train_entries = [m for m in manifest if m["filename"] in train_files]
+    val_entries = [m for m in manifest if m["filename"] in val_files]
+    
+    means = split_meta.get("channel_means")
+    stds = split_meta.get("channel_stds")
+    
+    train_dataset = ManganeseSpectralDataset(train_entries, means, stds, is_train=True)
+    val_dataset = ManganeseSpectralDataset(val_entries, means, stds, is_train=False)
+    
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
+    
+    return train_loader, val_loader, split_meta
+
 if __name__ == "__main__":
     logits = torch.randn(4, 1, 256, 256)
     targets = torch.randint(0, 2, (4, 1, 256, 256)).float()
@@ -117,3 +223,4 @@ if __name__ == "__main__":
     print("Combined Loss Function Verification:")
     for k, v in metrics.items():
         print(f" - {k}: {v:.6f}")
+
