@@ -11,7 +11,8 @@ import {
   Clock, 
   ShieldCheck, 
   ChevronDown,
-  Sparkles
+  Sparkles,
+  Zap
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -49,27 +50,27 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   return (
-    <header className="w-full bg-slate-950/95 border-b border-slate-800/80 backdrop-blur-md sticky top-0 z-50 px-4 lg:px-6 py-3">
+    <header className="w-full bg-canvas-dark/95 border-b border-border-subtle backdrop-blur-md sticky top-0 z-50 px-4 lg:px-6 py-3">
       <div className="max-w-[1720px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
         
         {/* Left Branding */}
         <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 via-teal-500 to-emerald-600 p-[1.5px] shadow-lg shadow-cyan-500/20">
-              <div className="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center">
-                <Compass className="w-5 h-5 text-cyan-400 animate-spin-slow" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-teal via-brand-cyan to-brand-sand p-[1.5px] shadow-lg shadow-brand-cyan/20">
+              <div className="w-full h-full bg-canvas-dark rounded-[10px] flex items-center justify-center">
+                <Compass className="w-5 h-5 text-brand-cyan" />
               </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold tracking-wider text-base lg:text-lg bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">
+                <span className="font-extrabold tracking-wider text-base lg:text-lg bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-brand-sand to-brand-gold">
                   MOIL LIMITED
                 </span>
-                <span className="text-[10px] uppercase tracking-widest font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/60 px-1.5 py-0.5 rounded">
+                <span className="text-[10px] uppercase tracking-widest font-mono bg-surface-card text-brand-cyan border border-border-subtle px-2 py-0.5 rounded font-bold">
                   SIH 2026
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 font-medium tracking-tight">
+              <p className="text-[11px] text-text-secondary font-medium tracking-tight">
                 Manganese Reserve AI & Mine Production Shortfall Prevention
               </p>
             </div>
@@ -78,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Sim Trigger */}
           <button
             onClick={onOpenSimulation}
-            className="md:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-600 to-emerald-600 text-white text-xs font-semibold shadow-md"
+            className="md:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-brand-teal to-brand-cyan text-canvas-dark text-xs font-bold shadow-md"
           >
             <Sliders className="w-3.5 h-3.5" />
             <span>Simulate</span>
@@ -90,22 +91,22 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="relative">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-500/60 transition-all text-xs font-medium text-slate-200 shadow-inner group"
+              className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-surface-card border border-border-subtle hover:border-brand-cyan/60 transition-all text-xs font-medium text-text-primary shadow-inner group"
             >
-              <Layers className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <Layers className="w-4 h-4 text-brand-cyan group-hover:scale-110 transition-transform" />
               <div className="text-left">
-                <div className="text-[10px] text-slate-400 uppercase tracking-wider font-mono">Mining Sector</div>
-                <div className="font-semibold text-slate-100 flex items-center gap-1.5">
+                <div className="text-[10px] text-text-secondary uppercase tracking-wider font-mono">Mining Sector</div>
+                <div className="font-semibold text-text-primary flex items-center gap-1.5">
                   <span>{currentSector.name}</span>
-                  <span className="text-[10px] text-cyan-400 font-mono">({currentSector.state})</span>
+                  <span className="text-[10px] text-brand-sand font-mono">({currentSector.state})</span>
                 </div>
               </div>
-              <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-cyan-400' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-text-secondary transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-brand-cyan' : ''}`} />
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-72 md:w-80 bg-slate-900 border border-slate-700/90 rounded-xl shadow-2xl shadow-black/80 backdrop-blur-xl z-50 overflow-hidden py-1.5 divide-y divide-slate-800">
-                <div className="px-3 py-1.5 text-[10px] uppercase font-mono tracking-widest text-slate-400 bg-slate-950/60">
+              <div className="absolute top-full left-0 mt-2 w-72 md:w-80 bg-surface-card border border-border-subtle rounded-xl shadow-2xl shadow-black/90 backdrop-blur-xl z-50 overflow-hidden py-1.5 divide-y divide-border-subtle">
+                <div className="px-3.5 py-2 text-[10px] uppercase font-mono tracking-widest text-text-secondary bg-canvas-dark/80">
                   Select Exploration & Mining Belt
                 </div>
                 <div className="py-1">
@@ -116,19 +117,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                         onSelectSector(s);
                         setIsDropdownOpen(false);
                       }}
-                      className={`w-full text-left px-3.5 py-2.5 flex items-center justify-between hover:bg-slate-800/80 transition-colors ${
-                        currentSector.id === s.id ? 'bg-cyan-950/40 border-l-2 border-cyan-400 text-cyan-200' : 'text-slate-300'
+                      className={`w-full text-left px-3.5 py-2.5 flex items-center justify-between hover:bg-surface-hover transition-colors ${
+                        currentSector.id === s.id ? 'bg-surface-hover border-l-2 border-brand-cyan text-brand-cyan' : 'text-text-secondary'
                       }`}
                     >
                       <div>
-                        <div className="font-semibold text-xs text-slate-100">{s.name}</div>
-                        <div className="text-[11px] text-slate-400 flex items-center gap-2 mt-0.5">
+                        <div className="font-semibold text-xs text-text-primary">{s.name}</div>
+                        <div className="text-[11px] text-text-secondary flex items-center gap-2 mt-0.5">
                           <span>{s.state}</span>
-                          <span>•</span>
-                          <span className="font-mono text-cyan-400">Mn ~{s.avg_grade_pct}%</span>
+                          <span>|</span>
+                          <span className="font-mono text-brand-sand">Mn ~{s.avg_grade_pct}%</span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-mono bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded">
+                      <span className="text-[10px] font-mono bg-canvas-dark text-text-secondary border border-border-subtle px-2 py-0.5 rounded">
                         {s.est_reserves_mt} MT
                       </span>
                     </button>
@@ -143,36 +144,36 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
           
           {/* Telemetry Status Indicators */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2.5">
             {/* Satellite Live Link */}
-            <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[11px] font-mono text-slate-300">
-              <Satellite className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-              <span className="text-slate-400">SAT:</span>
-              <span className="text-emerald-400 font-semibold">SENTINEL-2 L2A</span>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-[11px] font-mono text-text-primary">
+              <Satellite className="w-3.5 h-3.5 text-brand-cyan animate-pulse" />
+              <span className="text-text-secondary">SAT:</span>
+              <span className="text-brand-cyan font-semibold">SENTINEL-2 L2A</span>
             </div>
 
             {/* AI Model Status */}
-            <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[11px] font-mono text-slate-300">
-              <span className={`w-2 h-2 rounded-full ${isBackendHealthy ? 'bg-emerald-400 shadow-[0_0_8px_#10b981]' : 'bg-amber-400 shadow-[0_0_8px_#f59e0b]'}`} />
-              <span className="text-slate-400">AI CORE:</span>
-              <span className={isBackendHealthy ? 'text-emerald-400 font-semibold' : 'text-amber-400 font-semibold'}>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-[11px] font-mono text-text-primary">
+              <span className={`w-2 h-2 rounded-full ${isBackendHealthy ? 'bg-brand-cyan shadow-[0_0_8px_#2BBBD7]' : 'bg-brand-gold shadow-[0_0_8px_#FFD758]'}`} />
+              <span className="text-text-secondary">AI CORE:</span>
+              <span className={isBackendHealthy ? 'text-brand-cyan font-semibold' : 'text-brand-gold font-semibold'}>
                 {isBackendHealthy ? 'OPTIMAL' : 'STANDALONE'}
               </span>
             </div>
 
-            {/* Live Clock */}
-            <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[11px] font-mono text-cyan-300">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
+            {/* Shift Clock */}
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-[11px] font-mono text-brand-sand">
+              <Clock className="w-3.5 h-3.5 text-brand-gold" />
               <span>{currentTime || '12:00:00 IST'}</span>
             </div>
           </div>
 
-          {/* Desktop Scenario Simulator Button */}
+          {/* Neural Simulation Modal Trigger */}
           <button
             onClick={onOpenSimulation}
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-600 hover:from-cyan-400 hover:to-emerald-500 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95"
+            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-teal via-brand-cyan to-brand-sand hover:brightness-110 text-canvas-dark font-bold text-xs shadow-lg shadow-brand-cyan/20 transition-all hover:scale-105 active:scale-95"
           >
-            <Sliders className="w-4 h-4 text-slate-950" />
+            <Sliders className="w-3.5 h-3.5 fill-canvas-dark" />
             <span>Simulate What-If</span>
           </button>
 
