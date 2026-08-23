@@ -43,9 +43,9 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
 
     const initMap = async () => {
       const L = (await import('leaflet')).default;
-      await import('leaflet/dist/leaflet.css');
 
-      if (!isMounted) return;
+      if (!isMounted || !mapContainerRef.current) return;
+      const container = mapContainerRef.current;
 
       // Clean existing map instance
       if (mapInstanceRef.current) {
@@ -54,7 +54,8 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
       }
 
       const centroid = currentSector.centroid || [21.825, 80.175];
-      const map = L.map(mapContainerRef.current, {
+      const map = L.map(container, {
+
         center: centroid,
         zoom: 12,
         zoomControl: false,
