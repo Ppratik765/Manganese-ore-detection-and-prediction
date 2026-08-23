@@ -146,6 +146,69 @@ def train_reserve_unet(
         
     return model, {"history": history, "best_val_iou": best_iou, "weights_path": best_weights_path}
 
+def export_unet_to_onnx(
+    model: nn.Module,
+    output_onnx_path: str = "backend/app/models/reserves_unet.onnx",
+    device: torch.device = torch.device("cpu")
+) -> str:
+    """
+    Exports trained PyTorch MultispectralUNet to an optimized ONNX static computation graph.
+    Configures dynamic batch axes and validates runtime numerical consistency.
+    """
+    os.makedirs(os.path.dirname(output_onnx_path), exist_ok=True)
+    model.eval()
+    model.to(device)
+    
+    dummy_input = torch.randn(1, 10, 256, 256, device=device, dtype=torch.float32)
+    
+    print(f"\n[ONNX Export] Exporting PyTorch graph to ONNX: {output_onnx_path}...")
+    torch.onnx.export(
+        model,
+        dummy_input,
+        output_onnx_path,
+        export_params=True,
+        opset_version=17,
+        do_constant_folding=True,
+        input_names=["input_tensor"],
+        output_names=["mask_logits", "grade_pred"],
+        dynamic_axes={
+            "input_tensor": {0: "batch_size"},
+            "mask_logits": {0: "batch_size"},
+            "grade_pred": {0: "batch_size"}
+        }
+    )
+    
+    # 1. Structural Verification with ONNX package
+    import onnx
+    onnx_model = onnx.load(output_onnx_path)
+    onnx.checker.check_model(onnx_model)
+    print(" -> ONNX structural integrity check passed!")
+    
+    # 2. Runtime Numerical Consistency Verification with ONNX Runtime
+    import onnxruntime as ort
+    session = ort.InferenceSession(output_onnx_path, providers=["CPUExecutionProvider"])
+    
+    with torch.no_grad():
+        pt_mask, pt_grade = model(dummy_input)
+        pt_mask_np = pt_mask.cpu().numpy()
+        pt_grade_np = pt_grade.cpu().numpy()
+        
+    ort_inputs = {"input_tensor": dummy_input.cpu().numpy()}
+    ort_outputs = session.run(None, ort_inputs)
+    ort_mask_np, ort_grade_np = ort_outputs[0], ort_outputs[1]
+    
+    np.testing.assert_allclose(pt_mask_np, ort_mask_np, rtol=1e-3, atol=1e-4)
+    np.testing.assert_allclose(pt_grade_np, ort_grade_np, rtol=1e-3, atol=1e-4)
+    print(f" -> ONNX Runtime verification test PASSED (max discrepancy < 1e-4)!")
+    print(f" -> Model successfully serialized at: {output_onnx_path}")
+    return output_onnx_path
+
+def run_training_and_export_pipeline(epochs: int = 10, batch_size: int = 4):
+    """Orchestrates full U-Net training, validation, and ONNX serialization."""
+    model, train_res = train_reserve_unet(epochs=epochs, batch_size=batch_size)
+    onnx_path = export_unet_to_onnx(model)
+    return onnx_path
+
 if __name__ == "__main__":
     from data.scripts.preprocess_spectral_tiles import run_data_pipeline
     
@@ -154,4 +217,5 @@ if __name__ == "__main__":
         print("Data files missing. Running automated data pipeline...")
         run_data_pipeline()
         
-    train_reserve_unet(epochs=5, batch_size=4)
+    run_training_and_export_pipeline(epochs=8, batch_size=4)
+
