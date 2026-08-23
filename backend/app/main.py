@@ -72,4 +72,7 @@ def get_metadata() -> Dict[str, Any]:
         ]
     }
 
-# Route imports & mounts will be added in subsequent steps
+from backend.app.routes.reserves import router as reserves_router
+
+app.include_router(reserves_router)
+
