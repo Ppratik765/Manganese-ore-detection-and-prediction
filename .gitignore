@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data & Large Files
+data/raw/*.tif
+data/raw/*.tiff
+data/raw/*.jp2
+data/processed/*.npz
+data/processed/*.npy
+!data/processed/.gitkeep
+!data/raw/.gitkeep
+
+# Checkpoints and Logs
+*.log
+.coverage
+htmlcov/
+.pytest_cache/
+checkpoints/
+*.pt
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.turbo
+.vercel
+
+# Environment & IDE
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
