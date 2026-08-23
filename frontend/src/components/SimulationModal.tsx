@@ -14,7 +14,11 @@ import {
   Zap, 
   Sparkles,
   ShieldCheck,
-  Cpu
+  Cpu,
+  Flame,
+  CheckCircle2,
+  Activity,
+  Gauge
 } from 'lucide-react';
 
 interface SimulationModalProps {
@@ -127,25 +131,25 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-slate-900 border border-slate-700/90 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-black/80 divide-y divide-slate-800">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-canvas-dark/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-surface-card border border-border-subtle rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-black/90 divide-y divide-border-subtle">
         
         {/* Header */}
-        <div className="p-4 sm:p-5 flex items-center justify-between bg-slate-950/60 sticky top-0 z-10">
+        <div className="p-4 sm:p-5 flex items-center justify-between bg-canvas-dark/60 sticky top-0 z-10">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-emerald-600 p-[1px] shadow-lg shadow-cyan-500/20">
-              <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
-                <Sliders className="w-4 h-4 text-cyan-400" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-teal to-brand-cyan p-[1px] shadow-lg shadow-brand-cyan/20">
+              <div className="w-full h-full bg-canvas-dark rounded-[11px] flex items-center justify-center">
+                <Sliders className="w-4 h-4 text-brand-cyan" />
               </div>
             </div>
             <div>
-              <h2 className="text-base font-bold text-slate-100 flex items-center gap-2">
-                <span>Mine Operations Stress-Test Lab</span>
-                <span className="text-[10px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded">
+              <h2 className="text-base font-bold text-text-primary flex items-center gap-2">
+                <span>Mine Operations Stress-Test Simulation</span>
+                <span className="text-[10px] font-mono bg-canvas-dark text-brand-cyan border border-brand-cyan/40 px-2 py-0.5 rounded font-semibold">
                   {currentSector.name}
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-text-secondary">
                 Simulate weather surges, blasting bottlenecks & fleet breakdown to trigger Prescriptive AI
               </p>
             </div>
@@ -153,41 +157,46 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-hover transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Quick Presets Strip */}
-        <div className="p-4 bg-slate-950/40">
-          <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2">
-            ⚡ Quick Stress Scenarios:
+        <div className="p-4 bg-canvas-dark/40">
+          <div className="text-[11px] font-mono text-text-secondary uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5 text-brand-gold" />
+            <span>Preset Stress Scenarios:</span>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
             <button
               onClick={() => applyPreset('normal')}
-              className="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-300 text-left transition-colors"
+              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-cyan/50 text-text-primary text-left transition-all flex items-center gap-1.5"
             >
-              🟢 Baseline Shift
+              <CheckCircle2 className="w-3.5 h-3.5 text-brand-cyan shrink-0" />
+              <span>Baseline Shift</span>
             </button>
             <button
               onClick={() => applyPreset('monsoon')}
-              className="px-2.5 py-1.5 rounded-lg bg-blue-950/50 hover:bg-blue-900/60 border border-blue-800/60 text-blue-300 text-left transition-colors"
+              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-teal/60 text-brand-cyan text-left transition-all flex items-center gap-1.5"
             >
-              🌧️ Heavy Monsoon
+              <CloudRain className="w-3.5 h-3.5 text-brand-cyan shrink-0" />
+              <span>Monsoon Surge</span>
             </button>
             <button
               onClick={() => applyPreset('blast_jam')}
-              className="px-2.5 py-1.5 rounded-lg bg-amber-950/50 hover:bg-amber-900/60 border border-amber-800/60 text-amber-300 text-left transition-colors"
+              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-gold/60 text-brand-sand text-left transition-all flex items-center gap-1.5"
             >
-              💥 Blast Choking
+              <Flame className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+              <span>Blast Choking</span>
             </button>
             <button
               onClick={() => applyPreset('shovel_fail')}
-              className="px-2.5 py-1.5 rounded-lg bg-rose-950/50 hover:bg-rose-900/60 border border-rose-800/60 text-rose-300 text-left transition-colors"
+              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-red-400/60 text-red-300 text-left transition-all flex items-center gap-1.5"
             >
-              ⚠️ Shovel Breakdown
+              <AlertTriangle className="w-3.5 h-3.5 text-red-400 shrink-0" />
+              <span>Shovel Fault</span>
             </button>
           </div>
         </div>
@@ -198,11 +207,11 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           {/* Slider 1: Rainfall */}
           <div className="space-y-1.5">
             <div className="flex justify-between text-xs font-mono">
-              <span className="text-slate-300 flex items-center gap-1.5">
-                <CloudRain className="w-3.5 h-3.5 text-blue-400" />
+              <span className="text-text-secondary flex items-center gap-1.5">
+                <CloudRain className="w-3.5 h-3.5 text-brand-cyan" />
                 Precipitation / Rainfall Rate:
               </span>
-              <span className="text-cyan-400 font-bold">{rainfall} mm/hr</span>
+              <span className="text-brand-cyan font-bold">{rainfall} mm/hr</span>
             </div>
             <input
               type="range"
@@ -211,15 +220,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={2}
               value={rainfall}
               onChange={(e) => setRainfall(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+              className="w-full"
             />
           </div>
 
           {/* Slider 2: Pit Water Depth */}
           <div className="space-y-1.5">
             <div className="flex justify-between text-xs font-mono">
-              <span className="text-slate-300">Pit Sump Water Depth:</span>
-              <span className="text-cyan-400 font-bold">{pitWater.toFixed(1)} meters</span>
+              <span className="text-text-secondary flex items-center gap-1.5">
+                <Gauge className="w-3.5 h-3.5 text-brand-teal" />
+                Pit Sump Water Depth:
+              </span>
+              <span className="text-brand-cyan font-bold">{pitWater.toFixed(1)} meters</span>
             </div>
             <input
               type="range"
@@ -228,18 +240,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={0.1}
               value={pitWater}
               onChange={(e) => setPitWater(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+              className="w-full"
             />
           </div>
 
           {/* Slider 3: Blasting Delay */}
           <div className="space-y-1.5">
             <div className="flex justify-between text-xs font-mono">
-              <span className="text-slate-300 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
+              <span className="text-text-secondary flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-brand-gold" />
                 Blasting Safety / Misfire Delay:
               </span>
-              <span className="text-amber-400 font-bold">{blastDelay.toFixed(1)} hrs</span>
+              <span className="text-brand-gold font-bold">{blastDelay.toFixed(1)} hrs</span>
             </div>
             <input
               type="range"
@@ -248,15 +260,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={0.2}
               value={blastDelay}
               onChange={(e) => setBlastDelay(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+              className="w-full"
             />
           </div>
 
           {/* Slider 4: Blasting Fragmentation P80 */}
           <div className="space-y-1.5">
             <div className="flex justify-between text-xs font-mono">
-              <span className="text-slate-300">Blasting Fragmentation (P80 Particle Size):</span>
-              <span className={fragmentation > 30 ? 'text-rose-400 font-bold' : 'text-emerald-400 font-bold'}>
+              <span className="text-text-secondary flex items-center gap-1.5">
+                <Flame className="w-3.5 h-3.5 text-brand-sand" />
+                Blasting Fragmentation (P80 Particle Size):
+              </span>
+              <span className={fragmentation > 30 ? 'text-brand-gold font-bold' : 'text-brand-cyan font-bold'}>
                 {fragmentation} cm {fragmentation > 30 ? '(Crusher Choke Risk)' : ''}
               </span>
             </div>
@@ -267,18 +282,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={1}
               value={fragmentation}
               onChange={(e) => setFragmentation(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
+              className="w-full"
             />
           </div>
 
           {/* Slider 5: Fleet Availability */}
           <div className="space-y-1.5">
             <div className="flex justify-between text-xs font-mono">
-              <span className="text-slate-300 flex items-center gap-1.5">
-                <Truck className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="text-text-secondary flex items-center gap-1.5">
+                <Truck className="w-3.5 h-3.5 text-brand-cyan" />
                 Active Fleet Availability:
               </span>
-              <span className="text-emerald-400 font-bold">{fleetAvail}%</span>
+              <span className="text-brand-cyan font-bold">{fleetAvail}%</span>
             </div>
             <input
               type="range"
@@ -287,15 +302,18 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={2}
               value={fleetAvail}
               onChange={(e) => setFleetAvail(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
+              className="w-full"
             />
           </div>
 
           {/* Slider 6: Haul Cycle Time */}
           <div className="space-y-1.5">
             <div className="flex justify-between text-xs font-mono">
-              <span className="text-slate-300">Average Haul Cycle Duration:</span>
-              <span className="text-cyan-400 font-bold">{haulCycle} mins</span>
+              <span className="text-text-secondary flex items-center gap-1.5">
+                <Activity className="w-3.5 h-3.5 text-brand-teal" />
+                Average Haul Cycle Duration:
+              </span>
+              <span className="text-brand-cyan font-bold">{haulCycle} mins</span>
             </div>
             <input
               type="range"
@@ -304,25 +322,28 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={1}
               value={haulCycle}
               onChange={(e) => setHaulCycle(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+              className="w-full"
             />
           </div>
 
           {/* Toggle: Machine Failure */}
-          <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
+          <div className="pt-3 border-t border-border-subtle flex items-center justify-between">
             <div>
-              <div className="text-xs font-semibold text-slate-200">Simulate Major Shovel Breakdown</div>
-              <div className="text-[11px] text-slate-400">Simulates catastrophic hydraulic pump failure on CAT 6020 #1</div>
+              <div className="text-xs font-semibold text-text-primary flex items-center gap-1.5">
+                <AlertTriangle className="w-3.5 h-3.5 text-brand-gold" />
+                <span>Simulate Major Shovel Breakdown</span>
+              </div>
+              <div className="text-[11px] text-text-secondary">Simulates catastrophic hydraulic pump failure on CAT 6020 #1</div>
             </div>
             <button
               onClick={() => setMachineFailure(!machineFailure)}
-              className={`w-12 h-6 rounded-full p-1 transition-colors duration-200 ease-in-out ${
-                machineFailure ? 'bg-rose-500' : 'bg-slate-700'
+              className={`w-12 h-6 rounded-full p-1 transition-colors duration-200 ease-in-out border border-border-subtle ${
+                machineFailure ? 'bg-brand-gold' : 'bg-surface-hover'
               }`}
             >
               <div
-                className={`w-4 h-4 bg-white rounded-full transition-transform duration-200 ease-in-out ${
-                  machineFailure ? 'translate-x-6' : 'translate-x-0'
+                className={`w-4 h-4 rounded-full transition-transform duration-200 ease-in-out ${
+                  machineFailure ? 'translate-x-6 bg-canvas-dark' : 'translate-x-0 bg-text-secondary'
                 }`}
               />
             </button>
@@ -331,10 +352,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 sm:p-5 flex items-center justify-between bg-slate-950/80 sticky bottom-0 z-10">
+        <div className="p-4 sm:p-5 flex items-center justify-between bg-canvas-dark/80 sticky bottom-0 z-10">
           <button
             onClick={handleReset}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle text-text-secondary hover:text-text-primary text-xs font-mono transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset Baseline</span>
@@ -343,16 +364,16 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
-              className="px-3.5 py-2 rounded-xl text-slate-400 hover:text-white text-xs font-semibold"
+              className="px-3.5 py-2 rounded-xl text-text-secondary hover:text-text-primary text-xs font-semibold"
             >
               Cancel
             </button>
             <button
               onClick={handleRunSimulation}
               disabled={isSubmitting}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-600 hover:from-cyan-400 hover:to-emerald-500 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-teal via-brand-cyan to-brand-sand hover:brightness-110 text-canvas-dark font-bold text-xs shadow-lg shadow-brand-cyan/25 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
             >
-              <Play className="w-4 h-4 fill-slate-950" />
+              <Play className="w-4 h-4 fill-canvas-dark" />
               <span>{isSubmitting ? 'Computing Neural Optimization...' : 'Run Neural Simulation'}</span>
             </button>
           </div>

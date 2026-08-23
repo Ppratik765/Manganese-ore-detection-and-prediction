@@ -17,7 +17,7 @@ import { ProductionChart } from '@/components/ProductionChart';
 import { FleetStatus } from '@/components/FleetStatus';
 import { PrescriptiveAlerts } from '@/components/PrescriptiveAlerts';
 import { SimulationModal } from '@/components/SimulationModal';
-import { RefreshCw, Radio, Sparkles, Layers, Sliders, ShieldAlert } from 'lucide-react';
+import { RefreshCw, Radio, Sparkles, Layers, Sliders, ShieldAlert, Activity, Satellite, Cpu } from 'lucide-react';
 
 export default function MissionControlDashboard() {
   const [currentSector, setCurrentSector] = useState<SectorInfo>(SECTORS_LIST[0]);
@@ -64,7 +64,7 @@ export default function MissionControlDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-cyan-500 selection:text-slate-950">
+    <div className="min-h-screen bg-canvas-dark text-text-primary flex flex-col selection:bg-brand-cyan selection:text-canvas-dark">
       
       {/* Top Mission Control Header */}
       <Navbar
@@ -80,31 +80,32 @@ export default function MissionControlDashboard() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 px-1">
           <div className="flex items-center gap-2">
             <span className="flex h-2.5 w-2.5 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-cyan" />
             </span>
-            <span className="text-xs font-mono text-slate-300">
-              EXPLORATION SECTOR: <strong className="text-cyan-400">{currentSector.name.toUpperCase()}</strong> ({currentSector.state})
+            <span className="text-xs font-mono text-text-secondary">
+              EXPLORATION SECTOR: <strong className="text-brand-cyan font-bold">{currentSector.name.toUpperCase()}</strong> ({currentSector.state})
             </span>
-            <span className="hidden sm:inline text-slate-600">|</span>
-            <span className="hidden sm:inline text-[11px] font-mono text-slate-400">
-              Primary Ore: <span className="text-slate-200">{currentSector.primary_mineral}</span>
+            <span className="hidden sm:inline text-border-subtle">|</span>
+            <span className="hidden sm:inline text-[11px] font-mono text-text-secondary">
+              Primary Mineral: <span className="text-brand-sand">{currentSector.primary_mineral}</span>
             </span>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <div className="flex items-center gap-2 text-xs font-mono text-text-secondary">
             {simulationResult && (
-              <span className="bg-amber-950 text-amber-300 border border-amber-800 px-2 py-0.5 rounded text-[11px] font-semibold animate-pulse">
-                ⚡ WHAT-IF SIMULATION ACTIVE
+              <span className="bg-surface-card text-brand-gold border border-brand-gold/50 px-2.5 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,215,88,0.2)]">
+                <Sliders className="w-3.5 h-3.5 text-brand-gold" />
+                <span>WHAT-IF SIMULATION ACTIVE</span>
               </span>
             )}
             <button
               onClick={() => loadSectorData(currentSector, true)}
               disabled={isRefreshing}
-              className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-card border border-border-subtle hover:border-brand-cyan/60 text-text-secondary hover:text-text-primary transition-colors"
             >
-              <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-cyan-400' : ''}`} />
-              <span className="text-[11px]">Sync</span>
+              <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-brand-cyan' : ''}`} />
+              <span className="text-[11px]">Sync Telemetry</span>
             </button>
           </div>
         </div>
@@ -165,17 +166,18 @@ export default function MissionControlDashboard() {
       />
 
       {/* Footer */}
-      <footer className="w-full bg-slate-950 border-t border-slate-900 py-4 px-6 text-center text-xs font-mono text-slate-500">
+      <footer className="w-full bg-canvas-dark border-t border-border-subtle py-4 px-6 text-center text-xs font-mono text-text-secondary">
         <div className="max-w-[1720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>
-            MOIL LIMITED &copy; {new Date().getFullYear()} — Smart India Hackathon (SIH 2026) Project
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-brand-cyan" />
+            <span>MOIL LIMITED &copy; {new Date().getFullYear()} — Smart India Hackathon (SIH 2026) Platform</span>
           </div>
-          <div className="flex items-center gap-3 text-[11px] text-slate-400">
-            <span>Sentinel-2 L2A Multispectral</span>
+          <div className="flex items-center gap-3 text-[11px] text-text-secondary">
+            <span className="flex items-center gap-1"><Satellite className="w-3 h-3 text-brand-cyan" /> Sentinel-2 L2A Multispectral</span>
             <span>•</span>
-            <span>10-Channel U-Net ONNX</span>
+            <span className="flex items-center gap-1"><Cpu className="w-3 h-3 text-brand-sand" /> 10-Channel U-Net ONNX</span>
             <span>•</span>
-            <span>XGBoost Prescriptive AI</span>
+            <span className="flex items-center gap-1"><Activity className="w-3 h-3 text-brand-gold" /> XGBoost Prescriptive AI</span>
           </div>
         </div>
       </footer>
