@@ -12,33 +12,44 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        command: {
-          950: "#020617",
-          900: "#0f172a",
-          800: "#1e293b",
-          700: "#334155",
-          600: "#475569",
+        brand: {
+          teal: "#218DAE",
+          cyan: "#2BBBD7",
+          sand: "#FCE59A",
+          gold: "#FFD758",
         },
-        cyber: {
-          cyan: "#06b6d4",
-          emerald: "#10b981",
-          amber: "#f59e0b",
-          rose: "#f43f5e",
-          purple: "#a855f7",
-          blue: "#3b82f6",
-        }
+        canvas: {
+          dark: "#080E14",
+        },
+        surface: {
+          card: "#0E1B26",
+          hover: "#142738",
+        },
+        border: {
+          subtle: "#1E3A52",
+        },
+        text: {
+          primary: "#F0F6FC",
+          secondary: "#9FB3C8",
+        },
       },
       fontFamily: {
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
         mono: ["JetBrains Mono", "SF Mono", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       animation: {
         "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "scanline": "scanline 8s linear infinite",
+        "radar-sweep": "radar 4s linear infinite",
       },
       keyframes: {
         scanline: {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(1000%)" },
+        },
+        radar: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         }
       }
     },
