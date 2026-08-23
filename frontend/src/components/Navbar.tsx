@@ -64,11 +64,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="font-extrabold tracking-wider text-base lg:text-lg text-text-primary">
                   MOIL LIMITED
                 </span>
-                <span className="text-[10px] uppercase tracking-widest font-mono bg-surface-card text-brand-cyan border border-border-subtle px-2 py-0.5 rounded font-bold">
+                <span className="text-[10px] uppercase tracking-widest font-mono bg-surface-card text-brand-gold border border-brand-gold/40 px-2 py-0.5 rounded font-bold">
                   SIH 2026
                 </span>
               </div>
-              <p className="text-[11px] text-text-secondary font-medium tracking-tight">
+              <p className="text-[11px] text-brand-sand font-medium tracking-tight">
                 Manganese Reserve AI & Mine Production Shortfall Prevention
               </p>
             </div>
@@ -93,10 +93,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Layers className="w-4 h-4 text-brand-cyan group-hover:scale-110 transition-transform" />
               <div className="text-left">
-                <div className="text-[10px] text-text-secondary uppercase tracking-wider font-mono">Mining Sector</div>
+                <div className="text-[10px] text-brand-sand uppercase tracking-wider font-mono">Mining Sector</div>
                 <div className="font-semibold text-text-primary flex items-center gap-1.5">
                   <span>{currentSector.name}</span>
-                  <span className="text-[10px] text-brand-cyan font-mono">({currentSector.state})</span>
+                  <span className="text-[10px] text-brand-gold font-mono">({currentSector.state})</span>
                 </div>
               </div>
               <ChevronDown className={`w-4 h-4 text-text-secondary transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-brand-cyan' : ''}`} />
@@ -104,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {isDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-72 md:w-80 bg-surface-card border border-border-subtle rounded-xl shadow-2xl shadow-black/90 backdrop-blur-xl z-50 overflow-hidden py-1.5 divide-y divide-border-subtle">
-                <div className="px-3.5 py-2 text-[10px] uppercase font-mono tracking-widest text-text-secondary bg-canvas-dark/80">
+                <div className="px-3.5 py-2 text-[10px] uppercase font-mono tracking-widest text-brand-sand bg-canvas-dark/80">
                   Select Exploration & Mining Belt
                 </div>
                 <div className="py-1">
@@ -122,12 +122,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <div>
                         <div className="font-semibold text-xs text-text-primary">{s.name}</div>
                         <div className="text-[11px] text-text-secondary flex items-center gap-2 mt-0.5">
-                          <span>{s.state}</span>
+                          <span className="text-brand-sand">{s.state}</span>
                           <span>|</span>
-                          <span className="font-mono text-brand-cyan">Mn ~{s.avg_grade_pct}%</span>
+                          <span className="font-mono text-brand-gold font-semibold">Mn ~{s.avg_grade_pct}%</span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-mono bg-canvas-dark text-text-secondary border border-border-subtle px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono bg-canvas-dark text-brand-sand border border-border-subtle px-2 py-0.5 rounded">
                         {s.est_reserves_mt} MT
                       </span>
                     </button>
@@ -159,9 +159,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
             </div>
 
-            {/* Shift Clock */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-[11px] font-mono text-brand-cyan">
-              <Clock className="w-3.5 h-3.5 text-brand-cyan" />
+            {/* Shift Clock in Warm Gold */}
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-[11px] font-mono text-brand-gold font-semibold">
+              <Clock className="w-3.5 h-3.5 text-brand-gold" />
               <span>{currentTime || '12:00:00 IST'}</span>
             </div>
           </div>

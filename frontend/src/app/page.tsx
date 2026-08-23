@@ -84,18 +84,18 @@ export default function MissionControlDashboard() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-cyan" />
             </span>
             <span className="text-xs font-mono text-text-secondary">
-              EXPLORATION SECTOR: <strong className="text-brand-cyan font-bold">{currentSector.name.toUpperCase()}</strong> ({currentSector.state})
+              EXPLORATION SECTOR: <strong className="text-brand-cyan font-bold">{currentSector.name.toUpperCase()}</strong> <span className="text-brand-gold font-semibold">({currentSector.state})</span>
             </span>
             <span className="hidden sm:inline text-border-subtle">|</span>
             <span className="hidden sm:inline text-[11px] font-mono text-text-secondary">
-              Primary Mineral: <span className="text-text-primary">{currentSector.primary_mineral}</span>
+              Primary Mineral: <span className="text-brand-sand font-semibold">{currentSector.primary_mineral}</span>
             </span>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-mono text-text-secondary">
             {simulationResult && (
-              <span className="bg-surface-card text-brand-cyan border border-brand-cyan/40 px-2.5 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1.5">
-                <Sliders className="w-3.5 h-3.5 text-brand-cyan" />
+              <span className="bg-surface-card text-brand-gold border border-brand-gold/40 px-2.5 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1.5">
+                <Sliders className="w-3.5 h-3.5 text-brand-gold" />
                 <span>WHAT-IF SIMULATION ACTIVE</span>
               </span>
             )}

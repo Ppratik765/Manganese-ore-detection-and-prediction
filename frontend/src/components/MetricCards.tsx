@@ -110,8 +110,8 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
         </div>
 
         <div className="mt-3 flex items-center justify-between text-[11px]">
-          <div className="flex items-center gap-1 text-brand-cyan font-semibold font-mono">
-            <TrendingUp className="w-3.5 h-3.5 text-brand-cyan" />
+          <div className="flex items-center gap-1 text-brand-sand font-semibold font-mono">
+            <TrendingUp className="w-3.5 h-3.5 text-brand-gold" />
             <span>{outputRatio}% Target Met</span>
           </div>
           <span className="text-text-secondary font-mono">Shift Total</span>
@@ -132,17 +132,17 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
             <span className="text-2xl lg:text-3xl font-extrabold text-text-primary tracking-tight font-mono">
               {gradePct.toFixed(1)}%
             </span>
-            <span className="text-xs text-brand-cyan font-mono">Mn Purity</span>
+            <span className="text-xs text-brand-gold font-mono font-semibold">Mn Purity</span>
           </div>
 
-          <div className="mt-2 text-[11px] text-text-secondary truncate font-mono">
+          <div className="mt-2 text-[11px] text-brand-sand truncate font-mono">
             {unfcClass}
           </div>
         </div>
 
         <div className="mt-3 flex items-center justify-between text-[11px] font-mono">
           <span className="text-text-secondary">Confidence Score:</span>
-          <span className="text-brand-cyan font-bold bg-canvas-dark border border-brand-cyan/40 px-2 py-0.5 rounded">
+          <span className="text-brand-sand font-bold bg-canvas-dark border border-brand-sand/40 px-2 py-0.5 rounded">
             {confidenceScore.toFixed(1)}% IoU
           </span>
         </div>
@@ -162,11 +162,11 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
             <span className="text-2xl lg:text-3xl font-extrabold text-text-primary tracking-tight font-mono">
               {fleetAvail.toFixed(1)}%
             </span>
-            <span className="text-xs text-brand-cyan font-mono">Fleet Ready</span>
+            <span className="text-xs text-brand-gold font-mono font-semibold">Fleet Ready</span>
           </div>
 
           <div className="mt-2 text-[11px] text-text-secondary flex items-center gap-2">
-            <span>{activeDumpers} Haul Trucks</span>
+            <span className="text-brand-sand">{activeDumpers} Haul Trucks</span>
             <span>|</span>
             <span className="font-mono text-text-primary">{haulCycle.toFixed(1)}m Cycle</span>
           </div>
@@ -202,8 +202,8 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
 
           <div className="mt-2 text-[11px] text-text-secondary">
             {isSimActive ? (
-              <span className="text-brand-cyan font-mono flex items-center gap-1">
-                <Activity className="w-3 h-3" />
+              <span className="text-brand-gold font-mono flex items-center gap-1 font-semibold">
+                <Activity className="w-3 h-3 text-brand-gold" />
                 Simulated Stress Scenario Active
               </span>
             ) : (
@@ -214,7 +214,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
 
         <div className="mt-3 flex items-center justify-between text-[11px] font-mono">
           <span className="text-text-secondary">AI Mitigation Plan:</span>
-          <span className="text-brand-cyan font-bold">
+          <span className="text-brand-gold font-bold">
             {isSimActive ? 'OPTIMIZED' : 'STANDBY'}
           </span>
         </div>
