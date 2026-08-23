@@ -177,6 +177,32 @@ def synthesize_multispectral_bands(
         "B12": b12.astype(np.float32),
     }
 
+def compute_spectral_indices(bands: Dict[str, np.ndarray], eps: float = 1e-6) -> Dict[str, np.ndarray]:
+    """
+    Computes diagnostic exploration band ratios and indices for manganese & host rock alteration:
+    - NDVI: (B08 - B04) / (B08 + B04 + eps) -> Vegetation cover vs rock exposure
+    - Clay / Alteration Index: B11 / (B12 + eps) -> Al-OH clays and phyllosilicates
+    - Ferrous Minerals Index: B12 / (B08 + eps) -> Fe2+ silicates, pyrolusite & braunite association
+    - Iron Oxide Index: B04 / (B02 + eps) -> Gossans, limonite, hematite cappings
+    """
+    b02 = bands["B02"]
+    b04 = bands["B04"]
+    b08 = bands["B08"]
+    b11 = bands["B11"]
+    b12 = bands["B12"]
+
+    ndvi = (b08 - b04) / (b08 + b04 + eps)
+    clay_index = b11 / (b12 + eps)
+    ferrous_index = b12 / (b08 + eps)
+    iron_oxide_index = b04 / (b02 + eps)
+
+    return {
+        "NDVI": np.clip(ndvi, -1.0, 1.0).astype(np.float32),
+        "Clay_Index": np.clip(clay_index, 0.0, 10.0).astype(np.float32),
+        "Ferrous_Index": np.clip(ferrous_index, 0.0, 10.0).astype(np.float32),
+        "Iron_Oxide_Index": np.clip(iron_oxide_index, 0.0, 10.0).astype(np.float32),
+    }
+
 if __name__ == "__main__":
     print("Registered Manganese Mining Sectors:")
     for sid, info in MINING_SECTORS.items():
@@ -188,5 +214,9 @@ if __name__ == "__main__":
     print(f"STAC search returned {len(stac_items)} catalog items.")
     
     synth_bands = synthesize_multispectral_bands("balaghat")
-    print(f"Synthesized Sentinel-2 bands for Balaghat: {list(synth_bands.keys())}, shape: {synth_bands['B02'].shape}")
+    indices = compute_spectral_indices(synth_bands)
+    print(f"Computed indices: {list(indices.keys())}")
+    for k, v in indices.items():
+        print(f"  {k}: min={v.min():.4f}, mean={v.mean():.4f}, max={v.max():.4f}")
+
 
