@@ -190,3 +190,65 @@ def get_operations_telemetry(
         "live_equipment_fleet": live_machines,
         "production_history_7days": history_records
     }
+
+@router.post("/simulate", summary="Execute Real-Time What-If Production Simulation & Prescriptive AI Optimization")
+def simulate_mine_operations(
+    req: SimulationRequest = Body(...)
+) -> Dict[str, Any]:
+    """
+    Accepts operational constraints (extreme rainfall, haul road slippage, blasting delays,
+    truck availability) and returns recalculated production forecasts, shortfall probability,
+    and prioritized prescriptive mitigation action plans.
+    """
+    sector_key = req.sector.lower().strip()
+    if sector_key not in settings.SECTORS:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unknown sector '{req.sector}'. Available: {list(settings.SECTORS.keys())}"
+        )
+        
+    sector_info = settings.SECTORS[sector_key]
+    target = req.target_tonnage_override or sector_info["target_tonnage_shift"]
+    
+    # Calculate strain index from failure flag if not provided
+    strain = 8.5 if req.machine_failure_simulated else 1.5
+    torque = 54.0 if req.machine_failure_simulated else 42.0
+    tool_wear = 160.0 if req.machine_failure_simulated else 40.0
+    
+    # Execute Optimizer & XGBoost Service
+    result = optimizer_service.predict_shortfall_risk(
+        sector=sector_key,
+        shift=req.shift,
+        rainfall_mm=req.rainfall_mm,
+        pit_water_level_m=req.pit_water_level_m,
+        road_friction_coeff=req.road_friction_coeff,
+        p80_fragmentation_cm=req.p80_fragmentation_cm,
+        blast_delay_hrs=req.blast_delay_hrs,
+        powder_factor_kg_t=req.powder_factor_kg_t,
+        air_temp_c=34.0,
+        torque_nm=torque,
+        tool_wear_min=tool_wear,
+        strain_index=strain,
+        machine_failure=req.machine_failure_simulated,
+        fleet_availability_pct=req.fleet_availability_pct,
+        active_dumpers=req.active_dumpers,
+        haul_cycle_mins=req.haul_cycle_mins,
+        target_tonnage=target
+    )
+    
+    return {
+        "status": "success",
+        "simulation_id": f"SIM_{int(datetime.utcnow().timestamp())}",
+        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "sector": sector_key,
+        "sector_name": sector_info["name"],
+        "simulation_inputs": req.model_dump(),
+        "target_tonnage": result["target_tonnage"],
+        "predicted_tonnage": result["predicted_tonnage"],
+        "expected_deficit_tonnes": result["expected_deficit_tonnes"],
+        "shortfall_probability": result["shortfall_probability"],
+        "shortfall_flag": result["shortfall_flag"],
+        "risk_level": result["risk_level"],
+        "prescriptive_optimization": result["prescriptive_optimization"]
+    }
+
