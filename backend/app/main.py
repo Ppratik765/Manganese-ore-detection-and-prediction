@@ -73,6 +73,9 @@ def get_metadata() -> Dict[str, Any]:
     }
 
 from backend.app.routes.reserves import router as reserves_router
+from backend.app.routes.operations import router as operations_router
 
 app.include_router(reserves_router)
+app.include_router(operations_router)
+
 
