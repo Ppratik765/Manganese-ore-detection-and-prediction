@@ -56,14 +56,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Left Branding */}
         <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-teal via-brand-cyan to-brand-sand p-[1.5px] shadow-lg shadow-brand-cyan/20">
-              <div className="w-full h-full bg-canvas-dark rounded-[10px] flex items-center justify-center">
-                <Compass className="w-5 h-5 text-brand-cyan" />
-              </div>
+            <div className="w-10 h-10 rounded-xl bg-surface-card border border-brand-cyan/40 flex items-center justify-center shadow-sm">
+              <Compass className="w-5 h-5 text-brand-cyan" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold tracking-wider text-base lg:text-lg bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-brand-sand to-brand-gold">
+                <span className="font-extrabold tracking-wider text-base lg:text-lg text-text-primary">
                   MOIL LIMITED
                 </span>
                 <span className="text-[10px] uppercase tracking-widest font-mono bg-surface-card text-brand-cyan border border-border-subtle px-2 py-0.5 rounded font-bold">
@@ -79,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Sim Trigger */}
           <button
             onClick={onOpenSimulation}
-            className="md:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-brand-teal to-brand-cyan text-canvas-dark text-xs font-bold shadow-md"
+            className="md:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-cyan hover:bg-brand-cyan/90 text-canvas-dark text-xs font-bold shadow-md"
           >
             <Sliders className="w-3.5 h-3.5" />
             <span>Simulate</span>
@@ -98,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div className="text-[10px] text-text-secondary uppercase tracking-wider font-mono">Mining Sector</div>
                 <div className="font-semibold text-text-primary flex items-center gap-1.5">
                   <span>{currentSector.name}</span>
-                  <span className="text-[10px] text-brand-sand font-mono">({currentSector.state})</span>
+                  <span className="text-[10px] text-brand-cyan font-mono">({currentSector.state})</span>
                 </div>
               </div>
               <ChevronDown className={`w-4 h-4 text-text-secondary transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-brand-cyan' : ''}`} />
@@ -126,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         <div className="text-[11px] text-text-secondary flex items-center gap-2 mt-0.5">
                           <span>{s.state}</span>
                           <span>|</span>
-                          <span className="font-mono text-brand-sand">Mn ~{s.avg_grade_pct}%</span>
+                          <span className="font-mono text-brand-cyan">Mn ~{s.avg_grade_pct}%</span>
                         </div>
                       </div>
                       <span className="text-[10px] font-mono bg-canvas-dark text-text-secondary border border-border-subtle px-2 py-0.5 rounded">
@@ -162,8 +160,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             {/* Shift Clock */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-[11px] font-mono text-brand-sand">
-              <Clock className="w-3.5 h-3.5 text-brand-gold" />
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle text-[11px] font-mono text-brand-cyan">
+              <Clock className="w-3.5 h-3.5 text-brand-cyan" />
               <span>{currentTime || '12:00:00 IST'}</span>
             </div>
           </div>
@@ -171,7 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Neural Simulation Modal Trigger */}
           <button
             onClick={onOpenSimulation}
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-teal via-brand-cyan to-brand-sand hover:brightness-110 text-canvas-dark font-bold text-xs shadow-lg shadow-brand-cyan/20 transition-all hover:scale-105 active:scale-95"
+            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-cyan hover:bg-brand-cyan/90 text-canvas-dark font-bold text-xs shadow-md shadow-brand-cyan/15 transition-all hover:scale-105 active:scale-95"
           >
             <Sliders className="w-3.5 h-3.5 fill-canvas-dark" />
             <span>Simulate What-If</span>

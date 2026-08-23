@@ -86,10 +86,8 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-3 border-b border-border-subtle">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-teal to-brand-cyan p-[1px] shadow-lg shadow-brand-cyan/20">
-            <div className="w-full h-full bg-canvas-dark rounded-[7px] flex items-center justify-center">
-              <Zap className="w-4 h-4 text-brand-cyan" />
-            </div>
+          <div className="w-8 h-8 rounded-lg bg-surface-card border border-brand-cyan/40 flex items-center justify-center shadow-sm">
+            <Zap className="w-4 h-4 text-brand-cyan" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -106,8 +104,8 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
 
         {/* Recovery Summary */}
         <div className="flex items-center gap-2 text-xs font-mono">
-          <div className="px-2.5 py-1 rounded-lg bg-surface-card border border-brand-cyan/40 text-brand-cyan font-bold flex items-center gap-1.5 shadow-[0_0_10px_rgba(43,187,215,0.15)]">
-            <TrendingUp className="w-3.5 h-3.5 text-brand-sand" />
+          <div className="px-2.5 py-1 rounded-lg bg-surface-card border border-brand-cyan/40 text-brand-cyan font-bold flex items-center gap-1.5 shadow-sm">
+            <TrendingUp className="w-3.5 h-3.5 text-brand-cyan" />
             <span>+{plan.estimated_recovery_tonnes} Tonnes Recoverable</span>
           </div>
         </div>
@@ -125,7 +123,7 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
         </div>
         <div>
           <span className="text-[10px] text-text-secondary block uppercase">Deficit Reduction:</span>
-          <span className="font-bold text-brand-sand">{plan.shortfall_reduction_pct}%</span>
+          <span className="font-bold text-brand-cyan">{plan.shortfall_reduction_pct}%</span>
         </div>
       </div>
 
@@ -162,12 +160,12 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
 
                     <div className="flex items-center gap-3 mt-2 text-[10px] font-mono text-text-secondary">
                       <span className="text-brand-cyan font-semibold flex items-center gap-1">
-                        <TrendingUp className="w-3 h-3 text-brand-sand" />
+                        <TrendingUp className="w-3 h-3 text-brand-cyan" />
                         Potential Recovery: +{action.potential_recovery_tonnes} T
                       </span>
                       <span>|</span>
                       <span className="flex items-center gap-1 text-text-secondary">
-                        <Clock className="w-3 h-3 text-brand-gold" />
+                        <Clock className="w-3 h-3 text-brand-cyan" />
                         Window: {action.urgency_mins} mins
                       </span>
                     </div>
@@ -178,10 +176,10 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
                 <button
                   onClick={() => handleDispatch(action.id)}
                   disabled={isDispatched}
-                  className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-md ${
+                  className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm ${
                     isDispatched
                       ? 'bg-canvas-dark text-brand-cyan border border-brand-cyan/60 cursor-default'
-                      : 'bg-gradient-to-r from-brand-teal via-brand-cyan to-brand-sand text-canvas-dark hover:brightness-110 hover:shadow-lg hover:shadow-brand-cyan/25 active:scale-95'
+                      : 'bg-brand-cyan hover:bg-brand-cyan/90 text-canvas-dark hover:shadow-md hover:shadow-brand-cyan/15 active:scale-95'
                   }`}
                 >
                   {isDispatched ? (
@@ -196,6 +194,7 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
                     </>
                   )}
                 </button>
+
 
               </div>
             </div>

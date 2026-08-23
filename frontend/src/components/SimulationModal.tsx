@@ -18,7 +18,8 @@ import {
   Flame,
   CheckCircle2,
   Activity,
-  Gauge
+  Gauge,
+  ShieldAlert
 } from 'lucide-react';
 
 interface SimulationModalProps {
@@ -137,10 +138,8 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 flex items-center justify-between bg-canvas-dark/60 sticky top-0 z-10">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-teal to-brand-cyan p-[1px] shadow-lg shadow-brand-cyan/20">
-              <div className="w-full h-full bg-canvas-dark rounded-[11px] flex items-center justify-center">
-                <Sliders className="w-4 h-4 text-brand-cyan" />
-              </div>
+            <div className="w-9 h-9 rounded-xl bg-surface-card border border-brand-cyan/40 flex items-center justify-center shadow-sm">
+              <Sliders className="w-4 h-4 text-brand-cyan" />
             </div>
             <div>
               <h2 className="text-base font-bold text-text-primary flex items-center gap-2">
@@ -163,30 +162,31 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           </button>
         </div>
 
-        {/* Quick Presets Strip */}
-        <div className="p-4 bg-canvas-dark/40">
-          <div className="text-[11px] font-mono text-text-secondary uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-brand-gold" />
-            <span>Preset Stress Scenarios:</span>
+        {/* Preset Quick Scenarios */}
+        <div className="p-4 sm:p-5 bg-surface-card">
+          <div className="text-xs font-bold text-text-primary mb-2.5 flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-brand-cyan" />
+            <span>Preset Stress Scenarios</span>
           </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
             <button
               onClick={() => applyPreset('normal')}
-              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-cyan/50 text-text-primary text-left transition-all flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-cyan/60 text-text-primary text-left transition-all flex items-center gap-1.5"
             >
               <CheckCircle2 className="w-3.5 h-3.5 text-brand-cyan shrink-0" />
-              <span>Baseline Shift</span>
+              <span>Standard Shift</span>
             </button>
             <button
               onClick={() => applyPreset('monsoon')}
-              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-teal/60 text-brand-cyan text-left transition-all flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-cyan/60 text-brand-cyan text-left transition-all flex items-center gap-1.5"
             >
               <CloudRain className="w-3.5 h-3.5 text-brand-cyan shrink-0" />
               <span>Monsoon Surge</span>
             </button>
             <button
               onClick={() => applyPreset('blast_jam')}
-              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-gold/60 text-brand-sand text-left transition-all flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-gold/60 text-brand-gold text-left transition-all flex items-center gap-1.5"
             >
               <Flame className="w-3.5 h-3.5 text-brand-gold shrink-0" />
               <span>Blast Choking</span>
@@ -199,10 +199,9 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               <span>Shovel Fault</span>
             </button>
           </div>
-        </div>
 
         {/* Interactive Sliders Body */}
-        <div className="p-4 sm:p-5 space-y-4">
+          <div className="space-y-4 pt-5">
           
           {/* Slider 1: Rainfall */}
           <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
@@ -329,34 +328,36 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
 
           {/* Toggle: Machine Failure */}
           <div className="pt-3 border-t border-border-subtle flex items-center justify-between">
-            <div>
-              <div className="text-xs font-semibold text-text-primary flex items-center gap-1.5">
-                <AlertTriangle className="w-3.5 h-3.5 text-brand-gold" />
-                <span>Simulate Major Shovel Breakdown</span>
+            <div className="flex items-center gap-2">
+              <ShieldAlert className={`w-4 h-4 ${machineFailure ? 'text-red-400' : 'text-text-secondary'}`} />
+              <div>
+                <div className="text-xs font-bold text-text-primary">Simulate Critical Shovel/Excavator Failure</div>
+                <div className="text-[10px] text-text-secondary font-mono">Triggers AI dynamic rerouting mitigation</div>
               </div>
-              <div className="text-[11px] text-text-secondary">Simulates catastrophic hydraulic pump failure on CAT 6020 #1</div>
             </div>
+
             <button
               onClick={() => setMachineFailure(!machineFailure)}
-              className={`w-12 h-6 rounded-full p-1 transition-colors duration-200 ease-in-out border border-border-subtle ${
-                machineFailure ? 'bg-brand-gold' : 'bg-surface-hover'
+              className={`w-12 h-6 rounded-full transition-colors relative p-0.5 ${
+                machineFailure ? 'bg-red-600' : 'bg-surface-hover'
               }`}
             >
               <div
-                className={`w-4 h-4 rounded-full transition-transform duration-200 ease-in-out ${
-                  machineFailure ? 'translate-x-6 bg-canvas-dark' : 'translate-x-0 bg-text-secondary'
+                className={`w-5 h-5 rounded-full bg-white transition-transform ${
+                  machineFailure ? 'translate-x-6' : 'translate-x-0'
                 }`}
               />
             </button>
           </div>
 
         </div>
+        </div>
 
         {/* Footer Actions */}
-        <div className="p-4 sm:p-5 flex items-center justify-between bg-canvas-dark/80 sticky bottom-0 z-10">
+        <div className="p-4 sm:p-5 bg-canvas-dark/80 flex items-center justify-between">
           <button
             onClick={handleReset}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle text-text-secondary hover:text-text-primary text-xs font-mono transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-surface-hover text-text-secondary hover:text-text-primary text-xs font-mono transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset Baseline</span>
@@ -372,7 +373,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
             <button
               onClick={handleRunSimulation}
               disabled={isSubmitting}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-teal via-brand-cyan to-brand-sand hover:brightness-110 text-canvas-dark font-bold text-xs shadow-lg shadow-brand-cyan/25 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-cyan hover:bg-brand-cyan/90 text-canvas-dark font-bold text-xs shadow-md shadow-brand-cyan/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
             >
               <Play className="w-4 h-4 fill-canvas-dark" />
               <span>{isSubmitting ? 'Computing Neural Optimization...' : 'Run Neural Simulation'}</span>

@@ -261,7 +261,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
             onClick={() => setShowDrillHoles(!showDrillHoles)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
               showDrillHoles
-                ? 'bg-surface-card border-brand-gold text-brand-gold shadow-sm'
+                ? 'bg-surface-card border-brand-cyan text-brand-cyan shadow-sm'
                 : 'bg-canvas-dark border-border-subtle text-text-secondary hover:text-text-primary'
             }`}
           >
@@ -273,7 +273,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
             onClick={() => setShowLeaseBoundary(!showLeaseBoundary)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
               showLeaseBoundary
-                ? 'bg-surface-card border-brand-teal text-brand-sand shadow-sm'
+                ? 'bg-surface-card border-brand-cyan text-brand-cyan shadow-sm'
                 : 'bg-canvas-dark border-border-subtle text-text-secondary hover:text-text-primary'
             }`}
           >

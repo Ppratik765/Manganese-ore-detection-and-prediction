@@ -88,14 +88,14 @@ export default function MissionControlDashboard() {
             </span>
             <span className="hidden sm:inline text-border-subtle">|</span>
             <span className="hidden sm:inline text-[11px] font-mono text-text-secondary">
-              Primary Mineral: <span className="text-brand-sand">{currentSector.primary_mineral}</span>
+              Primary Mineral: <span className="text-text-primary">{currentSector.primary_mineral}</span>
             </span>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-mono text-text-secondary">
             {simulationResult && (
-              <span className="bg-surface-card text-brand-gold border border-brand-gold/50 px-2.5 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1.5 shadow-[0_0_12px_rgba(255,215,88,0.2)]">
-                <Sliders className="w-3.5 h-3.5 text-brand-gold" />
+              <span className="bg-surface-card text-brand-cyan border border-brand-cyan/40 px-2.5 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1.5">
+                <Sliders className="w-3.5 h-3.5 text-brand-cyan" />
                 <span>WHAT-IF SIMULATION ACTIVE</span>
               </span>
             )}
@@ -175,9 +175,9 @@ export default function MissionControlDashboard() {
           <div className="flex items-center gap-3 text-[11px] text-text-secondary">
             <span className="flex items-center gap-1"><Satellite className="w-3 h-3 text-brand-cyan" /> Sentinel-2 L2A Multispectral</span>
             <span>•</span>
-            <span className="flex items-center gap-1"><Cpu className="w-3 h-3 text-brand-sand" /> 10-Channel U-Net ONNX</span>
+            <span className="flex items-center gap-1"><Cpu className="w-3 h-3 text-brand-cyan" /> 10-Channel U-Net ONNX</span>
             <span>•</span>
-            <span className="flex items-center gap-1"><Activity className="w-3 h-3 text-brand-gold" /> XGBoost Prescriptive AI</span>
+            <span className="flex items-center gap-1"><Activity className="w-3 h-3 text-brand-cyan" /> XGBoost Prescriptive AI</span>
           </div>
         </div>
       </footer>
