@@ -87,11 +87,81 @@ def prepare_training_matrices(
     
     return X, y, FEATURE_COLUMNS
 
+def train_and_evaluate_xgboost(
+    csv_path: str = "data/processed/mine_operations.csv",
+    test_size: float = 0.20,
+    random_state: int = 42
+) -> Tuple[Any, Dict[str, Any], pd.DataFrame]:
+    """
+    Trains an XGBClassifier with stratified train/test partitioning and calculates
+    comprehensive operational risk metrics (ROC-AUC, F1, Recall, Precision).
+    """
+    from sklearn.model_selection import train_test_split, cross_val_score
+    from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix
+    from xgboost import XGBClassifier
+    
+    X, y, feature_cols = prepare_training_matrices(csv_path)
+    
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, random_state=random_state, stratify=y
+    )
+    
+    print(f"\n[XGBoost Training] Training dataset: {X_train.shape[0]} samples | Testing: {X_test.shape[0]} samples")
+    print(f"Target distribution -> Train Shortfalls: {y_train.sum()} ({y_train.mean()*100:.1f}%), Test: {y_test.sum()} ({y_test.mean()*100:.1f}%)")
+    
+    model = XGBClassifier(
+        n_estimators=180,
+        max_depth=5,
+        learning_rate=0.06,
+        subsample=0.85,
+        colsample_bytree=0.85,
+        gamma=0.2,
+        eval_metric="logloss",
+        random_state=random_state
+    )
+    
+    model.fit(
+        X_train, y_train,
+        eval_set=[(X_train, y_train), (X_test, y_test)],
+        verbose=False
+    )
+    
+    # Predictions
+    y_pred = model.predict(X_test)
+    y_prob = model.predict_proba(X_test)[:, 1]
+    
+    metrics = {
+        "accuracy": float(accuracy_score(y_test, y_pred)),
+        "precision": float(precision_score(y_test, y_pred, zero_division=0)),
+        "recall": float(recall_score(y_test, y_pred, zero_division=0)),
+        "f1_score": float(f1_score(y_test, y_pred, zero_division=0)),
+        "roc_auc": float(roc_auc_score(y_test, y_prob)),
+        "confusion_matrix": confusion_matrix(y_test, y_pred).tolist(),
+    }
+    
+    # Feature Importances
+    importances = model.feature_importances_
+    fi_df = pd.DataFrame({
+        "feature": feature_cols,
+        "importance": importances
+    }).sort_values(by="importance", ascending=False).reset_index(drop=True)
+    
+    print("\n--- XGBoost Production Shortfall Classifier Evaluation ---")
+    print(f"Accuracy:  {metrics['accuracy']*100:.2f}%")
+    print(f"ROC-AUC:   {metrics['roc_auc']:.4f}")
+    print(f"Precision: {metrics['precision']*100:.2f}%")
+    print(f"Recall:    {metrics['recall']*100:.2f}%")
+    print(f"F1-Score:  {metrics['f1_score']:.4f}")
+    print("\nTop 7 Predictive Mining Risk Indicators:")
+    for idx, row in fi_df.head(7).iterrows():
+        print(f"  {idx+1}. {row['feature']:<25} ({row['importance']*100:.2f}%)")
+        
+    return model, metrics, fi_df
+
 if __name__ == "__main__":
     from data.scripts.generate_synthetic_operations import export_operations_dataset
     if not os.path.exists("data/processed/mine_operations.csv"):
         export_operations_dataset()
         
-    X, y, cols = prepare_training_matrices()
-    print(f"Engineered feature matrix shape: {X.shape}, Target shape: {y.shape}")
-    print(f"Feature columns ({len(cols)}): {cols[:6]} ...")
+    train_and_evaluate_xgboost()
+
