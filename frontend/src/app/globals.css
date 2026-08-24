@@ -6,20 +6,20 @@
 @tailwind utilities;
 
 :root {
-  --background: #E0E4CC;
-  --foreground: #1A202C;
-  --surface-card: #F4F6E6;
-  --surface-hover: #FFFFFF;
-  --border-subtle: #A7DBD8;
-  --brand-teal: #A7DBD8;
-  --brand-cyan: #69D2E7;
-  --brand-sand: #F38630;
-  --brand-gold: #FA6900;
+  --background: #080E14;
+  --foreground: #F0F6FC;
+  --surface-card: #0E1B26;
+  --surface-hover: #142738;
+  --border-subtle: #1E3A52;
+  --brand-teal: #218DAE;
+  --brand-cyan: #2BBBD7;
+  --brand-sand: #FCE59A;
+  --brand-gold: #FFD758;
 }
 
 body {
-  color: #1A202C;
-  background: #E0E4CC;
+  color: #F0F6FC;
+  background: #080E14;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }

@@ -13,24 +13,24 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         brand: {
-          teal: "#A7DBD8",
-          cyan: "#69D2E7",
-          sand: "#F38630",
-          gold: "#FA6900",
+          teal: "#218DAE",
+          cyan: "#2BBBD7",
+          sand: "#FCE59A",
+          gold: "#FFD758",
         },
         canvas: {
-          dark: "#E0E4CC",
+          dark: "#080E14",
         },
         surface: {
-          card: "#F4F6E6",
-          hover: "#FFFFFF",
+          card: "#0E1B26",
+          hover: "#142738",
         },
         border: {
-          subtle: "#A7DBD8",
+          subtle: "#1E3A52",
         },
         text: {
-          primary: "#1A202C",
-          secondary: "#4A5568",
+          primary: "#F0F6FC",
+          secondary: "#9FB3C8",
         },
       },
       fontFamily: {
