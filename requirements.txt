@@ -1,0 +1,37 @@
+# ==============================================================================
+# MOIL LIMITED — AI/ML & Space-Tech Manganese Platform
+# Python Dependencies Specification for Training Cluster & Production Backend
+# ==============================================================================
+
+# Core Deep Learning & Computer Vision
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Classical Machine Learning & Feature Engineering
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+
+# ONNX Runtime & Neural Graph Serialization
+onnx>=1.15.0
+onnxruntime>=1.17.0
+
+# Geospatial Space-Tech & Remote Sensing
+rasterio>=1.3.0
+shapely>=2.0.0
+pystac-client>=0.7.0
+planetary-computer>=0.5.0
+geopandas>=0.14.0
+
+# FastAPI Backend & Production Server
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+requests>=2.31.0
+
+# Utilities & CLI Progress
+tqdm>=4.66.0
+python-dateutil>=2.8.2
