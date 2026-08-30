@@ -25,14 +25,22 @@ wheels/
 .installed.cfg
 *.egg
 
-# Data & Large Files
-data/raw/*.tif
-data/raw/*.tiff
-data/raw/*.jp2
+# Data & Large Satellite Files (Excludes large raw/processed arrays from Git trap)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/spectral_patches/*
+!data/processed/spectral_patches/.gitkeep
 data/processed/*.npz
 data/processed/*.npy
+data/processed/*.tif
+data/processed/*.tiff
 !data/processed/.gitkeep
-!data/raw/.gitkeep
+!data/processed/mine_operations.csv
+
+# Keep trained model artifacts in git
+!backend/app/models/*.onnx
+!backend/app/models/*.pkl
+!backend/app/models/*.json
 
 # Checkpoints and Logs
 *.log

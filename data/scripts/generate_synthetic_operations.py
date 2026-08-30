@@ -72,7 +72,20 @@ def synthesize_mining_operations(
         telemetry_df = load_and_preprocess_equipment_telemetry()
         
     date_range = pd.date_range(start=start_date, periods=num_records // 3 + 1, freq="D")
-    sectors = ["balaghat", "bhandara", "nagpur", "chhindwara", "keonjhar"]
+    
+    # Import 14 sectors from registry
+    try:
+        from data.scripts.fetch_satellite_data import MINING_SECTORS
+        sectors = list(MINING_SECTORS.keys())
+    except ImportError:
+        sectors = [
+            "balaghat_bharweli", "balaghat_ukwa_tirodi", "bhandara_dongri_buzurg",
+            "bhandara_chikla_sitasawangi", "nagpur_kandri_mansar", "nagpur_gumgaon_ramdongri",
+            "chhindwara_sausar", "gujarat_vadodara_pavi", "gujarat_panchmahal_halol",
+            "rajasthan_banswara", "odisha_keonjhar_joda", "odisha_sundargarh_bonai",
+            "jharkhand_singhbhum", "karnataka_sandur_bellary"
+        ]
+        
     shifts = ["Shift_A_Morning", "Shift_B_Evening", "Shift_C_Night"]
     
     records = []
@@ -83,7 +96,7 @@ def synthesize_mining_operations(
         shift = shifts[i % len(shifts)]
         day_of_year = date.dayofyear
         
-        # 1. Weather Dynamics (Central/Eastern India Monsoon between Day 160 - 270)
+        # 1. Weather Dynamics (Monsoon spikes between Day 160 - 270)
         is_monsoon = 160 <= day_of_year <= 270
         base_rain = np.random.exponential(scale=18.0) if is_monsoon else np.random.exponential(scale=1.2)
         rainfall_mm = float(np.clip(base_rain, 0.0, 110.0))
@@ -110,8 +123,13 @@ def synthesize_mining_operations(
         
         # 4. Production Tonnage & Shortfall Logic
         # Standard shift target per sector
-        target_base = {"balaghat": 2800, "bhandara": 2200, "nagpur": 1900, "chhindwara": 1600, "keonjhar": 3100}
-        target_tonnage = float(target_base[sector] * (1.0 if shift == "Shift_A_Morning" else 0.9 if shift == "Shift_B_Evening" else 0.75))
+        target_shift_base = 2500.0
+        try:
+            target_shift_base = float(MINING_SECTORS.get(sector, {}).get("target_tonnage_shift", 2500.0))
+        except Exception:
+            pass
+            
+        target_tonnage = float(target_shift_base * (1.0 if shift == "Shift_A_Morning" else 0.9 if shift == "Shift_B_Evening" else 0.75))
         
         # Output capacity calculation
         effective_haul_factor = (active_dumpers / 12.0) * (26.0 / haul_cycle_mins)
