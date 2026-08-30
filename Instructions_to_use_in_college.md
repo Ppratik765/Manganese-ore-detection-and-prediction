@@ -1,6 +1,6 @@
 # 🚀 MOIL Space-Tech Platform: University Lab Training & Laptop Deployment Guide
 
-This guide details the complete, step-by-step workflow for training the expanded **14-Sector National Manganese AI/ML Pipeline (20×20 km)** on high-compute university computers and seamlessly syncing the trained model artifacts back to your laptop for presentation on the Next.js Mission Control Dashboard.
+This guide details the complete, step-by-step workflow for training the expanded **20-Sector National Manganese AI/ML Pipeline (20×20 km)** on high-compute university computers and seamlessly syncing the trained model artifacts back to your laptop for presentation on the Next.js Mission Control Dashboard.
 
 ---
 
@@ -25,15 +25,15 @@ This guide details the complete, step-by-step workflow for training the expanded
 │ 2. Downloads Sentinel-2 20x20km data │          │    models via 'git pull'          │
 │ 3. Generates 256x256 spectral chips  │          │ 2. Starts FastAPI backend         │
 │ 4. Trains 10-Channel U-Net (PyTorch) │          │ 3. Starts Next.js frontend        │
-│ 5. Exports 'reserves_unet.onnx' (18MB│          │ 4. Instant real-time telemetry    │
+│ 5. Exports 'reserves_unet.onnx' (29MB│          │ 4. Instant real-time telemetry    │
 │ 6. Trains 'shortfall_xgb.pkl' (2MB)  │          │    and Leaflet heatmaps across    │
-│ 7. Pushes models to GitHub           │          │    all 14 national mining belts   │
+│ 7. Pushes models to GitHub           │          │    all 20 national mining belts   │
 └──────────────────────────────────────┘          └───────────────────────────────────┘
 ```
 
 > [!NOTE]
 > **Why this solves the GitHub Data Trap:**  
-> Large raw multi-spectral satellite rasters (several gigabytes) stay local on the lab computer and are excluded via `.gitignore`. Only the **lightweight, optimized ONNX neural graph (`~18 MB`)**, **XGBoost model (`~2 MB`)**, and **inference metadata (`~200 KB`)** are pushed to GitHub. This bypasses GitHub's 100 MB limit completely!
+> Large raw multi-spectral satellite rasters (several gigabytes) stay local on the lab computer and are excluded via `.gitignore`. Only the **lightweight, optimized ONNX neural graph (`~29 MB`)**, **XGBoost model (`~2 MB`)**, and **inference metadata (`~440 KB`)** are pushed to GitHub. This bypasses GitHub's 100 MB limit completely!
 
 ---
 
@@ -80,10 +80,10 @@ pip install numpy pandas scikit-learn xgboost onnx onnxruntime rasterio pystac-c
 ---
 
 ### Step 1.3: Run the Master Training Orchestrator
-Execute the automated end-to-end 14-sector training pipeline:
+Execute the automated end-to-end 20-sector training pipeline:
 
 ```bash
-# Default run (15 Epochs on 14 Sectors with Batch Size 8):
+# Default run (15 Epochs on 20 Sectors with Batch Size 8):
 python scripts/train_university_cluster.py
 
 # Optional: Custom GPU parameters (e.g. 25 Epochs with Batch Size 16 on lab NVIDIA GPU):
@@ -92,16 +92,16 @@ python scripts/train_university_cluster.py --epochs 25 --batch-size 16 --lr 0.00
 
 #### 🔍 What this single command does automatically:
 1. **Verifies Hardware**: Detects CUDA GPUs (e.g. NVIDIA RTX 3080/4090/A100) or uses multi-threaded CPU.
-2. **Ingests 14 National Belts (20×20 km)**:
-   * *Central India (MOIL Core)*: Bharweli, Ukwa, Dongri Buzurg, Chikla, Kandri, Gumgaon, Sausar.
-   * *Western India (Champaner/Aravalli)*: Pavi Jetpur, Halol/Shivrajpur, Banswara.
-   * *Eastern India (IOG/Gangpur)*: Barbil/Joda, Sundargarh/Bonai, Singhbhum/Chaibasa.
-   * *Southern India (Sandur)*: Bellary/Kumaraswamy Range.
+2. **Ingests 20 National Belts (20×20 km)**:
+   * *Central India (MOIL Core)*: Bharweli, Ukwa, Tirodi, Dongri Buzurg, Chikla, Kandri, Gumgaon, Beldongri-Satak, Sausar-Gowari.
+   * *Western India (Champaner/Aravalli)*: Pavi Jetpur, Halol/Shivrajpur, Banswara-Tambesra.
+   * *Eastern India (IOG/Gangpur)*: Barbil/Joda, Sundargarh/Bonai, Sundargarh/Patmunda, Singhbhum/Chaibasa.
+   * *Southern India (Dharwar/Eastern Ghats)*: Sandur-Kumaraswamy, Shimoga-Kumsi, Vizianagaram-Garividi, Goa-Sanguem.
 3. **Calculates Spectral Diagnostic Indices**: NDVI, Clay Alteration, Ferrous Minerals, and Iron Oxide Gossan signatures.
 4. **Trains PyTorch 10-Channel U-Net**: Multi-task learning (Dice Loss + Focal Loss + Grade MAE Regression).
 5. **Exports `backend/app/models/reserves_unet.onnx`**: C++ static computation graph validated with ONNX Runtime.
 6. **Trains `backend/app/models/shortfall_xgb.pkl`**: Gradient-boosted operational risk forecaster with prescriptive AI dispatch.
-7. **Precomputes `backend/app/models/sector_grid_cache.json`**: Pre-generated inference grids for instantaneous UI loading.
+7. **Precomputes `backend/app/models/sector_grid_cache.json`**: Pre-generated inference grids for instantaneous UI loading across all 20 sectors.
 
 ---
 

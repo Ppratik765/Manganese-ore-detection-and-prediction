@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="absolute top-full left-0 mt-2 w-80 md:w-96 bg-surface-card border border-border-subtle rounded-xl shadow-2xl shadow-black/90 backdrop-blur-xl z-50 overflow-hidden py-1.5 divide-y divide-border-subtle max-h-[70vh] flex flex-col">
                 <div className="px-3.5 py-2 text-[10px] uppercase font-mono tracking-widest text-brand-sand bg-canvas-dark/80 shrink-0 flex items-center justify-between">
                   <span>Select Exploration & Mining Belt</span>
-                  <span className="text-brand-gold font-bold">14 Belts</span>
+                  <span className="text-brand-gold font-bold">20 Belts</span>
                 </div>
                 <div className="py-1 overflow-y-auto flex-1">
                   {SECTORS_LIST.map((s) => (

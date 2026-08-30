@@ -66,7 +66,7 @@ def verify_environment():
         sys.exit(1)
 
 def run_data_preparation(patches_per_sector: int = 16, patch_size: int = 256):
-    print_header("Step 1: Ingesting & Tiling 14 National Mining Sectors (20x20 km)")
+    print_header("Step 1: Ingesting & Tiling 20 National Mining Sectors (20x20 km)")
     from data.scripts.preprocess_spectral_tiles import run_data_pipeline
     from data.scripts.fetch_satellite_data import MINING_SECTORS
     
