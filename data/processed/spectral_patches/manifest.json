@@ -1,12 +1,12 @@
 [
   {
-    "filename": "patch_balaghat_000.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_000.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_bharweli_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_bharweli_000.npz",
+    "sector": "balaghat_bharweli",
     "state": "Madhya Pradesh",
     "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 43.22638171951764,
-    "ore_pixel_ratio": 0.1512603759765625,
+    "grade_pct": 44.465752425656234,
+    "ore_pixel_ratio": 0.1463623046875,
     "tensor_shape": [
       10,
       256,
@@ -19,13 +19,13 @@
     ]
   },
   {
-    "filename": "patch_balaghat_001.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_001.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_bharweli_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_bharweli_001.npz",
+    "sector": "balaghat_bharweli",
     "state": "Madhya Pradesh",
     "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 46.75335222346256,
-    "ore_pixel_ratio": 0.1465911865234375,
+    "grade_pct": 43.99341311831706,
+    "ore_pixel_ratio": 0.1534881591796875,
     "tensor_shape": [
       10,
       256,
@@ -38,13 +38,13 @@
     ]
   },
   {
-    "filename": "patch_balaghat_002.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_002.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_bharweli_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_bharweli_002.npz",
+    "sector": "balaghat_bharweli",
     "state": "Madhya Pradesh",
     "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 40.99878110800009,
-    "ore_pixel_ratio": 0.14501953125,
+    "grade_pct": 46.21579880985658,
+    "ore_pixel_ratio": 0.1446380615234375,
     "tensor_shape": [
       10,
       256,
@@ -57,13 +57,13 @@
     ]
   },
   {
-    "filename": "patch_balaghat_003.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_003.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_bharweli_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_bharweli_003.npz",
+    "sector": "balaghat_bharweli",
     "state": "Madhya Pradesh",
     "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 45.88459862209945,
-    "ore_pixel_ratio": 0.1470794677734375,
+    "grade_pct": 44.28310822629492,
+    "ore_pixel_ratio": 0.1483001708984375,
     "tensor_shape": [
       10,
       256,
@@ -76,13 +76,13 @@
     ]
   },
   {
-    "filename": "patch_balaghat_004.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_004.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_ukwa_tirodi_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_ukwa_tirodi_000.npz",
+    "sector": "balaghat_ukwa_tirodi",
     "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 45.92713988171004,
-    "ore_pixel_ratio": 0.150390625,
+    "formation": "Sausar Group (Tirodi Gneissic Complex)",
+    "grade_pct": 42.54812274885256,
+    "ore_pixel_ratio": 0.1437835693359375,
     "tensor_shape": [
       10,
       256,
@@ -95,13 +95,13 @@
     ]
   },
   {
-    "filename": "patch_balaghat_005.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_005.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_ukwa_tirodi_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_ukwa_tirodi_001.npz",
+    "sector": "balaghat_ukwa_tirodi",
     "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 46.5890361861678,
-    "ore_pixel_ratio": 0.148406982421875,
+    "formation": "Sausar Group (Tirodi Gneissic Complex)",
+    "grade_pct": 46.05566651122849,
+    "ore_pixel_ratio": 0.14617919921875,
     "tensor_shape": [
       10,
       256,
@@ -114,13 +114,13 @@
     ]
   },
   {
-    "filename": "patch_balaghat_006.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_006.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_ukwa_tirodi_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_ukwa_tirodi_002.npz",
+    "sector": "balaghat_ukwa_tirodi",
     "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 44.360634221035376,
-    "ore_pixel_ratio": 0.1432952880859375,
+    "formation": "Sausar Group (Tirodi Gneissic Complex)",
+    "grade_pct": 42.59946449488171,
+    "ore_pixel_ratio": 0.152496337890625,
     "tensor_shape": [
       10,
       256,
@@ -133,13 +133,13 @@
     ]
   },
   {
-    "filename": "patch_balaghat_007.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_007.npz",
-    "sector": "balaghat",
+    "filename": "patch_balaghat_ukwa_tirodi_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_balaghat_ukwa_tirodi_003.npz",
+    "sector": "balaghat_ukwa_tirodi",
     "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 46.33863591622227,
-    "ore_pixel_ratio": 0.146392822265625,
+    "formation": "Sausar Group (Tirodi Gneissic Complex)",
+    "grade_pct": 42.879042092351675,
+    "ore_pixel_ratio": 0.1495819091796875,
     "tensor_shape": [
       10,
       256,
@@ -152,221 +152,12 @@
     ]
   },
   {
-    "filename": "patch_balaghat_008.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_008.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 41.5310208114644,
-    "ore_pixel_ratio": 0.14349365234375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_balaghat_009.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_009.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 42.05772466645826,
-    "ore_pixel_ratio": 0.1420135498046875,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_balaghat_010.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_010.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 44.818216140366715,
-    "ore_pixel_ratio": 0.1457672119140625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_balaghat_011.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_011.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 45.28994232655835,
-    "ore_pixel_ratio": 0.153717041015625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_balaghat_012.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_012.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 44.28742397146391,
-    "ore_pixel_ratio": 0.1449127197265625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_balaghat_013.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_013.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 44.82935884166569,
-    "ore_pixel_ratio": 0.146026611328125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_balaghat_014.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_014.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 45.529551430044066,
-    "ore_pixel_ratio": 0.1459197998046875,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_balaghat_015.npz",
-    "filepath": "data/processed/spectral_patches/patch_balaghat_015.npz",
-    "sector": "balaghat",
-    "state": "Madhya Pradesh",
-    "formation": "Sausar Group (Mansar Formation)",
-    "grade_pct": 45.33114002014484,
-    "ore_pixel_ratio": 0.14447021484375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_bhandara_000.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_000.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_dongri_buzurg_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_dongri_buzurg_000.npz",
+    "sector": "bhandara_dongri_buzurg",
     "state": "Maharashtra",
     "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 41.35189980392623,
-    "ore_pixel_ratio": 0.150115966796875,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_bhandara_001.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_001.npz",
-    "sector": "bhandara",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 41.62780084969051,
-    "ore_pixel_ratio": 0.1482086181640625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_bhandara_002.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_002.npz",
-    "sector": "bhandara",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 42.02988549897274,
-    "ore_pixel_ratio": 0.15020751953125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_bhandara_003.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_003.npz",
-    "sector": "bhandara",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 41.047930709331254,
+    "grade_pct": 39.725576865947616,
     "ore_pixel_ratio": 0.149505615234375,
     "tensor_shape": [
       10,
@@ -380,13 +171,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_004.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_004.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_dongri_buzurg_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_dongri_buzurg_001.npz",
+    "sector": "bhandara_dongri_buzurg",
     "state": "Maharashtra",
     "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 40.34058698366269,
-    "ore_pixel_ratio": 0.142822265625,
+    "grade_pct": 41.19086417839877,
+    "ore_pixel_ratio": 0.1474456787109375,
     "tensor_shape": [
       10,
       256,
@@ -399,13 +190,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_005.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_005.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_dongri_buzurg_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_dongri_buzurg_002.npz",
+    "sector": "bhandara_dongri_buzurg",
     "state": "Maharashtra",
     "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 39.05632668040974,
-    "ore_pixel_ratio": 0.144256591796875,
+    "grade_pct": 41.92318082142372,
+    "ore_pixel_ratio": 0.1465911865234375,
     "tensor_shape": [
       10,
       256,
@@ -418,13 +209,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_006.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_006.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_dongri_buzurg_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_dongri_buzurg_003.npz",
+    "sector": "bhandara_dongri_buzurg",
     "state": "Maharashtra",
     "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 40.76581905695578,
-    "ore_pixel_ratio": 0.1473541259765625,
+    "grade_pct": 45.16293173771966,
+    "ore_pixel_ratio": 0.14154052734375,
     "tensor_shape": [
       10,
       256,
@@ -437,13 +228,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_007.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_007.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_chikla_sitasawangi_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_chikla_sitasawangi_000.npz",
+    "sector": "bhandara_chikla_sitasawangi",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 40.32720045545858,
-    "ore_pixel_ratio": 0.1461334228515625,
+    "formation": "Sausar Group (GSR 723(E) Gazette Reserved Block)",
+    "grade_pct": 42.27739400686555,
+    "ore_pixel_ratio": 0.1470184326171875,
     "tensor_shape": [
       10,
       256,
@@ -456,13 +247,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_008.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_008.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_chikla_sitasawangi_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_chikla_sitasawangi_001.npz",
+    "sector": "bhandara_chikla_sitasawangi",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 36.26908226395144,
-    "ore_pixel_ratio": 0.1533660888671875,
+    "formation": "Sausar Group (GSR 723(E) Gazette Reserved Block)",
+    "grade_pct": 41.972935090265864,
+    "ore_pixel_ratio": 0.147857666015625,
     "tensor_shape": [
       10,
       256,
@@ -475,13 +266,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_009.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_009.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_chikla_sitasawangi_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_chikla_sitasawangi_002.npz",
+    "sector": "bhandara_chikla_sitasawangi",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 41.31888762603188,
-    "ore_pixel_ratio": 0.1403961181640625,
+    "formation": "Sausar Group (GSR 723(E) Gazette Reserved Block)",
+    "grade_pct": 42.24038006228917,
+    "ore_pixel_ratio": 0.146514892578125,
     "tensor_shape": [
       10,
       256,
@@ -494,13 +285,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_010.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_010.npz",
-    "sector": "bhandara",
+    "filename": "patch_bhandara_chikla_sitasawangi_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_bhandara_chikla_sitasawangi_003.npz",
+    "sector": "bhandara_chikla_sitasawangi",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 39.95874273614523,
-    "ore_pixel_ratio": 0.1433258056640625,
+    "formation": "Sausar Group (GSR 723(E) Gazette Reserved Block)",
+    "grade_pct": 45.71443334180946,
+    "ore_pixel_ratio": 0.1516265869140625,
     "tensor_shape": [
       10,
       256,
@@ -513,13 +304,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_011.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_011.npz",
-    "sector": "bhandara",
+    "filename": "patch_nagpur_kandri_mansar_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_kandri_mansar_000.npz",
+    "sector": "nagpur_kandri_mansar",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 41.83337433376684,
-    "ore_pixel_ratio": 0.1463775634765625,
+    "formation": "Sausar Group (Lohangi Formation - GSR 723(E))",
+    "grade_pct": 37.42565825196894,
+    "ore_pixel_ratio": 0.1467132568359375,
     "tensor_shape": [
       10,
       256,
@@ -532,13 +323,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_012.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_012.npz",
-    "sector": "bhandara",
+    "filename": "patch_nagpur_kandri_mansar_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_kandri_mansar_001.npz",
+    "sector": "nagpur_kandri_mansar",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 39.384229571800624,
-    "ore_pixel_ratio": 0.1468048095703125,
+    "formation": "Sausar Group (Lohangi Formation - GSR 723(E))",
+    "grade_pct": 40.452894148140565,
+    "ore_pixel_ratio": 0.140869140625,
     "tensor_shape": [
       10,
       256,
@@ -551,13 +342,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_013.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_013.npz",
-    "sector": "bhandara",
+    "filename": "patch_nagpur_kandri_mansar_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_kandri_mansar_002.npz",
+    "sector": "nagpur_kandri_mansar",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 38.7395467098942,
-    "ore_pixel_ratio": 0.15191650390625,
+    "formation": "Sausar Group (Lohangi Formation - GSR 723(E))",
+    "grade_pct": 38.666847395089036,
+    "ore_pixel_ratio": 0.145782470703125,
     "tensor_shape": [
       10,
       256,
@@ -570,13 +361,13 @@
     ]
   },
   {
-    "filename": "patch_bhandara_014.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_014.npz",
-    "sector": "bhandara",
+    "filename": "patch_nagpur_kandri_mansar_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_kandri_mansar_003.npz",
+    "sector": "nagpur_kandri_mansar",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 43.006339758559655,
-    "ore_pixel_ratio": 0.143707275390625,
+    "formation": "Sausar Group (Lohangi Formation - GSR 723(E))",
+    "grade_pct": 38.432463665031605,
+    "ore_pixel_ratio": 0.1439208984375,
     "tensor_shape": [
       10,
       256,
@@ -589,525 +380,12 @@
     ]
   },
   {
-    "filename": "patch_bhandara_015.npz",
-    "filepath": "data/processed/spectral_patches/patch_bhandara_015.npz",
-    "sector": "bhandara",
+    "filename": "patch_nagpur_gumgaon_ramdongri_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_gumgaon_ramdongri_000.npz",
+    "sector": "nagpur_gumgaon_ramdongri",
     "state": "Maharashtra",
-    "formation": "Sausar Group (Dongri Buzurg Formation)",
-    "grade_pct": 40.28750074339503,
-    "ore_pixel_ratio": 0.1479339599609375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_000.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_000.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 39.68533255611512,
-    "ore_pixel_ratio": 0.146728515625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_001.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_001.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 39.06658538595182,
-    "ore_pixel_ratio": 0.148345947265625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_002.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_002.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 39.887952418551954,
-    "ore_pixel_ratio": 0.1526641845703125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_003.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_003.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 39.64435285104091,
-    "ore_pixel_ratio": 0.147735595703125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_004.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_004.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 38.09881534292062,
-    "ore_pixel_ratio": 0.14117431640625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_005.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_005.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 39.14036370557401,
-    "ore_pixel_ratio": 0.152862548828125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_006.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_006.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 41.90196920250135,
-    "ore_pixel_ratio": 0.151702880859375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_007.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_007.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 36.24063688131051,
-    "ore_pixel_ratio": 0.1458740234375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_008.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_008.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 38.26082848694113,
-    "ore_pixel_ratio": 0.1500091552734375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_009.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_009.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 39.55981801440041,
-    "ore_pixel_ratio": 0.14599609375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_010.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_010.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 39.71510762317013,
-    "ore_pixel_ratio": 0.14093017578125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_011.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_011.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 37.208969475811685,
-    "ore_pixel_ratio": 0.1480712890625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_012.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_012.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 41.65818213040809,
-    "ore_pixel_ratio": 0.1460723876953125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_013.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_013.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 40.969258435090545,
-    "ore_pixel_ratio": 0.1464996337890625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_014.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_014.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 40.77764251475686,
-    "ore_pixel_ratio": 0.1397857666015625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_nagpur_015.npz",
-    "filepath": "data/processed/spectral_patches/patch_nagpur_015.npz",
-    "sector": "nagpur",
-    "state": "Maharashtra",
-    "formation": "Sausar Group (Lohangi Formation)",
-    "grade_pct": 41.00984669252608,
-    "ore_pixel_ratio": 0.1480712890625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_000.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_000.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 37.454322742940924,
-    "ore_pixel_ratio": 0.1505584716796875,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_001.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_001.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 33.482557912944245,
-    "ore_pixel_ratio": 0.1485137939453125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_002.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_002.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 38.070090305159276,
-    "ore_pixel_ratio": 0.1453704833984375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_003.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_003.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 39.087541118534446,
-    "ore_pixel_ratio": 0.146026611328125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_004.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_004.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 37.085475526041435,
-    "ore_pixel_ratio": 0.14764404296875,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_005.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_005.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 37.3787065324835,
-    "ore_pixel_ratio": 0.1428070068359375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_006.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_006.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 39.562413247878546,
-    "ore_pixel_ratio": 0.144134521484375,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_007.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_007.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 35.41205989186022,
-    "ore_pixel_ratio": 0.1495361328125,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_008.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_008.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 36.81409950595348,
-    "ore_pixel_ratio": 0.1443023681640625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_009.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_009.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 33.91443603328,
-    "ore_pixel_ratio": 0.1493072509765625,
-    "tensor_shape": [
-      10,
-      256,
-      256
-    ],
-    "mask_shape": [
-      1,
-      256,
-      256
-    ]
-  },
-  {
-    "filename": "patch_chhindwara_010.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_010.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 39.467071890553996,
+    "formation": "Sausar Group (Ramdongri Syncline)",
+    "grade_pct": 40.58556731631015,
     "ore_pixel_ratio": 0.147216796875,
     "tensor_shape": [
       10,
@@ -1121,13 +399,70 @@
     ]
   },
   {
-    "filename": "patch_chhindwara_011.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_011.npz",
-    "sector": "chhindwara",
+    "filename": "patch_nagpur_gumgaon_ramdongri_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_gumgaon_ramdongri_001.npz",
+    "sector": "nagpur_gumgaon_ramdongri",
+    "state": "Maharashtra",
+    "formation": "Sausar Group (Ramdongri Syncline)",
+    "grade_pct": 39.44286076078244,
+    "ore_pixel_ratio": 0.147796630859375,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_nagpur_gumgaon_ramdongri_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_gumgaon_ramdongri_002.npz",
+    "sector": "nagpur_gumgaon_ramdongri",
+    "state": "Maharashtra",
+    "formation": "Sausar Group (Ramdongri Syncline)",
+    "grade_pct": 39.83474320716935,
+    "ore_pixel_ratio": 0.1399993896484375,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_nagpur_gumgaon_ramdongri_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_nagpur_gumgaon_ramdongri_003.npz",
+    "sector": "nagpur_gumgaon_ramdongri",
+    "state": "Maharashtra",
+    "formation": "Sausar Group (Ramdongri Syncline)",
+    "grade_pct": 38.6828213590783,
+    "ore_pixel_ratio": 0.1442718505859375,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_chhindwara_sausar_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_chhindwara_sausar_000.npz",
+    "sector": "chhindwara_sausar",
     "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 37.89469695172273,
-    "ore_pixel_ratio": 0.14605712890625,
+    "formation": "Sausar Group (Bichua Formation)",
+    "grade_pct": 40.27678479665839,
+    "ore_pixel_ratio": 0.14697265625,
     "tensor_shape": [
       10,
       256,
@@ -1140,13 +475,13 @@
     ]
   },
   {
-    "filename": "patch_chhindwara_012.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_012.npz",
-    "sector": "chhindwara",
+    "filename": "patch_chhindwara_sausar_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_chhindwara_sausar_001.npz",
+    "sector": "chhindwara_sausar",
     "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 35.5442345672909,
-    "ore_pixel_ratio": 0.1494140625,
+    "formation": "Sausar Group (Bichua Formation)",
+    "grade_pct": 38.212244333206,
+    "ore_pixel_ratio": 0.144622802734375,
     "tensor_shape": [
       10,
       256,
@@ -1159,13 +494,13 @@
     ]
   },
   {
-    "filename": "patch_chhindwara_013.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_013.npz",
-    "sector": "chhindwara",
+    "filename": "patch_chhindwara_sausar_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_chhindwara_sausar_002.npz",
+    "sector": "chhindwara_sausar",
     "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 37.42323630364589,
-    "ore_pixel_ratio": 0.1478729248046875,
+    "formation": "Sausar Group (Bichua Formation)",
+    "grade_pct": 39.50217016020844,
+    "ore_pixel_ratio": 0.1461029052734375,
     "tensor_shape": [
       10,
       256,
@@ -1178,13 +513,13 @@
     ]
   },
   {
-    "filename": "patch_chhindwara_014.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_014.npz",
-    "sector": "chhindwara",
+    "filename": "patch_chhindwara_sausar_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_chhindwara_sausar_003.npz",
+    "sector": "chhindwara_sausar",
     "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 38.73707278415067,
-    "ore_pixel_ratio": 0.145294189453125,
+    "formation": "Sausar Group (Bichua Formation)",
+    "grade_pct": 37.57948036565436,
+    "ore_pixel_ratio": 0.1527557373046875,
     "tensor_shape": [
       10,
       256,
@@ -1197,13 +532,13 @@
     ]
   },
   {
-    "filename": "patch_chhindwara_015.npz",
-    "filepath": "data/processed/spectral_patches/patch_chhindwara_015.npz",
-    "sector": "chhindwara",
-    "state": "Madhya Pradesh",
-    "formation": "Tirodi Gneissic Complex",
-    "grade_pct": 36.52251559505851,
-    "ore_pixel_ratio": 0.1458587646484375,
+    "filename": "patch_gujarat_vadodara_pavi_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_vadodara_pavi_000.npz",
+    "sector": "gujarat_vadodara_pavi",
+    "state": "Gujarat",
+    "formation": "Champaner Group (GMDC Reserved Block)",
+    "grade_pct": 37.293182513034445,
+    "ore_pixel_ratio": 0.1479034423828125,
     "tensor_shape": [
       10,
       256,
@@ -1216,13 +551,222 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_000.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_000.npz",
-    "sector": "keonjhar",
+    "filename": "patch_gujarat_vadodara_pavi_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_vadodara_pavi_001.npz",
+    "sector": "gujarat_vadodara_pavi",
+    "state": "Gujarat",
+    "formation": "Champaner Group (GMDC Reserved Block)",
+    "grade_pct": 35.030569941813496,
+    "ore_pixel_ratio": 0.1503143310546875,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_gujarat_vadodara_pavi_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_vadodara_pavi_002.npz",
+    "sector": "gujarat_vadodara_pavi",
+    "state": "Gujarat",
+    "formation": "Champaner Group (GMDC Reserved Block)",
+    "grade_pct": 37.84052105390115,
+    "ore_pixel_ratio": 0.1482086181640625,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_gujarat_vadodara_pavi_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_vadodara_pavi_003.npz",
+    "sector": "gujarat_vadodara_pavi",
+    "state": "Gujarat",
+    "formation": "Champaner Group (GMDC Reserved Block)",
+    "grade_pct": 38.08581087272131,
+    "ore_pixel_ratio": 0.1480560302734375,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_gujarat_panchmahal_halol_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_panchmahal_halol_000.npz",
+    "sector": "gujarat_panchmahal_halol",
+    "state": "Gujarat",
+    "formation": "Champaner Group (Shivrajpur Horizon)",
+    "grade_pct": 39.483435670894636,
+    "ore_pixel_ratio": 0.1491546630859375,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_gujarat_panchmahal_halol_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_panchmahal_halol_001.npz",
+    "sector": "gujarat_panchmahal_halol",
+    "state": "Gujarat",
+    "formation": "Champaner Group (Shivrajpur Horizon)",
+    "grade_pct": 37.08878255978152,
+    "ore_pixel_ratio": 0.147796630859375,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_gujarat_panchmahal_halol_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_panchmahal_halol_002.npz",
+    "sector": "gujarat_panchmahal_halol",
+    "state": "Gujarat",
+    "formation": "Champaner Group (Shivrajpur Horizon)",
+    "grade_pct": 37.24714903832443,
+    "ore_pixel_ratio": 0.147369384765625,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_gujarat_panchmahal_halol_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_gujarat_panchmahal_halol_003.npz",
+    "sector": "gujarat_panchmahal_halol",
+    "state": "Gujarat",
+    "formation": "Champaner Group (Shivrajpur Horizon)",
+    "grade_pct": 38.7157967620763,
+    "ore_pixel_ratio": 0.153533935546875,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_rajasthan_banswara_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_rajasthan_banswara_000.npz",
+    "sector": "rajasthan_banswara",
+    "state": "Rajasthan",
+    "formation": "Aravalli Supergroup (Lunavada Group)",
+    "grade_pct": 33.817203790969714,
+    "ore_pixel_ratio": 0.14556884765625,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_rajasthan_banswara_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_rajasthan_banswara_001.npz",
+    "sector": "rajasthan_banswara",
+    "state": "Rajasthan",
+    "formation": "Aravalli Supergroup (Lunavada Group)",
+    "grade_pct": 34.63075546640864,
+    "ore_pixel_ratio": 0.1444091796875,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_rajasthan_banswara_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_rajasthan_banswara_002.npz",
+    "sector": "rajasthan_banswara",
+    "state": "Rajasthan",
+    "formation": "Aravalli Supergroup (Lunavada Group)",
+    "grade_pct": 34.77813548341841,
+    "ore_pixel_ratio": 0.1472930908203125,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_rajasthan_banswara_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_rajasthan_banswara_003.npz",
+    "sector": "rajasthan_banswara",
+    "state": "Rajasthan",
+    "formation": "Aravalli Supergroup (Lunavada Group)",
+    "grade_pct": 36.618634426638394,
+    "ore_pixel_ratio": 0.1497650146484375,
+    "tensor_shape": [
+      10,
+      256,
+      256
+    ],
+    "mask_shape": [
+      1,
+      256,
+      256
+    ]
+  },
+  {
+    "filename": "patch_odisha_keonjhar_joda_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_keonjhar_joda_000.npz",
+    "sector": "odisha_keonjhar_joda",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 40.83860494412188,
-    "ore_pixel_ratio": 0.216461181640625,
+    "formation": "Iron Ore Group (IOG) Shales (SAIL/OMC)",
+    "grade_pct": 46.00960293725188,
+    "ore_pixel_ratio": 0.1426849365234375,
     "tensor_shape": [
       10,
       256,
@@ -1235,13 +779,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_001.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_001.npz",
-    "sector": "keonjhar",
+    "filename": "patch_odisha_keonjhar_joda_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_keonjhar_joda_001.npz",
+    "sector": "odisha_keonjhar_joda",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 39.521633390082265,
-    "ore_pixel_ratio": 0.2162628173828125,
+    "formation": "Iron Ore Group (IOG) Shales (SAIL/OMC)",
+    "grade_pct": 43.33776814170276,
+    "ore_pixel_ratio": 0.14569091796875,
     "tensor_shape": [
       10,
       256,
@@ -1254,13 +798,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_002.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_002.npz",
-    "sector": "keonjhar",
+    "filename": "patch_odisha_keonjhar_joda_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_keonjhar_joda_002.npz",
+    "sector": "odisha_keonjhar_joda",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 39.44345539344009,
-    "ore_pixel_ratio": 0.21563720703125,
+    "formation": "Iron Ore Group (IOG) Shales (SAIL/OMC)",
+    "grade_pct": 42.548518000407064,
+    "ore_pixel_ratio": 0.1495361328125,
     "tensor_shape": [
       10,
       256,
@@ -1273,13 +817,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_003.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_003.npz",
-    "sector": "keonjhar",
+    "filename": "patch_odisha_keonjhar_joda_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_keonjhar_joda_003.npz",
+    "sector": "odisha_keonjhar_joda",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 43.252978981897556,
-    "ore_pixel_ratio": 0.21600341796875,
+    "formation": "Iron Ore Group (IOG) Shales (SAIL/OMC)",
+    "grade_pct": 43.861436721941736,
+    "ore_pixel_ratio": 0.1503143310546875,
     "tensor_shape": [
       10,
       256,
@@ -1292,13 +836,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_004.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_004.npz",
-    "sector": "keonjhar",
+    "filename": "patch_odisha_sundargarh_bonai_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_sundargarh_bonai_000.npz",
+    "sector": "odisha_sundargarh_bonai",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 41.98448984035251,
-    "ore_pixel_ratio": 0.2166290283203125,
+    "formation": "Gangpur Group Metasediments",
+    "grade_pct": 38.96087196346566,
+    "ore_pixel_ratio": 0.145599365234375,
     "tensor_shape": [
       10,
       256,
@@ -1311,13 +855,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_005.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_005.npz",
-    "sector": "keonjhar",
+    "filename": "patch_odisha_sundargarh_bonai_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_sundargarh_bonai_001.npz",
+    "sector": "odisha_sundargarh_bonai",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 41.60909242152878,
-    "ore_pixel_ratio": 0.2163543701171875,
+    "formation": "Gangpur Group Metasediments",
+    "grade_pct": 40.01707068513721,
+    "ore_pixel_ratio": 0.1442718505859375,
     "tensor_shape": [
       10,
       256,
@@ -1330,13 +874,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_006.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_006.npz",
-    "sector": "keonjhar",
+    "filename": "patch_odisha_sundargarh_bonai_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_sundargarh_bonai_002.npz",
+    "sector": "odisha_sundargarh_bonai",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 41.17732764360673,
-    "ore_pixel_ratio": 0.2154998779296875,
+    "formation": "Gangpur Group Metasediments",
+    "grade_pct": 38.95857254522384,
+    "ore_pixel_ratio": 0.142486572265625,
     "tensor_shape": [
       10,
       256,
@@ -1349,13 +893,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_007.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_007.npz",
-    "sector": "keonjhar",
+    "filename": "patch_odisha_sundargarh_bonai_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_odisha_sundargarh_bonai_003.npz",
+    "sector": "odisha_sundargarh_bonai",
     "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 42.25118284987562,
-    "ore_pixel_ratio": 0.216827392578125,
+    "formation": "Gangpur Group Metasediments",
+    "grade_pct": 39.60493395320388,
+    "ore_pixel_ratio": 0.142730712890625,
     "tensor_shape": [
       10,
       256,
@@ -1368,13 +912,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_008.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_008.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 42.77851991392221,
-    "ore_pixel_ratio": 0.2162322998046875,
+    "filename": "patch_jharkhand_singhbhum_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_jharkhand_singhbhum_000.npz",
+    "sector": "jharkhand_singhbhum",
+    "state": "Jharkhand",
+    "formation": "Kolhan Group / Iron Ore Series",
+    "grade_pct": 38.98521473174421,
+    "ore_pixel_ratio": 0.1459808349609375,
     "tensor_shape": [
       10,
       256,
@@ -1387,13 +931,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_009.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_009.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 41.99993071603691,
-    "ore_pixel_ratio": 0.2166748046875,
+    "filename": "patch_jharkhand_singhbhum_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_jharkhand_singhbhum_001.npz",
+    "sector": "jharkhand_singhbhum",
+    "state": "Jharkhand",
+    "formation": "Kolhan Group / Iron Ore Series",
+    "grade_pct": 38.167577047155966,
+    "ore_pixel_ratio": 0.14630126953125,
     "tensor_shape": [
       10,
       256,
@@ -1406,13 +950,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_010.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_010.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 43.27203094698028,
-    "ore_pixel_ratio": 0.2165985107421875,
+    "filename": "patch_jharkhand_singhbhum_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_jharkhand_singhbhum_002.npz",
+    "sector": "jharkhand_singhbhum",
+    "state": "Jharkhand",
+    "formation": "Kolhan Group / Iron Ore Series",
+    "grade_pct": 37.62127928922683,
+    "ore_pixel_ratio": 0.147796630859375,
     "tensor_shape": [
       10,
       256,
@@ -1425,13 +969,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_011.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_011.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 41.75849859426153,
-    "ore_pixel_ratio": 0.2158966064453125,
+    "filename": "patch_jharkhand_singhbhum_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_jharkhand_singhbhum_003.npz",
+    "sector": "jharkhand_singhbhum",
+    "state": "Jharkhand",
+    "formation": "Kolhan Group / Iron Ore Series",
+    "grade_pct": 35.51595928541169,
+    "ore_pixel_ratio": 0.1451568603515625,
     "tensor_shape": [
       10,
       256,
@@ -1444,13 +988,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_012.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_012.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 43.18147647071825,
-    "ore_pixel_ratio": 0.2164154052734375,
+    "filename": "patch_karnataka_sandur_bellary_000.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_karnataka_sandur_bellary_000.npz",
+    "sector": "karnataka_sandur_bellary",
+    "state": "Karnataka",
+    "formation": "Dharwar Supergroup (Sandur Schist Belt)",
+    "grade_pct": 39.441673286635286,
+    "ore_pixel_ratio": 0.1482391357421875,
     "tensor_shape": [
       10,
       256,
@@ -1463,13 +1007,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_013.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_013.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 42.61118024796253,
-    "ore_pixel_ratio": 0.216522216796875,
+    "filename": "patch_karnataka_sandur_bellary_001.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_karnataka_sandur_bellary_001.npz",
+    "sector": "karnataka_sandur_bellary",
+    "state": "Karnataka",
+    "formation": "Dharwar Supergroup (Sandur Schist Belt)",
+    "grade_pct": 41.43505867969967,
+    "ore_pixel_ratio": 0.1514434814453125,
     "tensor_shape": [
       10,
       256,
@@ -1482,13 +1026,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_014.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_014.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 40.00670360413282,
-    "ore_pixel_ratio": 0.21636962890625,
+    "filename": "patch_karnataka_sandur_bellary_002.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_karnataka_sandur_bellary_002.npz",
+    "sector": "karnataka_sandur_bellary",
+    "state": "Karnataka",
+    "formation": "Dharwar Supergroup (Sandur Schist Belt)",
+    "grade_pct": 38.74116627261277,
+    "ore_pixel_ratio": 0.146514892578125,
     "tensor_shape": [
       10,
       256,
@@ -1501,13 +1045,13 @@
     ]
   },
   {
-    "filename": "patch_keonjhar_015.npz",
-    "filepath": "data/processed/spectral_patches/patch_keonjhar_015.npz",
-    "sector": "keonjhar",
-    "state": "Odisha",
-    "formation": "Iron Ore Group (IOG) Shales",
-    "grade_pct": 44.15772125969121,
-    "ore_pixel_ratio": 0.2158355712890625,
+    "filename": "patch_karnataka_sandur_bellary_003.npz",
+    "filepath": "C:/Users/ppmak/Downloads/SIH-Manganese-project/data/processed/spectral_patches/patch_karnataka_sandur_bellary_003.npz",
+    "sector": "karnataka_sandur_bellary",
+    "state": "Karnataka",
+    "formation": "Dharwar Supergroup (Sandur Schist Belt)",
+    "grade_pct": 41.36023651988222,
+    "ore_pixel_ratio": 0.144439697265625,
     "tensor_shape": [
       10,
       256,

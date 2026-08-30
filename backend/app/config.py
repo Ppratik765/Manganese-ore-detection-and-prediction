@@ -26,21 +26,36 @@ class Settings:
     OPERATIONS_DATA_PATH: str = os.path.join(BASE_DIR, "data", "processed", "mine_operations.csv")
     SPECTRAL_MANIFEST_PATH: str = os.path.join(BASE_DIR, "data", "processed", "spectral_patches", "manifest.json")
     
-    # Registered 5 Indian Manganese Mining Sectors
+    # Registered 14 Indian Manganese & Strategic Mining Belts (MMDR Section 17A Gazette Notified)
     SECTORS: Dict[str, Dict[str, Any]] = {
-        "balaghat": {
+        # 1. Central India - Sausar Belt (MOIL Core Hubs)
+        "balaghat_bharweli": {
             "name": "Balaghat Belt (Bharweli Mine)",
             "state": "Madhya Pradesh",
-            "bbox": [80.10, 21.75, 80.25, 21.90],
-            "centroid": [21.825, 80.175],
+            "bbox": [80.10, 21.75, 80.30, 21.95],
+            "centroid": [21.850, 80.200],
             "mine_type": "Underground & Open Cast",
             "primary_mineral": "Braunite / Pyrolusite",
             "avg_grade_pct": 44.5,
-            "est_reserves_mt": 12.8,
+            "est_reserves_mt": 14.2,
+            "geological_formation": "Sausar Group (Mansar Formation)",
             "target_tonnage_shift": 2800.0,
             "active_fleet_count": 12
         },
-        "bhandara": {
+        "balaghat_ukwa_tirodi": {
+            "name": "Balaghat Belt (Ukwa & Tirodi Mines)",
+            "state": "Madhya Pradesh",
+            "bbox": [79.65, 21.80, 79.85, 22.00],
+            "centroid": [21.900, 79.750],
+            "mine_type": "Underground & Open Cast",
+            "primary_mineral": "Braunite / Bixbyite",
+            "avg_grade_pct": 42.8,
+            "est_reserves_mt": 11.5,
+            "geological_formation": "Sausar Group (Tirodi Gneissic Complex)",
+            "target_tonnage_shift": 2400.0,
+            "active_fleet_count": 11
+        },
+        "bhandara_dongri_buzurg": {
             "name": "Bhandara Belt (Dongri Buzurg Mine)",
             "state": "Maharashtra",
             "bbox": [79.60, 21.40, 79.80, 21.60],
@@ -48,45 +63,159 @@ class Settings:
             "mine_type": "Open Cast",
             "primary_mineral": "Psilomelane / Pyrolusite",
             "avg_grade_pct": 41.2,
-            "est_reserves_mt": 9.4,
+            "est_reserves_mt": 9.8,
+            "geological_formation": "Sausar Group (Dongri Buzurg Formation)",
             "target_tonnage_shift": 2200.0,
             "active_fleet_count": 10
         },
-        "nagpur": {
-            "name": "Nagpur Belt (Gumgaon/Kandri Mines)",
+        "bhandara_chikla_sitasawangi": {
+            "name": "Bhandara Belt (Chikla & Sitasawangi Block)",
             "state": "Maharashtra",
-            "bbox": [79.15, 21.25, 79.35, 21.45],
-            "centroid": [21.350, 79.250],
+            "bbox": [79.75, 21.45, 79.95, 21.65],
+            "centroid": [21.550, 79.850],
             "mine_type": "Underground",
+            "primary_mineral": "Braunite / Pyrolusite",
+            "avg_grade_pct": 43.0,
+            "est_reserves_mt": 8.6,
+            "geological_formation": "Sausar Group (GSR 723(E) Gazette Reserved Block)",
+            "target_tonnage_shift": 2000.0,
+            "active_fleet_count": 9
+        },
+        "nagpur_kandri_mansar": {
+            "name": "Nagpur Belt (Kandri, Mansar & Satak)",
+            "state": "Maharashtra",
+            "bbox": [79.15, 21.30, 79.35, 21.50],
+            "centroid": [21.400, 79.250],
+            "mine_type": "Underground & Open Cast",
             "primary_mineral": "Braunite / Jacobsite",
-            "avg_grade_pct": 39.8,
-            "est_reserves_mt": 8.1,
-            "target_tonnage_shift": 1900.0,
+            "avg_grade_pct": 40.5,
+            "est_reserves_mt": 10.2,
+            "geological_formation": "Sausar Group (Lohangi Formation - GSR 723(E))",
+            "target_tonnage_shift": 2100.0,
+            "active_fleet_count": 9
+        },
+        "nagpur_gumgaon_ramdongri": {
+            "name": "Nagpur Belt (Gumgaon, Kodegaon & Parsoda)",
+            "state": "Maharashtra",
+            "bbox": [78.95, 21.15, 79.15, 21.35],
+            "centroid": [21.250, 79.050],
+            "mine_type": "Underground",
+            "primary_mineral": "Braunite / Hollandite",
+            "avg_grade_pct": 39.2,
+            "est_reserves_mt": 7.8,
+            "geological_formation": "Sausar Group (Ramdongri Syncline)",
+            "target_tonnage_shift": 1850.0,
             "active_fleet_count": 8
         },
-        "chhindwara": {
-            "name": "Chhindwara Belt (Tirodi Extension)",
+        "chhindwara_sausar": {
+            "name": "Chhindwara Belt (Gowari Wadhona & Sausar)",
             "state": "Madhya Pradesh",
-            "bbox": [78.80, 21.90, 79.00, 22.10],
-            "centroid": [22.000, 78.900],
+            "bbox": [78.70, 21.80, 78.90, 22.00],
+            "centroid": [21.900, 78.800],
             "mine_type": "Open Cast & Exploratory",
-            "primary_mineral": "Braunite / Hollandite",
-            "avg_grade_pct": 37.5,
-            "est_reserves_mt": 6.7,
+            "primary_mineral": "Braunite / Rhodonite",
+            "avg_grade_pct": 38.0,
+            "est_reserves_mt": 6.5,
+            "geological_formation": "Sausar Group (Bichua Formation)",
             "target_tonnage_shift": 1600.0,
             "active_fleet_count": 7
         },
-        "keonjhar": {
-            "name": "Keonjhar Belt (Barbil / Joda Region)",
+
+        # 2. Western India - Champaner & Aravalli Belts
+        "gujarat_vadodara_pavi": {
+            "name": "Vadodara Belt (Pavi Jetpur Block)",
+            "state": "Gujarat",
+            "bbox": [73.70, 22.25, 73.90, 22.45],
+            "centroid": [22.350, 73.800],
+            "mine_type": "Open Cast",
+            "primary_mineral": "Pyrolusite / Manganese Carbonate",
+            "avg_grade_pct": 36.5,
+            "est_reserves_mt": 5.4,
+            "geological_formation": "Champaner Group (GMDC Reserved Block)",
+            "target_tonnage_shift": 1400.0,
+            "active_fleet_count": 6
+        },
+        "gujarat_panchmahal_halol": {
+            "name": "Panchmahal Belt (Halol & Shivrajpur)",
+            "state": "Gujarat",
+            "bbox": [73.55, 22.40, 73.75, 22.60],
+            "centroid": [22.500, 73.650],
+            "mine_type": "Open Cast & Beneficiation",
+            "primary_mineral": "Pyrolusite / Psilomelane",
+            "avg_grade_pct": 38.5,
+            "est_reserves_mt": 7.2,
+            "geological_formation": "Champaner Group (Shivrajpur Horizon)",
+            "target_tonnage_shift": 1700.0,
+            "active_fleet_count": 7
+        },
+        "rajasthan_banswara": {
+            "name": "Banswara Belt (Tambesra & Ghatia Block)",
+            "state": "Rajasthan",
+            "bbox": [74.35, 23.25, 74.55, 23.45],
+            "centroid": [23.350, 74.450],
+            "mine_type": "Open Cast",
+            "primary_mineral": "Pyrolusite / Braunite",
+            "avg_grade_pct": 35.0,
+            "est_reserves_mt": 4.9,
+            "geological_formation": "Aravalli Supergroup (Lunavada Group)",
+            "target_tonnage_shift": 1300.0,
+            "active_fleet_count": 6
+        },
+
+        # 3. Eastern India - Iron Ore Group & Gangpur Belts
+        "odisha_keonjhar_joda": {
+            "name": "Keonjhar Belt (Barbil, Joda & Thakurani)",
             "state": "Odisha",
-            "bbox": [85.20, 21.80, 85.50, 22.10],
-            "centroid": [21.950, 85.350],
+            "bbox": [85.25, 21.90, 85.45, 22.10],
+            "centroid": [22.000, 85.350],
             "mine_type": "Open Cast",
             "primary_mineral": "Cryptomelane / Pyrolusite",
-            "avg_grade_pct": 42.0,
-            "est_reserves_mt": 14.5,
-            "target_tonnage_shift": 3100.0,
+            "avg_grade_pct": 43.5,
+            "est_reserves_mt": 16.8,
+            "geological_formation": "Iron Ore Group (IOG) Shales (SAIL/OMC)",
+            "target_tonnage_shift": 3200.0,
             "active_fleet_count": 14
+        },
+        "odisha_sundargarh_bonai": {
+            "name": "Sundargarh Belt (Bonai-Kendujhar Basin)",
+            "state": "Odisha",
+            "bbox": [84.95, 21.75, 85.15, 21.95],
+            "centroid": [21.850, 85.050],
+            "mine_type": "Open Cast",
+            "primary_mineral": "Braunite / Manganite",
+            "avg_grade_pct": 40.0,
+            "est_reserves_mt": 12.1,
+            "geological_formation": "Gangpur Group Metasediments",
+            "target_tonnage_shift": 2600.0,
+            "active_fleet_count": 11
+        },
+        "jharkhand_singhbhum": {
+            "name": "Singhbhum Belt (Chaibasa & Noamundi-Gua)",
+            "state": "Jharkhand",
+            "bbox": [85.55, 22.05, 85.75, 22.25],
+            "centroid": [22.150, 85.650],
+            "mine_type": "Open Cast",
+            "primary_mineral": "Psilomelane / Pyrolusite",
+            "avg_grade_pct": 37.8,
+            "est_reserves_mt": 6.9,
+            "geological_formation": "Kolhan Group / Iron Ore Series",
+            "target_tonnage_shift": 1550.0,
+            "active_fleet_count": 7
+        },
+
+        # 4. Southern India - Sandur Schist Belt
+        "karnataka_sandur_bellary": {
+            "name": "Sandur & Bellary Belt (Kumaraswamy Range)",
+            "state": "Karnataka",
+            "bbox": [76.45, 14.95, 76.65, 15.15],
+            "centroid": [15.050, 76.550],
+            "mine_type": "Open Cast",
+            "primary_mineral": "Pyrolusite / Wad / Manganite",
+            "avg_grade_pct": 39.5,
+            "est_reserves_mt": 13.4,
+            "geological_formation": "Dharwar Supergroup (Sandur Schist Belt)",
+            "target_tonnage_shift": 2700.0,
+            "active_fleet_count": 12
         },
     }
 
