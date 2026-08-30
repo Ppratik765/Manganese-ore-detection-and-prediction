@@ -13,7 +13,22 @@ from typing import Dict, Any, List, Tuple
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 
-FEATURE_COLUMNS = [
+# Dynamic Sector Registration for XGBoost Features
+try:
+    from data.scripts.fetch_satellite_data import MINING_SECTORS
+    ALL_SECTOR_KEYS = list(MINING_SECTORS.keys())
+except ImportError:
+    ALL_SECTOR_KEYS = [
+        "balaghat_bharweli", "balaghat_ukwa_tirodi", "bhandara_dongri_buzurg",
+        "bhandara_chikla_sitasawangi", "nagpur_kandri_mansar", "nagpur_gumgaon_ramdongri",
+        "chhindwara_sausar", "gujarat_vadodara_pavi", "gujarat_panchmahal_halol",
+        "rajasthan_banswara", "odisha_keonjhar_joda", "odisha_sundargarh_bonai",
+        "jharkhand_singhbhum", "karnataka_sandur_bellary"
+    ]
+
+ALL_SHIFTS = ["Shift_A_Morning", "Shift_B_Evening", "Shift_C_Night"]
+
+BASE_FEATURE_COLUMNS = [
     "rainfall_mm",
     "pit_water_level_m",
     "road_friction_coeff",
@@ -35,19 +50,13 @@ FEATURE_COLUMNS = [
     "fragmentation_burden",
     "rainfall_lag3_mean",
     "is_monsoon_season",
-    "sector_balaghat",
-    "sector_bhandara",
-    "sector_nagpur",
-    "sector_chhindwara",
-    "sector_keonjhar",
-    "shift_Shift_A_Morning",
-    "shift_Shift_B_Evening",
-    "shift_Shift_C_Night"
 ]
+
+FEATURE_COLUMNS = BASE_FEATURE_COLUMNS + [f"sector_{s}" for s in ALL_SECTOR_KEYS] + [f"shift_{sh}" for sh in ALL_SHIFTS]
 
 def engineer_mining_features(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Computes domain-specific mining interaction features and temporal lag statistics.
+    Computes domain-specific mining interaction features and temporal lag statistics across all 14 sectors.
     """
     df = df.copy()
     
@@ -68,10 +77,10 @@ def engineer_mining_features(df: pd.DataFrame) -> pd.DataFrame:
         df["is_monsoon_season"] = 0
         
     # 3. Categorical Encodings (Sector & Shift)
-    for s in ["balaghat", "bhandara", "nagpur", "chhindwara", "keonjhar"]:
+    for s in ALL_SECTOR_KEYS:
         df[f"sector_{s}"] = (df["sector"] == s).astype(int)
         
-    for sh in ["Shift_A_Morning", "Shift_B_Evening", "Shift_C_Night"]:
+    for sh in ALL_SHIFTS:
         df[f"shift_{sh}"] = (df["shift"] == sh).astype(int)
         
     return df
