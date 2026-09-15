@@ -37,9 +37,9 @@ data/processed/*.tiff
 !data/processed/.gitkeep
 !data/processed/mine_operations.csv
 
-# Keep trained model artifacts in git
-!backend/app/models/*.onnx
-!backend/app/models/*.pkl
+# Exclude large trained model artifacts from git (Vercel deployment relies on JSON cache)
+backend/app/models/*.onnx
+backend/app/models/*.pkl
 !backend/app/models/*.json
 
 # Checkpoints and Logs

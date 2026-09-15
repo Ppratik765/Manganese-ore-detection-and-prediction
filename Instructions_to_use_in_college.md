@@ -33,7 +33,7 @@ This guide details the complete, step-by-step workflow for training the expanded
 
 > [!NOTE]
 > **Why this solves the GitHub Data Trap:**  
-> Large raw multi-spectral satellite rasters (several gigabytes) stay local on the lab computer and are excluded via `.gitignore`. Only the **lightweight, optimized ONNX neural graph (`~29 MB`)**, **XGBoost model (`~2 MB`)**, and **inference metadata (`~440 KB`)** are pushed to GitHub. This bypasses GitHub's 100 MB limit completely!
+> Large raw multi-spectral satellite rasters and heavy `.onnx` and `.pkl` ML models stay local on the lab computer and are excluded via `.gitignore`. Only the **precomputed static API cache (`vercel_static_api_cache.json`)** is pushed to GitHub. This bypasses GitHub's file limits completely and makes Vercel deployment instant and free!
 
 ---
 
@@ -125,9 +125,7 @@ py -3.13 data/scripts/export_static_api.py
 Once the training and exporting completes, push the newly generated model artifacts and static JSON to your GitHub repository:
 
 ```bash
-# Stage the lightweight model artifacts and cache
-git add backend/app/models/reserves_unet.onnx
-git add backend/app/models/shortfall_xgb.pkl
+# Stage the lightweight cache and metadata
 git add backend/app/models/sector_grid_cache.json
 git add data/processed/dataset_split.json
 git add frontend/public/vercel_static_api_cache.json
@@ -145,7 +143,7 @@ git push origin main
 
 ## 💻 PART 2: What to Do When You Come Back Home (Laptop)
 
-When you return to your laptop, you only need to pull the updated models and start the local servers.
+When you return to your laptop, you only need to pull the updated JSON cache and start the local servers.
 
 ### Step 2.1: Open Terminal on Your Laptop & Pull Latest Models
 Open PowerShell in your laptop project folder:
