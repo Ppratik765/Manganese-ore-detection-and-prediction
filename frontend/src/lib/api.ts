@@ -436,6 +436,19 @@ export const SECTORS_LIST: SectorInfo[] = [
 
 export async function fetchReserveGrid(sector: string = 'balaghat', resolution: number = 32): Promise<ReserveGridResponse> {
   try {
+    // [VERCEL HACKATHON DEPLOYMENT FIX] 
+    // If deployed on Vercel, intercept the call and read from our precomputed static JSON file
+    // to bypass Vercel's Serverless Python size limits and ensure 100% accurate results.
+    if (process.env.NEXT_PUBLIC_USE_STATIC_CACHE === 'true' || process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' || process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview') {
+      const res = await fetch('/vercel_static_api_cache.json');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.reserves_grids && data.reserves_grids[sector]) {
+          return data.reserves_grids[sector];
+        }
+      }
+    }
+
     const res = await fetch(`${API_BASE}/api/reserves/grid?sector=${sector}&resolution=${resolution}`, {
       next: { revalidate: 30 }
     });
@@ -489,6 +502,17 @@ export async function fetchReserveGrid(sector: string = 'balaghat', resolution: 
 
 export async function fetchOperationsTelemetry(sector: string = 'balaghat'): Promise<OperationsTelemetryResponse> {
   try {
+    // [VERCEL HACKATHON DEPLOYMENT FIX]
+    if (process.env.NEXT_PUBLIC_USE_STATIC_CACHE === 'true' || process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' || process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview') {
+      const res = await fetch('/vercel_static_api_cache.json');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.telemetry && data.telemetry[sector]) {
+          return data.telemetry[sector];
+        }
+      }
+    }
+
     const res = await fetch(`${API_BASE}/api/operations/telemetry?sector=${sector}`, {
       cache: 'no-store'
     });
