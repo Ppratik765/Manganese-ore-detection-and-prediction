@@ -63,10 +63,10 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
         attributionControl: false,
       });
 
-      // Dark Matter Tactical Basemap
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      // Dark Tactical Basemap (via CSS-inverted OpenStreetMap to avoid API key watermarks)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        subdomains: 'abcd',
+        className: 'map-tiles-dark-theme',
       }).addTo(map);
 
       // Custom Zoom Control at bottom right
