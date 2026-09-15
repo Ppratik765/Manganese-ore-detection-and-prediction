@@ -105,8 +105,24 @@ python scripts/train_university_cluster.py --epochs 25 --batch-size 16 --lr 0.00
 
 ---
 
-### Step 1.4: Push the Trained Models Back to GitHub
-Once the training completes, push the newly generated model artifacts to your GitHub repository:
+### Step 1.4: Generate Vercel Static API Cache (Required for Free Hosting)
+Since Vercel has a 50MB limit for serverless functions, we cannot host the heavy AI backend there. Instead, we generate a pre-computed API cache of your newly trained model results.
+
+First, **start your backend server** in a separate terminal (or in the background) so the exporter can query it:
+```bash
+py -3.13 backend/run_backend.py --port 8000
+```
+
+Then, run the export script to query the backend and build the static JSON cache:
+```bash
+py -3.13 data/scripts/export_static_api.py
+```
+*This will generate a massive `frontend/public/vercel_static_api_cache.json` containing the live predictions for all 20 sectors!*
+
+---
+
+### Step 1.5: Push the Trained Models & Cache Back to GitHub
+Once the training and exporting completes, push the newly generated model artifacts and static JSON to your GitHub repository:
 
 ```bash
 # Stage the lightweight model artifacts and cache
@@ -114,9 +130,10 @@ git add backend/app/models/reserves_unet.onnx
 git add backend/app/models/shortfall_xgb.pkl
 git add backend/app/models/sector_grid_cache.json
 git add data/processed/dataset_split.json
+git add frontend/public/vercel_static_api_cache.json
 
 # Commit the changes (adds to your GitHub commit activity graph)
-git commit -m "feat(models): train 14-sector national manganese U-Net ONNX and XGBoost models on university cluster"
+git commit -m "feat(models): train 20-sector national manganese U-Net ONNX and XGBoost models on university cluster and export Vercel cache"
 
 # Push to main branch
 git push origin main
