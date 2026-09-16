@@ -343,19 +343,25 @@ def synthesize_multispectral_bands(
     (B02, B03, B04, B08, B11, B12) based on authentic gondite-manganese lithology,
     quartzite ridges, iron gossans, and vegetation signatures in Central & Eastern India.
     """
-    np.random.seed(seed + hash(sector_id) % 10000)
+    import hashlib
+    # Stable hash to ensure same sector always gets the same pattern across restarts
+    stable_hash = int(hashlib.md5(sector_id.encode()).hexdigest(), 16)
+    np.random.seed(seed + (stable_hash % 10000))
     
     # Coordinate grid for realistic spatial structures (fault lines, ore veins, lithology contacts)
     y, x = np.mgrid[0:height, 0:width]
     
-    # Structural geology strike angle (e.g. ENE-WSW trending Sausar belt)
-    angle = np.deg2rad(65 if sector_id != "keonjhar" else 30)
+    # Structural geology strike angle (completely randomized per sector)
+    angle = np.deg2rad(stable_hash % 180)
     rotated_coord = x * np.cos(angle) + y * np.sin(angle)
     cross_coord = -x * np.sin(angle) + y * np.cos(angle)
     
-    # Geological vein/fault structure
-    vein_feature = np.exp(-((cross_coord - width * 0.48) ** 2) / (2 * (16.0 ** 2))) + \
-                   0.6 * np.exp(-((cross_coord - width * 0.72) ** 2) / (2 * (10.0 ** 2)))
+    # Geological vein/fault structure with randomized offsets per sector
+    offset1 = 0.2 + 0.6 * ((stable_hash % 100) / 100.0)
+    offset2 = 0.2 + 0.6 * (((stable_hash // 100) % 100) / 100.0)
+    
+    vein_feature = np.exp(-((cross_coord - width * offset1) ** 2) / (2 * (16.0 ** 2))) + \
+                   0.6 * np.exp(-((cross_coord - width * offset2) ** 2) / (2 * (10.0 ** 2)))
     
     # Regional lithology base reflectance
     base_rock = 0.18 + 0.05 * np.sin(rotated_coord / 25.0) + 0.03 * np.random.randn(height, width)
