@@ -41,31 +41,53 @@ You can put these equations directly on the presentation slides to impress the t
 We simulate Sentinel-2 satellite bands and combine them to detect geological anomalies.
 
 * **NDVI (Normalized Difference Vegetation Index):** Removes dense forest cover to find bare rock.
-$$ NDVI = \frac{B08_{NIR} - B04_{Red}}{B08_{NIR} + B04_{Red}} $$
+```text
+       (B08_NIR - B04_Red)
+NDVI = -------------------
+       (B08_NIR + B04_Red)
+```
 
 * **Iron Oxide Index:** Detects gossans and hematite cappings (surface weathering).
-$$ Iron\_Oxide = \frac{B04_{Red}}{B02_{Blue}} $$
+```text
+              B04_Red
+Iron_Oxide = ----------
+              B02_Blue
+```
 
 * **Ferrous Minerals Index:** Detects Fe2+ silicates associated with braunite.
-$$ Ferrous\_Index = \frac{B12_{SWIR2}}{B08_{NIR}} $$
+```text
+                 B12_SWIR2
+Ferrous_Index = -----------
+                  B08_NIR
+```
 
 * **Clay Alteration Index:** Detects phyllosilicates associated with hydrothermal ore veins.
-$$ Clay\_Index = \frac{B11_{SWIR1}}{B12_{SWIR2}} $$
+```text
+              B11_SWIR1
+Clay_Index = -----------
+              B12_SWIR2
+```
 
 ### B. Geological Reserve Estimation Math
 Once the U-Net AI highlights the high-probability manganese pixels, we calculate the physical reserves.
 
 1. **Delineated Area (Square Kilometers):** 
 Since each Sentinel-2 pixel represents 10m x 10m (100 square meters):
-$$ Area (km^2) = \frac{Total\_Ore\_Pixels \times 100}{1,000,000} $$
+```text
+Area (km²) = (Total_Ore_Pixels * 100) / 1,000,000
+```
 
 2. **Estimated Tonnage (Metric Tonnes):** 
 Using a standard open-cast exploration depth of 25 meters and the Specific Gravity (SG) of Manganese (3.8):
-$$ Tonnage (MT) = Area (km^2) \times 25m \times 3.8 \times 1,000,000 $$
+```text
+Tonnage (MT) = Area (km²) * 25m * 3.8 * 1,000,000
+```
 
 ### C. The Anomaly Scoring Function (Ground Truth Generation)
 To train the AI, we scored regions mathematically using this weighted equation:
-$$ Anomaly\_Score = 0.35 \cdot Ferrous_{norm} + 0.30 \cdot IronOxide_{norm} + 0.25 \cdot Clay_{norm} - 0.30 \cdot NDVI_{norm} $$
+```text
+Anomaly_Score = (0.35 * Ferrous_norm) + (0.30 * IronOxide_norm) + (0.25 * Clay_norm) - (0.30 * NDVI_norm)
+```
 
 ---
 
