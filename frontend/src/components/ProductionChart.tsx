@@ -100,7 +100,7 @@ export const ProductionChart: React.FC<ProductionChartProps> = ({
         </div>
 
         {/* Quick Weekly Stats */}
-        <div className="flex items-center gap-3 font-mono text-xs text-text-primary">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono text-xs text-text-primary">
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card border border-border-subtle">
             <span className="text-text-secondary">Avg Efficiency:</span>
             <span className="text-brand-cyan font-bold">{overallEfficiency.toFixed(1)}%</span>

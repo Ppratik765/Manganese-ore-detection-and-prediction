@@ -296,7 +296,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
         <div ref={mapContainerRef} className="w-full h-full" />
 
         {/* Map Telemetry HUD Overlay (Top-Left) */}
-        <div className="absolute top-3 left-3 z-[400] bg-canvas-dark/90 backdrop-blur-md border border-border-subtle rounded-xl p-3 shadow-xl max-w-xs text-xs font-mono space-y-1.5 pointer-events-auto">
+        <div className="absolute top-3 left-3 right-3 sm:right-auto z-[400] bg-canvas-dark/90 backdrop-blur-md border border-border-subtle rounded-xl p-3 shadow-xl max-w-none sm:max-w-xs text-xs font-mono space-y-1.5 pointer-events-auto">
           <div className="flex items-center justify-between border-b border-border-subtle pb-1 text-[11px] text-brand-cyan font-bold">
             <span>SECTOR HUD</span>
             <span>{currentSector.id.toUpperCase()}</span>
@@ -325,9 +325,9 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
           </div>
         </div>
 
-        {/* Drill Hole Detail Popup (Bottom-Left) */}
+        {/* Drill Hole Detail Popup (Bottom) */}
         {selectedTarget && (
-          <div className="absolute bottom-3 left-3 z-[400] bg-surface-card/95 backdrop-blur-md border border-brand-gold/70 rounded-xl p-3.5 shadow-2xl max-w-sm text-xs font-mono animate-in fade-in slide-in-from-bottom-2">
+          <div className="absolute bottom-3 left-3 right-3 sm:right-auto z-[400] bg-surface-card/95 backdrop-blur-md border border-brand-gold/70 rounded-xl p-3.5 shadow-2xl max-w-none sm:max-w-sm text-xs font-mono animate-in fade-in slide-in-from-bottom-2">
             <div className="flex items-center justify-between text-brand-gold font-bold border-b border-border-subtle pb-1.5">
               <span className="flex items-center gap-1.5">
                 <Crosshair className="w-3.5 h-3.5 text-brand-gold" />
@@ -358,8 +358,8 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
           </div>
         )}
 
-        {/* Heatmap Legend (Bottom-Right) */}
-        <div className="absolute bottom-3 right-12 z-[400] bg-canvas-dark/90 backdrop-blur-md border border-border-subtle rounded-lg px-3 py-1.5 shadow-xl text-[10px] font-mono flex items-center gap-2.5">
+        {/* Heatmap Legend (Bottom-Right) - Hidden on very small mobile to prevent overlap */}
+        <div className="absolute bottom-3 right-12 z-[400] bg-canvas-dark/90 backdrop-blur-md border border-border-subtle rounded-lg px-3 py-1.5 shadow-xl text-[10px] font-mono hidden sm:flex items-center gap-2.5">
           <span className="text-text-secondary uppercase">Mn Anomaly:</span>
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-sm bg-[#218DAE]" title="Low Anomaly (45-55%)" />
