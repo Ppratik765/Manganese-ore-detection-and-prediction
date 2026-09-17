@@ -45,10 +45,10 @@ body {
 
 /* Glassmorphic command panels */
 .glass-panel {
-  background: rgba(14, 27, 38, 0.85);
+  background: rgba(96, 108, 56, 0.2); /* Olive Leaf translucent */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #606c38;
+  border: 1px solid rgba(96, 108, 56, 0.5);
 }
 
 .glass-panel-hover {
@@ -56,9 +56,9 @@ body {
 }
 
 .glass-panel-hover:hover {
-  background: rgba(20, 39, 56, 0.95);
-  border-color: #dda15e;
-  box-shadow: 0 4px 20px -2px rgba(43, 187, 215, 0.15);
+  background: rgba(96, 108, 56, 0.35); /* Brighter Olive Leaf on hover */
+  border-color: #dda15e; /* Light Caramel */
+  box-shadow: 0 4px 20px -2px rgba(221, 161, 94, 0.25);
 }
 
 /* Custom Tactical Range Slider */
