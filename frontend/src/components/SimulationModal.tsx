@@ -138,13 +138,13 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 flex items-center justify-between bg-canvas-dark/60 sticky top-0 z-10">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-surface-card border border-brand-cyan/40 flex items-center justify-center shadow-sm">
-              <Sliders className="w-4 h-4 text-brand-cyan" />
+            <div className="w-9 h-9 rounded-xl bg-surface-card border border-brand-caramel/40 flex items-center justify-center shadow-sm">
+              <Sliders className="w-4 h-4 text-brand-caramel" />
             </div>
             <div>
               <h2 className="text-base font-bold text-text-primary flex items-center gap-2">
                 <span>Mine Operations Stress-Test Simulation</span>
-                <span className="text-[10px] font-mono bg-canvas-dark text-brand-cyan border border-brand-cyan/40 px-2 py-0.5 rounded font-semibold">
+                <span className="text-[10px] font-mono bg-canvas-dark text-brand-caramel border border-brand-caramel/40 px-2 py-0.5 rounded font-semibold">
                   {currentSector.name}
                 </span>
               </h2>
@@ -156,7 +156,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-hover transition-colors"
+            className="p-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-hover/50 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -165,35 +165,35 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
         {/* Preset Quick Scenarios */}
         <div className="p-4 sm:p-5 bg-surface-card">
           <div className="text-xs font-bold text-text-primary mb-2.5 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-brand-cyan" />
+            <Sparkles className="w-3.5 h-3.5 text-brand-caramel" />
             <span>Preset Stress Scenarios</span>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
             <button
               onClick={() => applyPreset('normal')}
-              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-cyan/60 text-text-primary text-left transition-all flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-surface-hover/50 hover:bg-surface-hover/50/80 border border-border-subtle hover:border-brand-caramel/60 text-text-primary text-left transition-all flex items-center gap-1.5"
             >
-              <CheckCircle2 className="w-3.5 h-3.5 text-brand-cyan shrink-0" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-brand-caramel shrink-0" />
               <span>Standard Shift</span>
             </button>
             <button
               onClick={() => applyPreset('monsoon')}
-              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-cyan/60 text-brand-cyan text-left transition-all flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-surface-hover/50 hover:bg-surface-hover/50/80 border border-border-subtle hover:border-brand-caramel/60 text-brand-caramel text-left transition-all flex items-center gap-1.5"
             >
-              <CloudRain className="w-3.5 h-3.5 text-brand-cyan shrink-0" />
+              <CloudRain className="w-3.5 h-3.5 text-brand-caramel shrink-0" />
               <span>Monsoon Surge</span>
             </button>
             <button
               onClick={() => applyPreset('blast_jam')}
-              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-brand-gold/60 text-brand-gold text-left transition-all flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-surface-hover/50 hover:bg-surface-hover/50/80 border border-border-subtle hover:border-brand-copper/60 text-brand-copper text-left transition-all flex items-center gap-1.5"
             >
-              <Flame className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+              <Flame className="w-3.5 h-3.5 text-brand-copper shrink-0" />
               <span>Blast Choking</span>
             </button>
             <button
               onClick={() => applyPreset('shovel_fail')}
-              className="px-3 py-2 rounded-xl bg-surface-hover hover:bg-surface-hover/80 border border-border-subtle hover:border-red-400/60 text-red-300 text-left transition-all flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-surface-hover/50 hover:bg-surface-hover/50/80 border border-border-subtle hover:border-red-400/60 text-red-300 text-left transition-all flex items-center gap-1.5"
             >
               <AlertTriangle className="w-3.5 h-3.5 text-red-400 shrink-0" />
               <span>Shovel Fault</span>
@@ -207,10 +207,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
-                <CloudRain className="w-3.5 h-3.5 text-brand-cyan" />
+                <CloudRain className="w-3.5 h-3.5 text-brand-caramel" />
                 Precipitation / Rainfall Rate:
               </span>
-              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-cyan/30">{rainfall} mm/hr</span>
+              <span className="text-brand-caramel font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-caramel/30">{rainfall} mm/hr</span>
             </div>
             <input
               type="range"
@@ -219,7 +219,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={2}
               value={rainfall}
               onChange={(e) => setRainfall(Number(e.target.value))}
-              className="w-full cursor-pointer accent-brand-cyan"
+              className="w-full cursor-pointer accent-brand-caramel"
             />
           </div>
 
@@ -227,10 +227,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
-                <Gauge className="w-3.5 h-3.5 text-brand-teal" />
+                <Gauge className="w-3.5 h-3.5 text-brand-olive" />
                 Pit Sump Water Depth:
               </span>
-              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-teal/30">{pitWater.toFixed(1)} m</span>
+              <span className="text-brand-caramel font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-olive/30">{pitWater.toFixed(1)} m</span>
             </div>
             <input
               type="range"
@@ -239,7 +239,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={0.1}
               value={pitWater}
               onChange={(e) => setPitWater(Number(e.target.value))}
-              className="w-full cursor-pointer accent-brand-cyan"
+              className="w-full cursor-pointer accent-brand-caramel"
             />
           </div>
 
@@ -247,10 +247,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-brand-gold" />
+                <Clock className="w-3.5 h-3.5 text-brand-copper" />
                 Blasting Safety / Misfire Delay:
               </span>
-              <span className="text-brand-gold font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-gold/30">{blastDelay.toFixed(1)} hrs</span>
+              <span className="text-brand-copper font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-copper/30">{blastDelay.toFixed(1)} hrs</span>
             </div>
             <input
               type="range"
@@ -259,7 +259,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={0.2}
               value={blastDelay}
               onChange={(e) => setBlastDelay(Number(e.target.value))}
-              className="w-full cursor-pointer accent-brand-gold"
+              className="w-full cursor-pointer accent-brand-copper"
             />
           </div>
 
@@ -267,10 +267,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
-                <Flame className="w-3.5 h-3.5 text-brand-sand" />
+                <Flame className="w-3.5 h-3.5 text-brand-cornsilk" />
                 Blasting Fragmentation (P80 Particle Size):
               </span>
-              <span className={`font-bold bg-surface-card px-2 py-0.5 rounded border ${fragmentation > 30 ? 'text-brand-gold border-brand-gold/40' : 'text-brand-cyan border-brand-cyan/40'}`}>
+              <span className={`font-bold bg-surface-card px-2 py-0.5 rounded border ${fragmentation > 30 ? 'text-brand-copper border-brand-copper/40' : 'text-brand-caramel border-brand-caramel/40'}`}>
                 {fragmentation} cm {fragmentation > 30 ? '(Crusher Choke)' : ''}
               </span>
             </div>
@@ -281,7 +281,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={1}
               value={fragmentation}
               onChange={(e) => setFragmentation(Number(e.target.value))}
-              className="w-full cursor-pointer accent-brand-sand"
+              className="w-full cursor-pointer accent-brand-cornsilk"
             />
           </div>
 
@@ -289,10 +289,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
-                <Truck className="w-3.5 h-3.5 text-brand-cyan" />
+                <Truck className="w-3.5 h-3.5 text-brand-caramel" />
                 Active Fleet Availability:
               </span>
-              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-cyan/30">{fleetAvail}%</span>
+              <span className="text-brand-caramel font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-caramel/30">{fleetAvail}%</span>
             </div>
             <input
               type="range"
@@ -301,7 +301,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={2}
               value={fleetAvail}
               onChange={(e) => setFleetAvail(Number(e.target.value))}
-              className="w-full cursor-pointer accent-brand-cyan"
+              className="w-full cursor-pointer accent-brand-caramel"
             />
           </div>
 
@@ -309,10 +309,10 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
           <div className="space-y-1.5 p-2.5 rounded-xl bg-canvas-dark/40 border border-border-subtle/70">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-text-secondary flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-brand-teal" />
+                <Activity className="w-3.5 h-3.5 text-brand-olive" />
                 Average Haul Cycle Duration:
               </span>
-              <span className="text-brand-cyan font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-teal/30">{haulCycle} mins</span>
+              <span className="text-brand-caramel font-bold bg-surface-card px-2 py-0.5 rounded border border-brand-olive/30">{haulCycle} mins</span>
             </div>
             <input
               type="range"
@@ -321,7 +321,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
               step={1}
               value={haulCycle}
               onChange={(e) => setHaulCycle(Number(e.target.value))}
-              className="w-full cursor-pointer accent-brand-teal"
+              className="w-full cursor-pointer accent-brand-olive"
             />
           </div>
 
@@ -339,7 +339,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
             <button
               onClick={() => setMachineFailure(!machineFailure)}
               className={`w-12 h-6 rounded-full transition-colors relative p-0.5 ${
-                machineFailure ? 'bg-red-600' : 'bg-surface-hover'
+                machineFailure ? 'bg-red-600' : 'bg-surface-hover/50'
               }`}
             >
               <div
@@ -357,7 +357,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
         <div className="p-4 sm:p-5 bg-canvas-dark/80 flex items-center justify-between">
           <button
             onClick={handleReset}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-surface-hover text-text-secondary hover:text-text-primary text-xs font-mono transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-surface-hover/50 text-text-secondary hover:text-text-primary text-xs font-mono transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset Baseline</span>
@@ -373,7 +373,7 @@ export const SimulationModal: React.FC<SimulationModalProps> = ({
             <button
               onClick={handleRunSimulation}
               disabled={isSubmitting}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-cyan hover:bg-brand-cyan/90 text-canvas-dark font-bold text-xs shadow-md shadow-brand-cyan/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-caramel hover:bg-brand-caramel/90 text-canvas-dark font-bold text-xs shadow-md shadow-brand-caramel/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
             >
               <Play className="w-4 h-4 fill-canvas-dark" />
               <span>{isSubmitting ? 'Computing Neural Optimization...' : 'Run Neural Simulation'}</span>
