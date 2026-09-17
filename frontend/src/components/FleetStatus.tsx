@@ -31,8 +31,8 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
     switch (status) {
       case 'WARNING':
         return {
-          bg: 'bg-surface-card text-brand-gold border-brand-gold/50',
-          dot: 'bg-brand-gold animate-pulse',
+          bg: 'bg-surface-card text-brand-copper border-brand-copper/50',
+          dot: 'bg-brand-copper animate-pulse',
         };
       case 'CRITICAL_LOAD':
         return {
@@ -46,8 +46,8 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
         };
       default:
         return {
-          bg: 'bg-surface-card text-brand-cyan border-brand-cyan/40',
-          dot: 'bg-brand-cyan',
+          bg: 'bg-surface-card text-brand-caramel border-brand-caramel/40',
+          dot: 'bg-brand-caramel',
         };
     }
   };
@@ -58,13 +58,13 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-3 border-b border-border-subtle">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-surface-hover border border-border-subtle flex items-center justify-center text-brand-cyan">
+          <div className="w-8 h-8 rounded-lg bg-surface-hover/50 border border-border-subtle flex items-center justify-center text-brand-caramel">
             <Truck className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h3 className="text-sm font-bold text-text-primary tracking-tight">Heavy Fleet Telemetry & Predictive Health</h3>
-              <span className="text-[10px] font-mono text-brand-cyan bg-canvas-dark border border-brand-cyan/40 px-2 py-0.5 rounded font-semibold">
+              <span className="text-[10px] font-mono text-brand-caramel bg-canvas-dark border border-brand-caramel/40 px-2 py-0.5 rounded font-semibold">
                 AI4I Ingested Logs
               </span>
             </div>
@@ -75,7 +75,7 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
         </div>
 
         <div className="text-xs font-mono text-text-secondary flex items-center gap-2">
-          <span>Active Units: <strong className="text-brand-cyan font-bold">{fleet.filter(f => f.status === 'OPERATIONAL').length}</strong> / {fleet.length}</span>
+          <span>Active Units: <strong className="text-brand-caramel font-bold">{fleet.filter(f => f.status === 'OPERATIONAL').length}</strong> / {fleet.length}</span>
         </div>
       </div>
 
@@ -88,8 +88,8 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
           return (
             <div
               key={machine.equipment_id}
-              className={`p-3.5 rounded-xl bg-surface-card border transition-all hover:bg-surface-hover ${
-                isHighRisk ? 'border-brand-gold/60 shadow-lg shadow-brand-gold/10' : 'border-border-subtle hover:border-brand-cyan/50'
+              className={`p-3.5 rounded-xl bg-surface-card border transition-all hover:bg-surface-hover/50 ${
+                isHighRisk ? 'border-brand-copper/60 shadow-lg shadow-brand-copper/10' : 'border-border-subtle hover:border-brand-caramel/50'
               }`}
             >
               {/* Top Row: ID + Status */}
@@ -105,7 +105,7 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
               </div>
 
               {/* Machine Type */}
-              <div className="text-[11px] text-brand-sand mt-1 font-medium flex items-center gap-1">
+              <div className="text-[11px] text-brand-cornsilk mt-1 font-medium flex items-center gap-1">
                 <Wrench className="w-3 h-3 text-text-secondary" />
                 <span>{machine.type}</span>
               </div>
@@ -120,7 +120,7 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
 
                 <div>
                   <span className="text-[10px] text-text-secondary block uppercase">Temperature</span>
-                  <span className={`font-bold ${machine.temp_c > 42 ? 'text-brand-gold' : 'text-brand-cyan'}`}>
+                  <span className={`font-bold ${machine.temp_c > 42 ? 'text-brand-copper' : 'text-brand-caramel'}`}>
                     {machine.temp_c}°C
                   </span>
                   <span className="text-[10px] text-text-secondary block">Wear {machine.tool_wear_min}m</span>
@@ -128,7 +128,7 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
 
                 <div>
                   <span className="text-[10px] text-text-secondary block uppercase">Failure Risk</span>
-                  <span className={`font-bold ${isHighRisk ? 'text-brand-gold' : 'text-brand-cyan'}`}>
+                  <span className={`font-bold ${isHighRisk ? 'text-brand-copper' : 'text-brand-caramel'}`}>
                     {machine.failure_risk_pct.toFixed(1)}%
                   </span>
                   <span className="text-[10px] text-text-secondary block">Strain {machine.strain_index.toFixed(1)}</span>
@@ -139,8 +139,8 @@ export const FleetStatus: React.FC<FleetStatusProps> = ({
               <div className="mt-2.5 pt-2 border-t border-border-subtle/50 flex items-center justify-between text-[10px] text-text-secondary font-mono">
                 <span className="truncate max-w-[200px]">Op: {machine.operator}</span>
                 {isHighRisk && (
-                  <span className="text-brand-gold font-bold flex items-center gap-1 animate-pulse">
-                    <AlertTriangle className="w-3 h-3 text-brand-gold" />
+                  <span className="text-brand-copper font-bold flex items-center gap-1 animate-pulse">
+                    <AlertTriangle className="w-3 h-3 text-brand-copper" />
                     INSPECT
                   </span>
                 )}
