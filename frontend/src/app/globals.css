@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #283618;
+  --background: #121212;
   --foreground: #fefae0;
   --surface-card: #3a4624;
   --surface-hover: #606c38;
@@ -19,7 +19,7 @@
 
 body {
   color: #fefae0;
-  background: #283618;
+  background: #121212;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #283618;
+  background: #121212;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -80,7 +80,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   background: #bc6c25;
   cursor: pointer;
-  border: 2px solid #283618;
+  border: 2px solid #121212;
   box-shadow: 0 0 10px rgba(255, 215, 88, 0.5);
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
@@ -92,7 +92,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* Leaflet Custom Marker & Dark Canvas Override */
 .leaflet-container {
-  background: #283618 !important;
+  background: #121212 !important;
   font-family: 'JetBrains Mono', monospace !important;
 }
 

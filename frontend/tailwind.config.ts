@@ -20,7 +20,7 @@ const config: Config = {
           copper: "#bc6c25", // Copper
         },
         canvas: {
-          dark: "#283618", // Black Forest as the deep canvas background
+          dark: "#121212", // Dark Obsidian background
         },
         surface: {
           card: "#3a4624", // Custom blend: slightly lighter than Black Forest for contrast
