@@ -65,7 +65,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
           border: 'border-border-subtle',
           bg: 'bg-surface-card',
           text: 'text-text-primary',
-          badge: 'bg-surface-hover text-brand-gold border-brand-gold/50',
+          badge: 'bg-surface-hover/50 text-brand-copper border-brand-copper/50',
           glow: '',
         };
       default:
@@ -73,7 +73,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
           border: 'border-border-subtle',
           bg: 'bg-surface-card',
           text: 'text-text-primary',
-          badge: 'bg-surface-hover text-brand-cyan border-brand-cyan/40',
+          badge: 'bg-surface-hover/50 text-brand-caramel border-brand-caramel/40',
           glow: '',
         };
     }
@@ -89,7 +89,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
         <div>
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono uppercase tracking-wider text-text-secondary">Shift Extraction Output</span>
-            <div className="w-8 h-8 rounded-lg bg-surface-hover border border-border-subtle flex items-center justify-center text-brand-cyan">
+            <div className="w-8 h-8 rounded-lg bg-surface-hover/50 border border-border-subtle flex items-center justify-center text-brand-caramel">
               <Zap className="w-4 h-4" />
             </div>
           </div>
@@ -101,17 +101,17 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
             <span className="text-xs text-text-secondary font-mono">/ {targetTonnage.toLocaleString()} Tonnes</span>
           </div>
 
-          <div className="mt-3 w-full bg-surface-hover rounded-full h-1.5 overflow-hidden border border-border-subtle">
+          <div className="mt-3 w-full bg-surface-hover/50 rounded-full h-1.5 overflow-hidden border border-border-subtle">
             <div 
-              className="bg-brand-cyan h-full rounded-full transition-all duration-500"
+              className="bg-brand-caramel h-full rounded-full transition-all duration-500"
               style={{ width: `${Math.min(100, outputRatio)}%` }}
             />
           </div>
         </div>
 
         <div className="mt-3 flex items-center justify-between text-[11px]">
-          <div className="flex items-center gap-1 text-brand-sand font-semibold font-mono">
-            <TrendingUp className="w-3.5 h-3.5 text-brand-gold" />
+          <div className="flex items-center gap-1 text-brand-cornsilk font-semibold font-mono">
+            <TrendingUp className="w-3.5 h-3.5 text-brand-copper" />
             <span>{outputRatio}% Target Met</span>
           </div>
           <span className="text-text-secondary font-mono">Shift Total</span>
@@ -123,7 +123,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
         <div>
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono uppercase tracking-wider text-text-secondary">Spaceborne Mn Grade</span>
-            <div className="w-8 h-8 rounded-lg bg-surface-hover border border-border-subtle flex items-center justify-center text-brand-cyan">
+            <div className="w-8 h-8 rounded-lg bg-surface-hover/50 border border-border-subtle flex items-center justify-center text-brand-caramel">
               <Satellite className="w-4 h-4" />
             </div>
           </div>
@@ -132,17 +132,17 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
             <span className="text-2xl lg:text-3xl font-extrabold text-text-primary tracking-tight font-mono">
               {gradePct.toFixed(1)}%
             </span>
-            <span className="text-xs text-brand-gold font-mono font-semibold">Mn Purity</span>
+            <span className="text-xs text-brand-copper font-mono font-semibold">Mn Purity</span>
           </div>
 
-          <div className="mt-2 text-[11px] text-brand-sand truncate font-mono">
+          <div className="mt-2 text-[11px] text-brand-cornsilk truncate font-mono">
             {unfcClass}
           </div>
         </div>
 
         <div className="mt-3 flex items-center justify-between text-[11px] font-mono">
           <span className="text-text-secondary">Confidence Score:</span>
-          <span className="text-brand-sand font-bold bg-canvas-dark border border-brand-sand/40 px-2 py-0.5 rounded">
+          <span className="text-brand-cornsilk font-bold bg-canvas-dark border border-brand-cornsilk/40 px-2 py-0.5 rounded">
             {confidenceScore.toFixed(1)}% IoU
           </span>
         </div>
@@ -153,7 +153,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
         <div>
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono uppercase tracking-wider text-text-secondary">Active Fleet Health</span>
-            <div className="w-8 h-8 rounded-lg bg-surface-hover border border-border-subtle flex items-center justify-center text-brand-cyan">
+            <div className="w-8 h-8 rounded-lg bg-surface-hover/50 border border-border-subtle flex items-center justify-center text-brand-caramel">
               <Truck className="w-4 h-4" />
             </div>
           </div>
@@ -162,11 +162,11 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
             <span className="text-2xl lg:text-3xl font-extrabold text-text-primary tracking-tight font-mono">
               {fleetAvail.toFixed(1)}%
             </span>
-            <span className="text-xs text-brand-gold font-mono font-semibold">Fleet Ready</span>
+            <span className="text-xs text-brand-copper font-mono font-semibold">Fleet Ready</span>
           </div>
 
           <div className="mt-2 text-[11px] text-text-secondary flex items-center gap-2">
-            <span className="text-brand-sand">{activeDumpers} Haul Trucks</span>
+            <span className="text-brand-cornsilk">{activeDumpers} Haul Trucks</span>
             <span>|</span>
             <span className="font-mono text-text-primary">{haulCycle.toFixed(1)}m Cycle</span>
           </div>
@@ -174,8 +174,8 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
 
         <div className="mt-3 flex items-center justify-between text-[11px] font-mono">
           <span className="text-text-secondary">Dispatch Matrix:</span>
-          <span className="text-brand-cyan font-semibold flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
+          <span className="text-brand-caramel font-semibold flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-brand-caramel animate-pulse" />
             SYNCED
           </span>
         </div>
@@ -186,7 +186,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
         <div>
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono uppercase tracking-wider text-text-secondary">Shortfall Risk Index</span>
-            <div className="w-8 h-8 rounded-lg bg-surface-hover border border-border-subtle flex items-center justify-center text-brand-cyan">
+            <div className="w-8 h-8 rounded-lg bg-surface-hover/50 border border-border-subtle flex items-center justify-center text-brand-caramel">
               <AlertTriangle className="w-4 h-4" />
             </div>
           </div>
@@ -202,8 +202,8 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
 
           <div className="mt-2 text-[11px] text-text-secondary">
             {isSimActive ? (
-              <span className="text-brand-gold font-mono flex items-center gap-1 font-semibold">
-                <Activity className="w-3 h-3 text-brand-gold" />
+              <span className="text-brand-copper font-mono flex items-center gap-1 font-semibold">
+                <Activity className="w-3 h-3 text-brand-copper" />
                 Simulated Stress Scenario Active
               </span>
             ) : (
@@ -214,7 +214,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({
 
         <div className="mt-3 flex items-center justify-between text-[11px] font-mono">
           <span className="text-text-secondary">AI Mitigation Plan:</span>
-          <span className="text-brand-gold font-bold">
+          <span className="text-brand-copper font-bold">
             {isSimActive ? 'OPTIMIZED' : 'STANDBY'}
           </span>
         </div>
