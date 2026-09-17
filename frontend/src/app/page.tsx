@@ -64,7 +64,7 @@ export default function MissionControlDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-canvas-dark text-text-primary flex flex-col selection:bg-brand-cyan selection:text-canvas-dark">
+    <div className="min-h-screen bg-canvas-dark text-text-primary flex flex-col selection:bg-brand-caramel selection:text-canvas-dark">
       
       {/* Top Mission Control Header */}
       <Navbar
@@ -80,31 +80,31 @@ export default function MissionControlDashboard() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 px-1">
           <div className="flex items-center gap-2">
             <span className="flex h-2.5 w-2.5 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-cyan" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-caramel opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-caramel" />
             </span>
             <span className="text-xs font-mono text-text-secondary">
-              EXPLORATION SECTOR: <strong className="text-brand-cyan font-bold">{currentSector.name.toUpperCase()}</strong> <span className="text-brand-gold font-semibold">({currentSector.state})</span>
+              EXPLORATION SECTOR: <strong className="text-brand-caramel font-bold">{currentSector.name.toUpperCase()}</strong> <span className="text-brand-copper font-semibold">({currentSector.state})</span>
             </span>
             <span className="hidden sm:inline text-border-subtle">|</span>
             <span className="hidden sm:inline text-[11px] font-mono text-text-secondary">
-              Primary Mineral: <span className="text-brand-sand font-semibold">{currentSector.primary_mineral}</span>
+              Primary Mineral: <span className="text-brand-cornsilk font-semibold">{currentSector.primary_mineral}</span>
             </span>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-mono text-text-secondary">
             {simulationResult && (
-              <span className="bg-surface-card text-brand-gold border border-brand-gold/40 px-2.5 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1.5">
-                <Sliders className="w-3.5 h-3.5 text-brand-gold" />
+              <span className="bg-surface-card text-brand-copper border border-brand-copper/40 px-2.5 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1.5">
+                <Sliders className="w-3.5 h-3.5 text-brand-copper" />
                 <span>WHAT-IF SIMULATION ACTIVE</span>
               </span>
             )}
             <button
               onClick={() => loadSectorData(currentSector, true)}
               disabled={isRefreshing}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-card border border-border-subtle hover:border-brand-cyan/60 text-text-secondary hover:text-text-primary transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-card border border-border-subtle hover:border-brand-caramel/60 text-text-secondary hover:text-text-primary transition-colors"
             >
-              <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-brand-cyan' : ''}`} />
+              <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-brand-caramel' : ''}`} />
               <span className="text-[11px]">Sync Telemetry</span>
             </button>
           </div>
@@ -169,15 +169,15 @@ export default function MissionControlDashboard() {
       <footer className="w-full bg-canvas-dark border-t border-border-subtle py-4 px-6 text-center text-xs font-mono text-text-secondary">
         <div className="max-w-[1720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-brand-cyan" />
+            <span className="w-2 h-2 rounded-full bg-brand-caramel" />
             <span>MOIL LIMITED &copy; {new Date().getFullYear()} — Smart India Hackathon (SIH 2026) Platform</span>
           </div>
           <div className="flex items-center gap-3 text-[11px] text-text-secondary">
-            <span className="flex items-center gap-1"><Satellite className="w-3 h-3 text-brand-cyan" /> Sentinel-2 L2A Multispectral</span>
+            <span className="flex items-center gap-1"><Satellite className="w-3 h-3 text-brand-caramel" /> Sentinel-2 L2A Multispectral</span>
             <span>•</span>
-            <span className="flex items-center gap-1"><Cpu className="w-3 h-3 text-brand-cyan" /> 10-Channel U-Net ONNX</span>
+            <span className="flex items-center gap-1"><Cpu className="w-3 h-3 text-brand-caramel" /> 10-Channel U-Net ONNX</span>
             <span>•</span>
-            <span className="flex items-center gap-1"><Activity className="w-3 h-3 text-brand-cyan" /> XGBoost Prescriptive AI</span>
+            <span className="flex items-center gap-1"><Activity className="w-3 h-3 text-brand-caramel" /> XGBoost Prescriptive AI</span>
           </div>
         </div>
       </footer>

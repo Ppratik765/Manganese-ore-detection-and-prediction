@@ -6,20 +6,20 @@
 @tailwind utilities;
 
 :root {
-  --background: #080E14;
-  --foreground: #F0F6FC;
-  --surface-card: #0E1B26;
-  --surface-hover: #142738;
-  --border-subtle: #1E3A52;
-  --brand-teal: #218DAE;
-  --brand-cyan: #2BBBD7;
-  --brand-sand: #FCE59A;
-  --brand-gold: #FFD758;
+  --background: #283618;
+  --foreground: #fefae0;
+  --surface-card: #3a4624;
+  --surface-hover: #606c38;
+  --border-subtle: #606c38;
+  --brand-teal: #606c38;
+  --brand-cyan: #dda15e;
+  --brand-sand: #fefae0;
+  --brand-gold: #bc6c25;
 }
 
 body {
-  color: #F0F6FC;
-  background: #080E14;
+  color: #fefae0;
+  background: #283618;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
@@ -31,16 +31,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080E14;
+  background: #283618;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E3A52;
+  background: #606c38;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #218DAE;
+  background: #606c38;
 }
 
 /* Glassmorphic command panels */
@@ -48,7 +48,7 @@ body {
   background: rgba(14, 27, 38, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #1E3A52;
+  border: 1px solid #606c38;
 }
 
 .glass-panel-hover {
@@ -57,7 +57,7 @@ body {
 
 .glass-panel-hover:hover {
   background: rgba(20, 39, 56, 0.95);
-  border-color: #2BBBD7;
+  border-color: #dda15e;
   box-shadow: 0 4px 20px -2px rgba(43, 187, 215, 0.15);
 }
 
@@ -65,8 +65,8 @@ body {
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  background: #142738;
-  border: 1px solid #1E3A52;
+  background: #606c38;
+  border: 1px solid #606c38;
   height: 6px;
   border-radius: 4px;
   outline: none;
@@ -78,35 +78,35 @@ input[type="range"]::-webkit-slider-thumb {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #FFD758;
+  background: #bc6c25;
   cursor: pointer;
-  border: 2px solid #080E14;
+  border: 2px solid #283618;
   box-shadow: 0 0 10px rgba(255, 215, 88, 0.5);
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.25);
-  background: #FCE59A;
+  background: #fefae0;
 }
 
 /* Leaflet Custom Marker & Dark Canvas Override */
 .leaflet-container {
-  background: #080E14 !important;
+  background: #283618 !important;
   font-family: 'JetBrains Mono', monospace !important;
 }
 
 .leaflet-popup-content-wrapper {
-  background: #0E1B26 !important;
-  color: #F0F6FC !important;
-  border: 1px solid #1E3A52 !important;
+  background: #3a4624 !important;
+  color: #fefae0 !important;
+  border: 1px solid #606c38 !important;
   border-radius: 10px !important;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8) !important;
 }
 
 .leaflet-popup-tip {
-  background: #0E1B26 !important;
-  border: 1px solid #1E3A52 !important;
+  background: #3a4624 !important;
+  border: 1px solid #606c38 !important;
 }
 
 /* Dark theme for standard OpenStreetMap tiles to avoid API watermarks */
