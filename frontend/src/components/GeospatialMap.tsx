@@ -117,15 +117,15 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
       ];
 
       const leasePoly = L.polygon(bounds, {
-        color: '#2BBBD7',
+        color: '#606c38',
         weight: 1.5,
         dashArray: '6, 6',
-        fillColor: '#218DAE',
+        fillColor: '#3a4624',
         fillOpacity: 0.08,
       });
 
       leasePoly.bindTooltip(`<b>MOIL Mining Lease:</b> ${currentSector.name}`, {
-        className: 'bg-surface-card text-brand-cyan border border-border-subtle text-xs px-2 py-1 rounded font-mono',
+        className: 'bg-surface-card text-brand-caramel border border-border-subtle text-xs px-2 py-1 rounded font-mono',
         sticky: true,
       });
 
@@ -152,20 +152,20 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
           const cellMaxLon = cellMinLon + dLon;
 
           // Designated Brand Anomaly Spectrum:
-          // Low: #218DAE (brand-teal)
-          // Moderate: #2BBBD7 (brand-cyan)
-          // High Grade: #FCE59A (brand-sand)
-          // Peak Deposit: #FFD758 (brand-gold)
-          let cellColor = '#218DAE';
+          // Low: #3a4624 (brand-olive)
+          // Moderate: #606c38 (brand-caramel)
+          // High Grade: #dda15e (brand-cornsilk)
+          // Peak Deposit: #bc6c25 (brand-copper)
+          let cellColor = '#3a4624';
           let opacity = 0.40;
           if (prob >= 0.80) {
-            cellColor = '#FFD758'; // Peak Deposit (>44% Mn)
+            cellColor = '#bc6c25'; // Peak Deposit (>44% Mn)
             opacity = 0.75;
           } else if (prob >= 0.70) {
-            cellColor = '#FCE59A'; // High-Grade Mineralized Gossan
+            cellColor = '#dda15e'; // High-Grade Mineralized Gossan
             opacity = 0.65;
           } else if (prob >= 0.55) {
-            cellColor = '#2BBBD7'; // Moderate Hydrothermal Alteration
+            cellColor = '#606c38'; // Moderate Hydrothermal Alteration
             opacity = 0.50;
           }
 
@@ -192,8 +192,8 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
         const markerIcon = L.divIcon({
           className: 'custom-drill-icon',
           html: `
-            <div class="w-6 h-6 rounded-full bg-canvas-dark/90 border-2 border-brand-gold flex items-center justify-center shadow-lg shadow-brand-gold/40 cursor-pointer hover:scale-125 transition-transform">
-              <span class="w-2 h-2 rounded-full ${target.priority === 'HIGH' ? 'bg-brand-gold animate-ping' : 'bg-brand-cyan'}"></span>
+            <div class="w-6 h-6 rounded-full bg-canvas-dark/90 border-2 border-brand-copper flex items-center justify-center shadow-lg shadow-brand-copper/40 cursor-pointer hover:scale-125 transition-transform">
+              <span class="w-2 h-2 rounded-full ${target.priority === 'HIGH' ? 'bg-brand-copper animate-ping' : 'bg-brand-caramel'}"></span>
             </div>
           `,
           iconSize: [24, 24],
@@ -203,7 +203,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
         const marker = L.marker([target.lat, target.lng], { icon: markerIcon });
         marker.on('click', () => setSelectedTarget(target));
         marker.bindTooltip(`<b>${target.target_id}</b> | Target Mn: ${target.estimated_target_grade_pct}%`, {
-          className: 'bg-surface-card text-brand-sand border border-brand-gold/50 text-xs px-2 py-1 rounded font-mono',
+          className: 'bg-surface-card text-brand-cornsilk border border-brand-copper/50 text-xs px-2 py-1 rounded font-mono',
         });
 
         group.addLayer(marker);
@@ -227,13 +227,13 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
       {/* Header & Controls */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-border-subtle z-10">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-surface-hover border border-border-subtle flex items-center justify-center text-brand-cyan">
+          <div className="w-8 h-8 rounded-lg bg-surface-hover/50 border border-border-subtle flex items-center justify-center text-brand-caramel">
             <Compass className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h3 className="text-sm font-bold text-text-primary tracking-tight">Geospatial Mineral Prospectivity Map</h3>
-              <span className="text-[10px] font-mono text-brand-cyan bg-canvas-dark border border-brand-cyan/40 px-2 py-0.5 rounded font-semibold">
+              <span className="text-[10px] font-mono text-brand-caramel bg-canvas-dark border border-brand-caramel/40 px-2 py-0.5 rounded font-semibold">
                 10-Channel U-Net
               </span>
             </div>
@@ -249,7 +249,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
             onClick={() => setShowHeatmap(!showHeatmap)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
               showHeatmap
-                ? 'bg-surface-card border-brand-cyan text-brand-cyan shadow-sm'
+                ? 'bg-surface-card border-brand-caramel text-brand-caramel shadow-sm'
                 : 'bg-canvas-dark border-border-subtle text-text-secondary hover:text-text-primary'
             }`}
           >
@@ -261,7 +261,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
             onClick={() => setShowDrillHoles(!showDrillHoles)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
               showDrillHoles
-                ? 'bg-surface-card border-brand-cyan text-brand-cyan shadow-sm'
+                ? 'bg-surface-card border-brand-caramel text-brand-caramel shadow-sm'
                 : 'bg-canvas-dark border-border-subtle text-text-secondary hover:text-text-primary'
             }`}
           >
@@ -273,7 +273,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
             onClick={() => setShowLeaseBoundary(!showLeaseBoundary)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all border ${
               showLeaseBoundary
-                ? 'bg-surface-card border-brand-cyan text-brand-cyan shadow-sm'
+                ? 'bg-surface-card border-brand-caramel text-brand-caramel shadow-sm'
                 : 'bg-canvas-dark border-border-subtle text-text-secondary hover:text-text-primary'
             }`}
           >
@@ -284,7 +284,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
           <button
             onClick={handleRecenter}
             title="Recenter Map to Sector"
-            className="p-1.5 rounded-lg bg-surface-card border border-border-subtle text-text-secondary hover:text-brand-cyan hover:border-brand-cyan transition-colors"
+            className="p-1.5 rounded-lg bg-surface-card border border-border-subtle text-text-secondary hover:text-brand-caramel hover:border-brand-caramel transition-colors"
           >
             <Maximize2 className="w-3.5 h-3.5" />
           </button>
@@ -297,7 +297,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
 
         {/* Map Telemetry HUD Overlay (Top-Left) */}
         <div className="absolute top-3 left-3 right-3 sm:right-auto z-[400] bg-canvas-dark/90 backdrop-blur-md border border-border-subtle rounded-xl p-3 shadow-xl max-w-none sm:max-w-xs text-xs font-mono space-y-1.5 pointer-events-auto">
-          <div className="flex items-center justify-between border-b border-border-subtle pb-1 text-[11px] text-brand-cyan font-bold">
+          <div className="flex items-center justify-between border-b border-border-subtle pb-1 text-[11px] text-brand-caramel font-bold">
             <span>SECTOR HUD</span>
             <span>{currentSector.id.toUpperCase()}</span>
           </div>
@@ -308,17 +308,17 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
             </div>
             <div className="flex justify-between">
               <span className="text-text-secondary">Formation:</span>
-              <span className="truncate max-w-[130px] text-brand-sand" title={reserveData?.geological_formation}>
+              <span className="truncate max-w-[130px] text-brand-cornsilk" title={reserveData?.geological_formation}>
                 {reserveData?.geological_formation || 'Sausar Group'}
               </span>
             </div>
             <div className="flex justify-between">
               <span className="text-text-secondary">Delineated:</span>
-              <span className="text-brand-cyan font-semibold">{reserveData?.delineated_area_km2 ?? 2.14} km²</span>
+              <span className="text-brand-caramel font-semibold">{reserveData?.delineated_area_km2 ?? 2.14} km²</span>
             </div>
             <div className="flex justify-between">
               <span className="text-text-secondary">Clay / Fe Ratio:</span>
-              <span className="text-brand-gold">
+              <span className="text-brand-copper">
                 {reserveData?.spectral_diagnostics.mean_clay_index.toFixed(2)} / {reserveData?.spectral_diagnostics.mean_ferrous_index.toFixed(2)}
               </span>
             </div>
@@ -327,10 +327,10 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
 
         {/* Drill Hole Detail Popup (Bottom) */}
         {selectedTarget && (
-          <div className="absolute bottom-3 left-3 right-3 sm:right-auto z-[400] bg-surface-card/95 backdrop-blur-md border border-brand-gold/70 rounded-xl p-3.5 shadow-2xl max-w-none sm:max-w-sm text-xs font-mono animate-in fade-in slide-in-from-bottom-2">
-            <div className="flex items-center justify-between text-brand-gold font-bold border-b border-border-subtle pb-1.5">
+          <div className="absolute bottom-3 left-3 right-3 sm:right-auto z-[400] bg-surface-card/95 backdrop-blur-md border border-brand-copper/70 rounded-xl p-3.5 shadow-2xl max-w-none sm:max-w-sm text-xs font-mono animate-in fade-in slide-in-from-bottom-2">
+            <div className="flex items-center justify-between text-brand-copper font-bold border-b border-border-subtle pb-1.5">
               <span className="flex items-center gap-1.5">
-                <Crosshair className="w-3.5 h-3.5 text-brand-gold" />
+                <Crosshair className="w-3.5 h-3.5 text-brand-copper" />
                 <span>DRILL TARGET: {selectedTarget.target_id}</span>
               </span>
               <button onClick={() => setSelectedTarget(null)} className="p-1 text-text-secondary hover:text-text-primary">
@@ -344,15 +344,15 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
               </div>
               <div className="flex justify-between">
                 <span className="text-text-secondary">Target Core Depth:</span>
-                <span className="text-brand-cyan font-bold">{selectedTarget.target_depth_m} meters</span>
+                <span className="text-brand-caramel font-bold">{selectedTarget.target_depth_m} meters</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-text-secondary">Estimated Grade:</span>
-                <span className="text-brand-sand font-bold">{selectedTarget.estimated_target_grade_pct}% Mn</span>
+                <span className="text-brand-cornsilk font-bold">{selectedTarget.estimated_target_grade_pct}% Mn</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-text-secondary">Prospectivity Confidence:</span>
-                <span className="text-brand-gold font-bold">{(selectedTarget.anomaly_probability * 100).toFixed(1)}%</span>
+                <span className="text-brand-copper font-bold">{(selectedTarget.anomaly_probability * 100).toFixed(1)}%</span>
               </div>
             </div>
           </div>
@@ -362,12 +362,12 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({
         <div className="absolute bottom-3 right-12 z-[400] bg-canvas-dark/90 backdrop-blur-md border border-border-subtle rounded-lg px-3 py-1.5 shadow-xl text-[10px] font-mono hidden sm:flex items-center gap-2.5">
           <span className="text-text-secondary uppercase">Mn Anomaly:</span>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm bg-[#218DAE]" title="Low Anomaly (45-55%)" />
-            <span className="w-3 h-3 rounded-sm bg-[#2BBBD7]" title="Moderate Alteration (55-70%)" />
-            <span className="w-3 h-3 rounded-sm bg-[#FCE59A]" title="High Grade Gossan (70-80%)" />
-            <span className="w-3 h-3 rounded-sm bg-[#FFD758]" title="Peak Manganese Deposit (>80%)" />
+            <span className="w-3 h-3 rounded-sm bg-[#3a4624]" title="Low Anomaly (45-55%)" />
+            <span className="w-3 h-3 rounded-sm bg-[#606c38]" title="Moderate Alteration (55-70%)" />
+            <span className="w-3 h-3 rounded-sm bg-[#dda15e]" title="High Grade Gossan (70-80%)" />
+            <span className="w-3 h-3 rounded-sm bg-[#bc6c25]" title="Peak Manganese Deposit (>80%)" />
           </div>
-          <span className="text-brand-gold font-bold">&gt;44% Mn</span>
+          <span className="text-brand-copper font-bold">&gt;44% Mn</span>
         </div>
 
       </div>
