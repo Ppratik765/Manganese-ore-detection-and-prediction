@@ -60,10 +60,10 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
   };
 
   const getCategoryIcon = (category: string) => {
-    if (category.includes('Drainage') || category.includes('Weather')) return <Droplets className="w-4 h-4 text-brand-cyan" />;
-    if (category.includes('Blasting') || category.includes('Fragmentation')) return <Flame className="w-4 h-4 text-brand-gold" />;
-    if (category.includes('Maintenance')) return <Wrench className="w-4 h-4 text-brand-sand" />;
-    return <Truck className="w-4 h-4 text-brand-teal" />;
+    if (category.includes('Drainage') || category.includes('Weather')) return <Droplets className="w-4 h-4 text-brand-caramel" />;
+    if (category.includes('Blasting') || category.includes('Fragmentation')) return <Flame className="w-4 h-4 text-brand-copper" />;
+    if (category.includes('Maintenance')) return <Wrench className="w-4 h-4 text-brand-cornsilk" />;
+    return <Truck className="w-4 h-4 text-brand-olive" />;
   };
 
   const getPriorityBadge = (priority: string) => {
@@ -71,12 +71,12 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
       case 'CRITICAL':
         return 'bg-red-950/80 text-red-300 border-red-700/60 shadow-[0_0_12px_rgba(239,68,68,0.3)]';
       case 'HIGH':
-        return 'bg-surface-hover text-brand-gold border-brand-gold/60 shadow-[0_0_10px_rgba(255,215,88,0.2)]';
+        return 'bg-surface-hover/50 text-brand-copper border-brand-copper/60 shadow-[0_0_10px_rgba(255,215,88,0.2)]';
       case 'RECOMMENDED':
       case 'OPTIMAL':
-        return 'bg-surface-hover text-brand-cyan border-brand-cyan/60';
+        return 'bg-surface-hover/50 text-brand-caramel border-brand-caramel/60';
       default:
-        return 'bg-surface-hover text-brand-sand border-brand-sand/50';
+        return 'bg-surface-hover/50 text-brand-cornsilk border-brand-cornsilk/50';
     }
   };
 
@@ -86,13 +86,13 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-3 border-b border-border-subtle">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-surface-card border border-brand-cyan/40 flex items-center justify-center shadow-sm">
-            <Zap className="w-4 h-4 text-brand-cyan" />
+          <div className="w-8 h-8 rounded-lg bg-surface-card border border-brand-caramel/40 flex items-center justify-center shadow-sm">
+            <Zap className="w-4 h-4 text-brand-caramel" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h3 className="text-sm font-bold text-text-primary tracking-tight">Prescriptive Dispatch & Mitigation Feed</h3>
-              <span className="text-[10px] font-mono text-brand-cyan bg-canvas-dark border border-brand-cyan/40 px-1.5 py-0.5 rounded font-semibold">
+              <span className="text-[10px] font-mono text-brand-caramel bg-canvas-dark border border-brand-caramel/40 px-1.5 py-0.5 rounded font-semibold">
                 Neural Optimizer
               </span>
             </div>
@@ -104,8 +104,8 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
 
         {/* Recovery Summary */}
         <div className="flex items-center gap-2 text-xs font-mono">
-          <div className="px-2.5 py-1 rounded-lg bg-surface-card border border-brand-cyan/40 text-brand-cyan font-bold flex items-center gap-1.5 shadow-sm">
-            <TrendingUp className="w-3.5 h-3.5 text-brand-cyan" />
+          <div className="px-2.5 py-1 rounded-lg bg-surface-card border border-brand-caramel/40 text-brand-caramel font-bold flex items-center gap-1.5 shadow-sm">
+            <TrendingUp className="w-3.5 h-3.5 text-brand-caramel" />
             <span>+{plan.estimated_recovery_tonnes} Tonnes Recoverable</span>
           </div>
         </div>
@@ -119,11 +119,11 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
         </div>
         <div>
           <span className="text-[10px] text-text-secondary block uppercase">Post-Mitigation:</span>
-          <span className="font-bold text-brand-cyan">{plan.post_mitigation_tonnage} T</span>
+          <span className="font-bold text-brand-caramel">{plan.post_mitigation_tonnage} T</span>
         </div>
         <div>
           <span className="text-[10px] text-text-secondary block uppercase">Deficit Reduction:</span>
-          <span className="font-bold text-brand-cyan">{plan.shortfall_reduction_pct}%</span>
+          <span className="font-bold text-brand-caramel">{plan.shortfall_reduction_pct}%</span>
         </div>
       </div>
 
@@ -137,8 +137,8 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
               key={action.id}
               className={`p-3.5 rounded-xl border transition-all ${
                 isDispatched
-                  ? 'bg-canvas-dark/50 border-brand-cyan/40 opacity-90'
-                  : 'bg-surface-card border-border-subtle hover:border-brand-cyan/50'
+                  ? 'bg-canvas-dark/50 border-brand-caramel/40 opacity-90'
+                  : 'bg-surface-card border-border-subtle hover:border-brand-caramel/50'
               }`}
             >
               <div className="flex items-start justify-between gap-3">
@@ -159,13 +159,13 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
                     </p>
 
                     <div className="flex items-center gap-3 mt-2 text-[10px] font-mono text-text-secondary">
-                      <span className="text-brand-cyan font-semibold flex items-center gap-1">
-                        <TrendingUp className="w-3 h-3 text-brand-cyan" />
+                      <span className="text-brand-caramel font-semibold flex items-center gap-1">
+                        <TrendingUp className="w-3 h-3 text-brand-caramel" />
                         Potential Recovery: +{action.potential_recovery_tonnes} T
                       </span>
                       <span>|</span>
                       <span className="flex items-center gap-1 text-text-secondary">
-                        <Clock className="w-3 h-3 text-brand-cyan" />
+                        <Clock className="w-3 h-3 text-brand-caramel" />
                         Window: {action.urgency_mins} mins
                       </span>
                     </div>
@@ -178,13 +178,13 @@ export const PrescriptiveAlerts: React.FC<PrescriptiveAlertsProps> = ({
                   disabled={isDispatched}
                   className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm ${
                     isDispatched
-                      ? 'bg-canvas-dark text-brand-cyan border border-brand-cyan/60 cursor-default'
-                      : 'bg-brand-cyan hover:bg-brand-cyan/90 text-canvas-dark hover:shadow-md hover:shadow-brand-cyan/15 active:scale-95'
+                      ? 'bg-canvas-dark text-brand-caramel border border-brand-caramel/60 cursor-default'
+                      : 'bg-brand-caramel hover:bg-brand-caramel/90 text-canvas-dark hover:shadow-md hover:shadow-brand-caramel/15 active:scale-95'
                   }`}
                 >
                   {isDispatched ? (
                     <>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-cyan" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-caramel" />
                       <span>DISPATCHED</span>
                     </>
                   ) : (
