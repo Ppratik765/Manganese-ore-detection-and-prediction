@@ -13,24 +13,25 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         brand: {
-          teal: "#218DAE",
-          cyan: "#2BBBD7",
-          sand: "#FCE59A",
-          gold: "#FFD758",
+          olive: "#606c38", // Olive Leaf
+          forest: "#283618", // Black Forest
+          cornsilk: "#fefae0", // Cornsilk
+          caramel: "#dda15e", // Light Caramel
+          copper: "#bc6c25", // Copper
         },
         canvas: {
-          dark: "#080E14",
+          dark: "#283618", // Black Forest as the deep canvas background
         },
         surface: {
-          card: "#0E1B26",
-          hover: "#142738",
+          card: "#3a4624", // Custom blend: slightly lighter than Black Forest for contrast
+          hover: "#606c38", // Olive Leaf for hover states
         },
         border: {
-          subtle: "#1E3A52",
+          subtle: "#606c38", // Olive Leaf for borders
         },
         text: {
-          primary: "#F0F6FC",
-          secondary: "#9FB3C8",
+          primary: "#fefae0", // Cornsilk
+          secondary: "#dda15e", // Light Caramel
         },
       },
       fontFamily: {
