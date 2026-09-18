@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "AI/ML and Space Technology platform for Manganese reserve identification and mine production shortfall prevention for MOIL Limited (SIH 2026).",
   keywords: ["MOIL", "Manganese Mining", "SIH 2026", "Geospatial AI", "Sentinel-2", "U-Net", "XGBoost", "Prescriptive Dispatch"],
   authors: [{ name: "Priyanshu Pratik & Team", url: "https://github.com/Ppratik765/Manganese-ore-detection-and-prediction" }],
+  icons: {
+    icon: "/gold.png",
+    shortcut: "/gold.png",
+    apple: "/gold.png",
+  },
 };
 
 export default function RootLayout({
