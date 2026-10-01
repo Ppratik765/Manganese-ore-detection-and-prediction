@@ -55,7 +55,7 @@ The Mission Control interface is a Next.js 14 application.
 - **Simulation sheet.** Preset scenarios and continuous controls for rainfall, pit water, blasting and fleet parameters.
 - **Ambient motion.** An animated topographic background and count-up transitions. Motion follows the operating system's reduced-motion setting and can be paused from the navigation bar; the choice is remembered.
 
-Fonts are bundled with the application and no external font service is contacted. Basemap tiles are loaded from CARTO and Esri and require network access.
+Fonts are bundled with the application and no external font service is contacted. Basemap tiles come from OpenStreetMap (dark view, darkened with a CSS filter) and Esri World Imagery (satellite). Both are keyless, so no API key or account is needed, but they do require network access.
 
 ## Getting started
 

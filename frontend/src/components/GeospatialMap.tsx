@@ -15,12 +15,13 @@ interface GeospatialMapProps {
 
 type Basemap = 'dark' | 'satellite';
 
-const BASEMAPS: Record<Basemap, { url: string; className: string; attribution: string; subdomains?: string }> = {
+const BASEMAPS: Record<Basemap, { url: string; className: string; attribution: string }> = {
+  // Keyless dark basemap: standard OpenStreetMap tiles darkened with a CSS filter (see globals.css).
+  // CARTO's dark_all tiles now require an API key, so they are intentionally not used.
   dark: {
-    url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     className: 'map-tiles-dark-theme',
-    attribution: '© OpenStreetMap contributors © CARTO',
-    subdomains: 'abcd',
+    attribution: '© OpenStreetMap contributors',
   },
   satellite: {
     url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -215,7 +216,7 @@ export const GeospatialMap: React.FC<GeospatialMapProps> = ({ currentSector, res
     if (!mapReady || !L || !map) return;
     if (tileRef.current) map.removeLayer(tileRef.current);
     const cfg = BASEMAPS[basemap];
-    const layer = L.tileLayer(cfg.url, { maxZoom: 19, className: cfg.className, subdomains: cfg.subdomains || 'abc' });
+    const layer = L.tileLayer(cfg.url, { maxZoom: 19, className: cfg.className });
     layer.addTo(map);
     layer.bringToBack();
     tileRef.current = layer;
