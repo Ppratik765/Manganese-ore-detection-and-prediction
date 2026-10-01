@@ -1,5 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/fraunces/opsz.css";
+import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
+import { MotionProvider } from "@/hooks/useMotionPreference";
+import { TerrainBackground } from "@/components/ui/TerrainBackground";
 
 export const metadata: Metadata = {
   title: "MOIL Limited | Space-Tech Manganese Intelligence & Mine Production Shortfall Prevention",
@@ -13,15 +18,23 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0b0c08",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className="bg-canvas-dark text-text-primary min-h-screen antialiased selection:bg-brand-cyan selection:text-canvas-dark">
-        {children}
+    <html lang="en" className="dark" data-motion="on">
+      <body className="bg-canvas-dark text-text-primary min-h-screen antialiased">
+        <MotionProvider>
+          <TerrainBackground />
+          {children}
+        </MotionProvider>
       </body>
     </html>
   );
